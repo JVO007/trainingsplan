@@ -20,13 +20,13 @@
 html,body{margin:0;padding:0;background:var(--bg);color:var(--text);
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   font-size:15px;line-height:1.5;
-  padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}
+  padding-bottom:env(safe-area-inset-bottom)}
 button{font-family:inherit}
 
 /* TIMER (fixed top) */
-#timer-bar{position:sticky;top:0;background:rgba(11,13,18,.97);
-  backdrop-filter:blur(12px);border-bottom:1px solid var(--line);z-index:50;
-  padding:10px 14px}
+#timer-bar{position:fixed;top:0;left:0;right:0;background:rgba(11,13,18,.97);
+  backdrop-filter:blur(12px);border-bottom:1px solid var(--line);z-index:100;
+  padding:calc(10px + env(safe-area-inset-top)) 14px 10px}
 .timer-row{display:flex;align-items:center;gap:10px}
 #timer-display{font-variant-numeric:tabular-nums;font-size:24px;
   font-weight:700;letter-spacing:-.02em;min-width:75px}
@@ -45,7 +45,7 @@ button{font-family:inherit}
 /* NAV */
 nav{display:flex;gap:4px;padding:10px 14px;
   background:var(--bg);border-bottom:1px solid var(--line);
-  position:sticky;top:80px;z-index:40}
+  position:sticky;z-index:40}
 nav button{flex:1;background:transparent;color:var(--muted);border:none;
   border-radius:0;padding:8px 12px 10px;font-size:14.5px;cursor:pointer;
   font-weight:600;border-bottom:2px solid transparent}
@@ -289,6 +289,21 @@ h3{font-size:13px;margin:14px 0 8px;color:var(--accent2);font-weight:600;
 </main>
 
 <script>
+// ─────────── TIMER-BAR HÖHE SYNC ───────────
+function syncTimerHeight(){
+  const tb = document.getElementById('timer-bar');
+  const nav = document.querySelector('nav');
+  if(!tb) return;
+  const h = tb.offsetHeight;
+  document.body.style.paddingTop = h + 'px';
+  if(nav) nav.style.top = h + 'px';
+}
+window.addEventListener('load', syncTimerHeight);
+window.addEventListener('resize', syncTimerHeight);
+if(window.ResizeObserver){
+  new ResizeObserver(syncTimerHeight).observe(document.getElementById('timer-bar'));
+}
+
 // ─────────── TIMER ───────────
 let tInterval=null,tSeconds=0,tMode='free',tTarget=0,tRunning=false;
 function tFmt(s){const m=Math.floor(Math.abs(s)/60),x=Math.abs(s)%60;
