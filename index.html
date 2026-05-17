@@ -43,13 +43,12 @@ button{font-family:inherit}
 .preset.active{color:var(--text);border-color:var(--accent)}
 
 /* NAV */
-nav{display:flex;gap:4px;overflow-x:auto;padding:10px 14px;
+nav{display:flex;gap:4px;padding:10px 14px;
   background:var(--bg);border-bottom:1px solid var(--line);
-  position:sticky;top:80px;z-index:40;scrollbar-width:none}
-nav::-webkit-scrollbar{display:none}
-nav button{background:transparent;color:var(--muted);border:none;
-  border-radius:0;padding:6px 12px 9px;font-size:13.5px;cursor:pointer;
-  font-weight:500;white-space:nowrap;border-bottom:2px solid transparent}
+  position:sticky;top:80px;z-index:40}
+nav button{flex:1;background:transparent;color:var(--muted);border:none;
+  border-radius:0;padding:8px 12px 10px;font-size:14.5px;cursor:pointer;
+  font-weight:600;border-bottom:2px solid transparent}
 nav button.active{color:var(--text);border-bottom-color:var(--accent)}
 
 main{padding:14px;max-width:760px;margin:0 auto}
@@ -57,199 +56,125 @@ section{display:none}
 section.active{display:block}
 
 h2{font-size:17px;margin:0 0 10px;font-weight:600}
-h3{font-size:14px;margin:14px 0 8px;color:var(--accent2);font-weight:500;
+h3{font-size:13px;margin:14px 0 8px;color:var(--accent2);font-weight:600;
   text-transform:uppercase;letter-spacing:.06em}
 .card{background:var(--card);border-radius:12px;padding:12px 14px;
   margin-bottom:10px;border:1px solid var(--line)}
 .muted{color:var(--muted);font-size:13px}
 
-/* TRAINING */
+/* TAG-TABS */
 .day-tabs{display:flex;gap:4px;margin-bottom:12px;background:var(--card);
   border-radius:10px;padding:3px;border:1px solid var(--line)}
 .day-tabs button{flex:1;background:transparent;color:var(--muted);border:none;
-  padding:8px 0;font-size:13px;font-weight:600;cursor:pointer;border-radius:7px}
+  padding:8px 0;font-size:13px;font-weight:600;cursor:pointer;border-radius:7px;
+  letter-spacing:.02em}
 .day-tabs button.active{background:var(--card2);color:var(--text)}
-.day-title{font-size:18px;font-weight:600;margin-bottom:14px}
-.circuit{margin-bottom:14px}
-.circuit-head{display:flex;justify-content:space-between;align-items:baseline;
-  font-size:13px;color:var(--muted);margin-bottom:6px;text-transform:uppercase;
-  letter-spacing:.06em;font-weight:600}
+.day-title{font-size:18px;font-weight:600;margin-bottom:4px}
+.day-sub{font-size:13px;color:var(--muted);margin-bottom:14px}
+
+/* TRAINING - Zirkel + Übungen */
+.circuit{margin-bottom:16px}
+.circuit-head{display:flex;flex-direction:column;gap:2px;
+  margin-bottom:8px;padding:0 2px}
+.circuit-name{font-size:14px;font-weight:700;color:var(--text);
+  text-transform:uppercase;letter-spacing:.06em}
+.circuit-meta{font-size:12.5px;color:var(--muted)}
 .rounds{display:flex;gap:5px;margin-bottom:8px}
-.round{width:28px;height:28px;border-radius:50%;border:1px solid var(--line);
-  display:flex;align-items:center;justify-content:center;font-size:12px;
-  font-weight:600;color:var(--muted);cursor:pointer;background:var(--card)}
+.round{width:30px;height:30px;border-radius:50%;border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;font-size:12.5px;
+  font-weight:600;color:var(--muted);cursor:pointer;background:var(--card);
+  user-select:none}
 .round.done{background:var(--accent);color:#000;border-color:var(--accent)}
-.ex{display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--card);
+
+.ex{display:flex;align-items:flex-start;gap:10px;padding:11px 12px;background:var(--card);
   border:1px solid var(--line);border-radius:10px;margin-bottom:6px;cursor:pointer}
 .ex.done{opacity:.45}
 .ex.done .ex-name{text-decoration:line-through}
 .ex-check{width:20px;height:20px;border:1.5px solid var(--line);border-radius:50%;
-  flex-shrink:0;display:flex;align-items:center;justify-content:center}
+  flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:1px}
 .ex.done .ex-check{background:var(--accent);border-color:var(--accent)}
 .ex-check svg{width:11px;height:11px;display:none}
 .ex.done .ex-check svg{display:block}
 .ex-body{flex:1;min-width:0}
-.ex-name{font-size:14.5px;font-weight:500;line-height:1.3}
-.ex-name b{font-weight:700}
-.ex-meta{font-size:12.5px;color:var(--muted);margin-top:2px}
-.weight-tag{display:inline-block;background:var(--card2);border:1px solid var(--line);
-  border-radius:5px;padding:1px 7px;font-size:12px;color:var(--text);
-  font-variant-numeric:tabular-nums;margin-right:6px}
+.ex-name{font-size:14.5px;font-weight:600;line-height:1.3}
+.ex-meta{font-size:12.5px;color:var(--muted);margin-top:3px;
+  font-variant-numeric:tabular-nums}
+.tag-w{display:inline-block;background:var(--card2);border:1px solid var(--line);
+  border-radius:5px;padding:1px 7px;font-size:11.5px;color:var(--text);
+  font-variant-numeric:tabular-nums;margin-right:6px;font-weight:600}
+.tag-pause{display:inline-block;color:var(--accent);font-size:11.5px;
+  font-weight:600;margin-left:4px}
+.note{font-size:12px;color:var(--accent);font-style:italic;margin-top:4px;
+  padding-left:2px}
+
 .warm-cool{margin-top:14px}
 .warm-cool details{background:var(--card);border-radius:10px;padding:10px 14px;
   border:1px solid var(--line);margin-bottom:8px}
-.warm-cool summary{font-size:13.5px;font-weight:600;cursor:pointer;outline:none}
+.warm-cool summary{font-size:13.5px;font-weight:600;cursor:pointer;outline:none;
+  color:var(--text)}
 .warm-cool ul{margin:8px 0 0;padding-left:18px;color:var(--muted);font-size:13px}
 .warm-cool li{margin-bottom:3px}
 
-/* REZEPTE */
-.filters{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
-.chip{background:var(--card);color:var(--muted);border:1px solid var(--line);
-  border-radius:14px;padding:5px 11px;font-size:12.5px;font-weight:500;
-  cursor:pointer;white-space:nowrap}
-.chip.active{background:var(--accent);color:#000;border-color:var(--accent)}
-.kcal-row{display:flex;align-items:center;gap:10px;margin-bottom:10px;
-  font-size:13px;color:var(--muted);padding:0 4px}
-.kcal-row input[type="range"]{flex:1}
-.search-input{width:100%;background:var(--card);border:1px solid var(--line);
-  border-radius:10px;padding:9px 12px;color:var(--text);font-size:14px;
-  margin-bottom:10px}
-.search-input:focus{outline:none;border-color:var(--accent)}
-.recipe-grid{display:grid;grid-template-columns:1fr;gap:8px}
-@media(min-width:480px){.recipe-grid{grid-template-columns:1fr 1fr}}
-.recipe-card{background:var(--card);border:1px solid var(--line);border-radius:12px;
-  padding:12px;cursor:pointer;position:relative}
-.recipe-card .name{font-size:14px;font-weight:600;line-height:1.3;margin-bottom:6px;
-  padding-right:24px}
-.recipe-card .macros{font-size:11.5px;color:var(--muted);
-  font-variant-numeric:tabular-nums}
-.recipe-card .macros b{color:var(--text);font-weight:600}
-.recipe-card .tags{margin-top:6px;display:flex;gap:4px;flex-wrap:wrap}
-.tag{font-size:10px;padding:2px 6px;border-radius:4px;font-weight:600;
-  letter-spacing:.04em;text-transform:uppercase}
-.tag.kor{background:rgba(245,158,11,.18);color:var(--warn)}
-.tag.jana{background:rgba(34,197,94,.15);color:var(--accent)}
-.tag.prep{background:rgba(167,173,191,.15);color:var(--accent2)}
-.tag.nomac{background:rgba(239,68,68,.15);color:var(--danger)}
-.cart-btn{position:absolute;top:10px;right:10px;width:28px;height:28px;
-  border-radius:50%;background:var(--card2);border:1px solid var(--line);
-  color:var(--muted);font-size:16px;line-height:1;cursor:pointer;
-  display:flex;align-items:center;justify-content:center}
-.cart-btn.added{background:var(--accent);color:#000;border-color:var(--accent)}
+.pre-workout{background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.3);
+  border-radius:10px;padding:10px 14px;margin-bottom:14px;font-size:13.5px}
+.pre-workout b{color:var(--accent)}
 
-/* MODAL */
-.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:100;
-  display:none;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
-.modal-bg.open{display:flex;align-items:flex-end}
-@media(min-width:600px){.modal-bg.open{align-items:center;justify-content:center}}
-.modal{background:var(--bg);width:100%;max-width:640px;max-height:90vh;
-  overflow-y:auto;border-radius:16px 16px 0 0;border:1px solid var(--line);
-  border-bottom:none}
-@media(min-width:600px){.modal{border-radius:16px;border-bottom:1px solid var(--line)}}
-.modal-head{position:sticky;top:0;background:var(--bg);padding:14px 16px;
-  border-bottom:1px solid var(--line);display:flex;justify-content:space-between;
-  align-items:center;gap:10px}
-.modal-head .title{font-size:16px;font-weight:600;line-height:1.3}
-.close-btn{background:var(--card2);border:none;color:var(--text);width:32px;
-  height:32px;border-radius:50%;font-size:18px;cursor:pointer;flex-shrink:0;
-  display:flex;align-items:center;justify-content:center}
-.modal-body{padding:14px 16px}
-.macro-row{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:10px 0 14px}
-.macro-box{background:var(--card);border:1px solid var(--line);border-radius:8px;
-  padding:8px 4px;text-align:center}
-.macro-box .v{font-size:15px;font-weight:700;color:var(--text);
-  font-variant-numeric:tabular-nums}
-.macro-box .l{font-size:10px;color:var(--muted);text-transform:uppercase;
-  letter-spacing:.06em;margin-top:2px}
-.modal-body ul{padding-left:18px;margin:6px 0}
-.modal-body li{margin-bottom:4px;font-size:13.5px}
-.modal-body ol{padding-left:20px;margin:6px 0}
-.modal-body ol li{margin-bottom:6px;line-height:1.45}
-.add-cart-large{width:100%;padding:11px;background:var(--accent);color:#000;
-  border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;
-  margin-top:14px}
-.add-cart-large.added{background:var(--card2);color:var(--text);
-  border:1px solid var(--line)}
-
-/* EINKAUF */
-.cart-recipe{background:var(--card);border:1px solid var(--line);border-radius:10px;
-  padding:10px 12px;margin-bottom:8px}
-.cart-recipe-head{display:flex;justify-content:space-between;align-items:center;gap:8px}
-.cart-recipe-name{font-size:14px;font-weight:600;flex:1;min-width:0}
-.serv-input{display:flex;align-items:center;gap:0;border:1px solid var(--line);
-  border-radius:7px;background:var(--card2)}
-.serv-input button{background:transparent;border:none;color:var(--text);width:28px;
-  height:28px;font-size:14px;cursor:pointer;font-weight:600}
-.serv-input input{width:34px;background:transparent;border:none;color:var(--text);
-  text-align:center;font-size:13px;font-variant-numeric:tabular-nums;
-  font-weight:600;-moz-appearance:textfield}
-.serv-input input::-webkit-outer-spin-button,
-.serv-input input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
-.remove-btn{background:transparent;border:none;color:var(--muted);font-size:18px;
-  cursor:pointer;width:28px;height:28px}
-.shopping-list{margin-top:14px}
-.shop-cat{font-size:12px;color:var(--accent2);text-transform:uppercase;
-  letter-spacing:.08em;font-weight:600;margin:14px 0 6px}
-.shop-item{display:flex;align-items:center;gap:10px;padding:8px 0;
-  border-bottom:1px solid var(--line);cursor:pointer}
-.shop-item-check{width:18px;height:18px;border:1.5px solid var(--line);
-  border-radius:4px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
-.shop-item.checked .shop-item-check{background:var(--accent);border-color:var(--accent)}
-.shop-item-check svg{width:10px;height:10px;display:none}
-.shop-item.checked .shop-item-check svg{display:block}
-.shop-item-text{flex:1;font-size:14px}
-.shop-item.checked .shop-item-text{text-decoration:line-through;color:var(--muted)}
-.shop-item-amt{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
-.empty{text-align:center;padding:40px 20px;color:var(--muted);font-size:13.5px}
-
-/* PLAN tab */
-.plan-block{background:var(--card);border:1px solid var(--line);border-radius:10px;
+/* INFO-Boxen (Handgelenk, Progression, Makros etc.) */
+.info-block{background:var(--card);border:1px solid var(--line);border-radius:10px;
   padding:12px 14px;margin-bottom:10px}
-.plan-block table{width:100%;border-collapse:collapse;font-size:13px}
-.plan-block table td{padding:5px 0;border-bottom:1px solid var(--line);vertical-align:top}
-.plan-block table td:first-child{color:var(--accent2);width:90px;font-size:12px}
+.info-block h3{margin-top:0}
+.info-block ul{margin:0;padding-left:18px;color:var(--muted);font-size:13.5px}
+.info-block ul li{margin-bottom:4px;line-height:1.45}
+.info-block ul li b{color:var(--text);font-weight:600}
+.info-block table{width:100%;border-collapse:collapse;font-size:13px}
+.info-block table td{padding:6px 0;border-bottom:1px solid var(--line);
+  vertical-align:top}
+.info-block table tr:last-child td{border-bottom:none}
+.info-block table td:first-child{color:var(--accent2);width:38%;
+  padding-right:10px;font-size:12.5px;text-transform:uppercase;
+  letter-spacing:.04em;font-weight:600}
+.info-block table td:last-child{color:var(--text);font-variant-numeric:tabular-nums}
 
-/* HEUTE tab */
-.day-selector{display:flex;gap:4px;margin-bottom:14px;background:var(--card);
-  border-radius:10px;padding:3px;border:1px solid var(--line)}
-.day-selector button{flex:1;background:transparent;color:var(--muted);border:none;
-  padding:9px 0;font-size:12px;font-weight:600;cursor:pointer;border-radius:7px;
-  letter-spacing:.04em}
-.day-selector button.active{background:var(--card2);color:var(--text)}
-.day-selector button.today{position:relative}
-.day-selector button.today::after{content:'';position:absolute;top:4px;right:50%;
-  transform:translateX(8px);width:5px;height:5px;border-radius:50%;background:var(--accent)}
-.day-summary{background:var(--card);border:1px solid var(--line);border-radius:10px;
-  padding:12px 14px;margin-bottom:14px}
-.day-summary .name{font-size:17px;font-weight:600;line-height:1.3}
-.day-summary .meta{font-size:12.5px;color:var(--muted);margin-top:4px}
-.day-summary .total{margin-top:10px;padding-top:10px;border-top:1px solid var(--line);
-  display:flex;justify-content:space-between;align-items:baseline}
-.day-summary .total .kcal{font-size:22px;font-weight:700;color:var(--accent);
-  font-variant-numeric:tabular-nums}
-.day-summary .total .macros{font-size:12px;color:var(--muted);
-  font-variant-numeric:tabular-nums}
-.timeline{position:relative;padding-left:0}
-.slot{display:grid;grid-template-columns:60px 1fr auto;gap:10px;
+.warn-block{background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.3)}
+.warn-block h3{color:var(--warn)}
+
+/* ERNÄHRUNG - Timeline */
+.macros-card{background:var(--card2);border:1px solid var(--line);border-radius:10px;
+  padding:12px 14px;margin-bottom:14px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.macros-card .col{}
+.macros-card .col .head{font-size:11.5px;color:var(--accent2);
+  text-transform:uppercase;letter-spacing:.06em;font-weight:600;margin-bottom:4px}
+.macros-card .col .kcal{font-size:18px;font-weight:700;color:var(--accent);
+  font-variant-numeric:tabular-nums;margin-bottom:4px}
+.macros-card .col .breakdown{font-size:12px;color:var(--muted);
+  font-variant-numeric:tabular-nums;line-height:1.5}
+
+.fasten-pill{display:inline-block;background:rgba(34,197,94,.12);color:var(--accent);
+  border-radius:14px;padding:3px 10px;font-size:12px;font-weight:600;
+  margin-bottom:10px;letter-spacing:.02em}
+
+.slot{display:grid;grid-template-columns:62px 1fr auto;gap:10px;
   align-items:flex-start;padding:11px 12px;background:var(--card);
   border:1px solid var(--line);border-radius:10px;margin-bottom:6px}
-.slot.train{border-color:var(--accent)}
-.slot.fast{opacity:.6;background:transparent}
+.slot.train{border-color:var(--accent);background:rgba(34,197,94,.04)}
+.slot.fast{opacity:.55;background:transparent}
 .slot .time{font-size:13px;font-weight:700;color:var(--accent2);
   font-variant-numeric:tabular-nums;line-height:1.4}
 .slot .body{min-width:0}
 .slot .label{font-size:14px;font-weight:600;line-height:1.3}
-.slot .desc{font-size:13px;color:var(--muted);margin-top:2px;line-height:1.4}
-.slot .kcal{font-size:13px;font-weight:700;color:var(--accent);
+.slot .desc{font-size:13px;color:var(--muted);margin-top:3px;line-height:1.4}
+.slot .kcal{font-size:12.5px;font-weight:700;color:var(--accent);
   font-variant-numeric:tabular-nums;white-space:nowrap;align-self:flex-start;padding-top:1px}
-.slot.train .label::before{content:'🏋️';margin-right:6px}
-.slot.fast .label::before{content:'⏱️';margin-right:6px}
-.totals-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;
-  margin-top:14px;padding:10px;background:var(--card2);border:1px solid var(--line);
+.slot.train .label::before{content:'🏋️ ';margin-right:2px}
+.slot.fast .label::before{content:'⏱️ ';margin-right:2px}
+
+.totals-bar{display:flex;justify-content:space-between;align-items:baseline;
+  margin-top:10px;padding:10px 14px;background:var(--card2);border:1px solid var(--line);
   border-radius:10px}
-.totals-bar > div{text-align:center}
-.totals-bar .v{font-size:14px;font-weight:700;font-variant-numeric:tabular-nums}
-.totals-bar .l{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.totals-bar .l{font-size:11.5px;color:var(--muted);text-transform:uppercase;
+  letter-spacing:.06em;font-weight:600}
+.totals-bar .v{font-size:18px;font-weight:700;color:var(--accent);
+  font-variant-numeric:tabular-nums}
 </style>
 </head>
 <body>
@@ -271,113 +196,110 @@ h3{font-size:14px;margin:14px 0 8px;color:var(--accent2);font-weight:500;
     <button class="preset" onclick="tSet(90)">90s</button>
     <button class="preset" onclick="tSet(120)">2min</button>
     <button class="preset" onclick="tSet(180)">3min</button>
-    <button class="preset" onclick="tSet(240)">4min</button>
-    <button class="preset" onclick="tSet(300)">5min</button>
   </div>
 </div>
 
 <nav>
-  <button data-tab="heute" class="active">Heute</button>
-  <button data-tab="training">Training</button>
-  <button data-tab="rezepte">Rezepte</button>
-  <button data-tab="einkauf">Einkauf <span id="cart-count" class="muted" style="font-size:11px"></span></button>
-  <button data-tab="plan">Plan</button>
+  <button data-tab="training" class="active">Training</button>
+  <button data-tab="ernaehrung">Ernährung</button>
 </nav>
 
 <main>
 
-<!-- HEUTE -->
-<section id="heute" class="active">
-  <div class="day-selector" id="day-selector"></div>
-  <div id="day-summary"></div>
-  <div id="day-timeline"></div>
-</section>
-
 <!-- TRAINING -->
-<section id="training">
+<section id="training" class="active">
   <div class="day-tabs">
     <button data-d="0" class="active">Montag</button>
     <button data-d="1">Mittwoch</button>
     <button data-d="2">Samstag</button>
   </div>
   <div id="day-content"></div>
+
+  <div class="info-block warn-block">
+    <h3>Handgelenk · Kahnbeinnekrose</h3>
+    <ul>
+      <li>Wrist Wraps bei allen BB-Übungen</li>
+      <li>Zughilfen bei RDL und Rows</li>
+      <li>Neutralgriff (Hammerhaltung) bevorzugen</li>
+      <li>KEIN axialer Druck (keine Push-ups, kein Front Rack)</li>
+      <li>KEINE Streckung / Stützbelastung</li>
+      <li>KEIN Kabelzug-Training</li>
+      <li>Hängende Belastung an Stange vermeiden → Captain's Chair statt Hanging Knee Raises</li>
+    </ul>
+  </div>
+
+  <div class="info-block">
+    <h3>Progression · 4–8 Wochen</h3>
+    <table>
+      <tr><td>BB Hip Thrust</td><td>4×8 sauber → <b>+2,5 kg / Woche</b></td></tr>
+      <tr><td>Abduktor</td><td>4×15 ohne Brennen → <b>+2,5 kg</b></td></tr>
+      <tr><td>BB RDL</td><td>4×8 sauber → <b>+2,5 kg</b> (Ziel ~60–65 kg)</td></tr>
+      <tr><td>Glute Squat</td><td>letzte 2 Wdh nicht mehr brennen → <b>+5 kg</b></td></tr>
+      <tr><td>DB Übungen</td><td>8 Wdh ohne Brennen → <b>+1 Stufe</b></td></tr>
+    </table>
+  </div>
+
+  <div class="info-block">
+    <h3>Aktuelle Arbeitsgewichte · Mai 2026</h3>
+    <table>
+      <tr><td>BB Hip Thrust</td><td>4×8 @ <b>90 kg</b> · letzte 2 brannten</td></tr>
+      <tr><td>Abduktor</td><td>4×15 @ <b>30 kg</b> · letzte 3 brannten</td></tr>
+      <tr><td>BB RDL</td><td>4×6–8 @ <b>50 kg</b> · sehr schwer</td></tr>
+    </table>
+  </div>
 </section>
 
-<!-- REZEPTE -->
-<section id="rezepte">
-  <input class="search-input" id="recipe-search" placeholder="Rezept suchen…" oninput="renderRecipes()">
-  <div class="filters" id="cat-filters"></div>
-  <div class="filters" id="extra-filters"></div>
-  <div class="kcal-row">
-    <span>kcal max:</span>
-    <input type="range" id="kcal-slider" min="100" max="800" step="50" value="800" oninput="document.getElementById('kcal-val').textContent=this.value;renderRecipes()">
-    <span id="kcal-val" style="font-variant-numeric:tabular-nums;color:var(--text);font-weight:600">800</span>
+<!-- ERNÄHRUNG -->
+<section id="ernaehrung">
+  <div class="day-tabs">
+    <button data-e="mo" class="active">Mo</button>
+    <button data-e="mi">Mi</button>
+    <button data-e="sa">Sa</button>
+    <button data-e="ruh">Ruhetag</button>
   </div>
-  <div id="recipe-grid" class="recipe-grid"></div>
-</section>
+  <div id="ern-content"></div>
 
-<!-- EINKAUF -->
-<section id="einkauf">
-  <div id="cart-content"></div>
-</section>
+  <div class="info-block">
+    <h3>Makros · Übersicht</h3>
+    <table>
+      <tr><td>Trainingstag</td><td><b>~2.100 kcal</b> · 130–140 g P / 220–250 g C / 55–65 g F</td></tr>
+      <tr><td>Ruhetag</td><td><b>~1.900 kcal</b> · 130–140 g P / 150–170 g C / 55–65 g F</td></tr>
+    </table>
+  </div>
 
-<!-- PLAN -->
-<section id="plan">
-  <div class="plan-block">
-    <h2>Persönlich</h2>
-    <table>
-      <tr><td>Alter / Größe / Gewicht</td><td>42 J · 1,62 m · 63 kg → Ziel 58 kg</td></tr>
-      <tr><td>No-go</td><td>Schwein · Koriander · Aubergine</td></tr>
-      <tr><td>Lachs</td><td>Nur für Jana</td></tr>
-    </table>
+  <div class="info-block">
+    <h3>Protein-Quellen · ohne Shake</h3>
+    <p class="muted" style="margin:0;font-size:13.5px">Skyr · Quark · Hüttenkäse · Eier · Hähnchen · Pute · Lachs · weißer Fisch · Linsen · Bohnen · Tofu · Tempeh · Edamame</p>
   </div>
-  <div class="plan-block">
-    <h2>Makros</h2>
-    <h3>Trainingstag (~1.875 kcal)</h3>
-    <table>
-      <tr><td>Protein</td><td>165–168 g</td></tr>
-      <tr><td>Carbs</td><td>170–175 g</td></tr>
-      <tr><td>Fett</td><td>55–56 g</td></tr>
-    </table>
-    <h3>Ruhetag (~1.425 kcal)</h3>
-    <table>
-      <tr><td>Protein</td><td>130–140 g</td></tr>
-      <tr><td>Carbs</td><td>100–105 g</td></tr>
-      <tr><td>Fett</td><td>52–54 g</td></tr>
-    </table>
+
+  <div class="info-block">
+    <h3>Kaffee-Regeln</h3>
+    <ul>
+      <li><b>Cappuccino:</b> im Essensfenster jederzeit · vor dem Fenster → Espresso/schwarzer Kaffee</li>
+      <li><b>Iced Coffee:</b> Cut-off 14:00 (Schlaf = Visceralfett-Hebel)</li>
+    </ul>
   </div>
-  <div class="plan-block">
-    <h2>Fasten & Pre-Workout</h2>
-    <table>
-      <tr><td>Mo abends</td><td>16:8 · 11–19 Uhr · Pre-WO 17:15: Banane + 15 g Whey</td></tr>
-      <tr><td>Mi morgens</td><td>13:11 · 6–19 Uhr · Pre-WO 6:00: 15–20 g Whey + ½ Banane + 1 Reiswaffel/30 g Hafer</td></tr>
-      <tr><td>Sa morgens</td><td>13:11 · 7–19 Uhr · Pre-WO 7:30: gleicher Pre-WO-Snack</td></tr>
-      <tr><td>Ruhetage</td><td>16:8 · 11–19 Uhr</td></tr>
-      <tr><td>Iced Coffee</td><td>Cut-off 14:00 (Schlaf = Visceralfett-Hebel)</td></tr>
-    </table>
-  </div>
-  <div class="plan-block">
-    <h2>Schlaf & Visceralfett</h2>
-    <ul style="margin:6px 0 0;padding-left:18px;color:var(--muted);font-size:13.5px">
+
+  <div class="info-block">
+    <h3>Schlaf & Visceralfett</h3>
+    <ul>
       <li>7,5–8 h Schlaf · Magnesium-Glycinat optional abends</li>
       <li>5 min Zwerchfellatmung morgens · 10–20 min Spaziergang nach Mittag</li>
-      <li>Lösliche Ballaststoffe: 10 g extra/Tag = 3,7 % weniger Visceralfett über 5 Jahre (Hafer, Flohsamen, Beeren, Hülsenfrüchte)</li>
+      <li>Lösliche Ballaststoffe: 10 g extra/Tag = 3,7 % weniger Visceralfett über 5 Jahre (Hafer · Flohsamen · Beeren · Hülsenfrüchte)</li>
     </ul>
+  </div>
+
+  <div class="info-block">
+    <h3>Persönlich</h3>
+    <table>
+      <tr><td>Daten</td><td>42 J · 1,62 m · 63 kg → <b>halten</b></td></tr>
+      <tr><td>No-go</td><td>Schwein · Koriander · Aubergine</td></tr>
+      <tr><td>Lachs</td><td>nur für Jana</td></tr>
+    </table>
   </div>
 </section>
 
 </main>
-
-<!-- MODAL -->
-<div class="modal-bg" id="modal" onclick="if(event.target===this)closeModal()">
-  <div class="modal">
-    <div class="modal-head">
-      <div class="title" id="modal-title"></div>
-      <button class="close-btn" onclick="closeModal()">×</button>
-    </div>
-    <div class="modal-body" id="modal-body"></div>
-  </div>
-</div>
 
 <script>
 // ─────────── TIMER ───────────
@@ -393,8 +315,6 @@ function tTick(){
 function tToggle(){
   if(tRunning){ clearInterval(tInterval); tRunning=false;
     document.getElementById('timer-go').textContent='Start';
-    document.getElementById('timer-go').classList.remove('go');
-    document.getElementById('timer-go').classList.add('go');
   } else {
     tInterval=setInterval(tTick,1000); tRunning=true;
     document.getElementById('timer-go').textContent='Pause';
@@ -424,69 +344,69 @@ document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>{
   document.querySelectorAll('main>section').forEach(x=>x.classList.remove('active'));
   b.classList.add('active');
   document.getElementById(b.dataset.tab).classList.add('active');
-  if(b.dataset.tab==='einkauf') renderCart();
 });
 
 // ─────────── TRAINING DATA ───────────
 const TRAINING = {
   0: { // Montag
-    title:'Montag',
-    warmup:['Rudergerät 5 min','Hip Circles + Leg Swings 10/Seite','Glute Bridge 15 Wdh','Bodyweight Squat 12 Wdh','Dead Bug 8/Seite'],
-    cooldown:['Hip Flexor Stretch 45s/Seite','Pigeon Pose 45s/Seite','Hamstring Stretch 30s/Seite','Child\'s Pose 60s'],
+    title:'Montag · Heavy Glutes & Bauch',
+    warmup:['Hüftmobilisation','Bootstrapper','Banded Glute Bridge','Clamshells'],
+    cooldown:['Po dehnen','Hamstrings dehnen','Hüftbeuger dehnen'],
     circuits:[
-      {label:'Zirkel A', note:'3–5 Runden', rounds:5, exercises:[
-        {type:'BB',name:'Hip Thrust',weight:'30–40 kg',reps:'8–12 Wdh',key:'mo-a1'},
-        {type:'DB',name:'Floor Press',weight:'2× 6–10 kg',reps:'12 Wdh',key:'mo-a2'},
-        {type:'DB',name:'Lunges',weight:'2× 8–10 kg',reps:'12 / Seite',key:'mo-a3'},
-        {type:'DB',name:'Lateral Raise',weight:'2× 2–4 kg',reps:'15 Wdh',key:'mo-a4'},
-        {type:'BW',name:'Plank',reps:'60 s'},
+      {label:'Zirkel A', meta:'4 Runden · schwer mit Pausen (KEIN Zirkel)', rounds:4, exercises:[
+        {name:'BB Hip Thrust (GluteBuilder)', weight:'90 kg', reps:'4 × 6–8', pause:'2 Min'},
+        {name:'Clamshells Medium Band', weight:'zwischen Sätzen', reps:'15 / Seite', note:'aktiviert Glute medius'},
+        {name:'Abduktor-Maschine (vorgelehnt 30–45°)', weight:'30 kg', reps:'4 × 12–15', pause:'60–90 s'},
+        {name:'BB Romanian Deadlift (Zughilfen)', weight:'50 kg', reps:'4 × 6–8', pause:'2 Min'},
       ]},
-      {label:'Zirkel B', note:'3–5 Runden', rounds:5, exercises:[
-        {type:'KB',name:'Swing',weight:'16–20 kg',reps:'15–20 Wdh',key:'mo-b1'},
-        {type:'DB',name:'Single-Arm Row',weight:'10–14 kg',reps:'12 / Seite',key:'mo-b2'},
-        {type:'KB',name:'Goblet Squat',weight:'12–16 kg',reps:'15 Wdh',key:'mo-b3'},
-        {type:'BW',name:'Band Face Pull',reps:'15 Wdh',key:'mo-b4'},
-        {type:'BW',name:'Side Plank Hip Dips',reps:'10 / Seite'},
+      {label:'Zirkel B', meta:'3 Runden Bauch · Pause 45 s', rounds:3, exercises:[
+        {name:'Reverse Crunch', reps:'15 Wdh'},
+        {name:'Dead Bug mit KH', weight:'4–6 kg', reps:'10 / Seite'},
+        {name:'Russian Twist mit KH', weight:'5–8 kg', reps:'12 / Seite'},
+        {name:'Side Plank Hüftheben (Ellbogenstütz)', reps:'10 / Seite'},
       ]},
     ],
   },
   1: { // Mittwoch
-    title:'Mittwoch',
-    warmup:['Stepmill oder Bike 5 min','Cat-Cow 10 Wdh','Dead Bug 8/Seite','KB Glute Bridge 12 Wdh'],
-    cooldown:['Supine Twist 45s/Seite','Pigeon Pose 45s/Seite','Adduktoren-Dehnung 45s','Stomach Vacuum 3× 30s'],
+    title:'Mittwoch · Upper Body Push & Pull',
+    warmup:['Schulter-Mobilisation','Armkreisen','Band Pull-Aparts','Scapular Retraction'],
+    cooldown:['Brust & Schulter dehnen','Latissimus dehnen'],
     circuits:[
-      {label:'Zirkel A', note:'3–5 Runden', rounds:5, exercises:[
-        {type:'BB',name:'Sumo Squats',weight:'30–50 kg',reps:'8–12 Wdh',key:'mi-a1'},
-        {type:'DB',name:'Strict Press',weight:'2× 8–12 kg',reps:'12 Wdh',key:'mi-a2'},
-        {type:'KB',name:'Glute Bridge',weight:'16–22 kg',reps:'20 Wdh',key:'mi-a3'},
-        {type:'BW',name:'Reverse Crunch',reps:'15 Wdh'},
-        {type:'BW',name:'Stomach Vacuum',reps:'45 s'},
+      {label:'Zirkel A', meta:'4 Runden · schwer', rounds:4, exercises:[
+        {name:'DB Shoulder Press (neutraler Griff, sitzend)', weight:'2× 10–12,5 kg', reps:'4 × 8', pause:'90 s'},
+        {name:'KB Gorilla Row (Wrist Wraps)', weight:'16–20 kg', reps:'4 × 10 / Seite', pause:'90 s'},
       ]},
-      {label:'Zirkel B', note:'3–5 Runden', rounds:5, exercises:[
-        {type:'KB',name:'Single-Leg RDL',weight:'12–16 kg',reps:'10–12 / Seite',key:'mi-b1'},
-        {type:'DB',name:'Tricep Kickbacks',weight:'4–7 kg',reps:'15 / Seite',key:'mi-b2'},
-        {type:'KB',name:'Sumo Deadlift',weight:'16–24 kg',reps:'12 Wdh',key:'mi-b3'},
-        {type:'DB',name:'Reverse Fly',weight:'3–6 kg',reps:'15 Wdh',key:'mi-b4'},
-        {type:'BW',name:'Side Plank Hip Dips',reps:'10 / Seite'},
+      {label:'Zirkel B', meta:'3 Runden Akzessoir · Pause 45 s', rounds:3, exercises:[
+        {name:'DB Floor Press (neutraler Griff)', weight:'2× 10–12,5 kg', reps:'10–12 Wdh'},
+        {name:'DB Lateral Raise', weight:'2× 5–7,5 kg', reps:'15 Wdh'},
+        {name:'DB Hammer Curls (Daumen oben)', weight:'2× 7,5–10 kg', reps:'12 Wdh'},
+        {name:'DB Tricep Kickbacks', weight:'4–7 kg', reps:'12 / Seite'},
+        {name:'DB Reverse Fly', weight:'2× 3–6 kg', reps:'15 Wdh'},
+      ]},
+      {label:'Zirkel C', meta:'3 Runden Bauch', rounds:3, exercises:[
+        {name:'Sit-up auf Bank (Füße fixiert)', reps:'12–15 Wdh'},
+        {name:'V-Ups', reps:'10–12 Wdh', note:'Coning-Check beim 1. Mal!'},
+        {name:'Plank auf Ellbogen', reps:'45–60 s'},
       ]},
     ],
   },
   2: { // Samstag
-    title:'Samstag',
-    warmup:['Rudergerät 5 min','Glute Bridge 20 Wdh','BB Hip Thrust leicht 10 Wdh','Hip Circles 10/Seite','Shoulder Circles 10×'],
-    cooldown:['Pigeon Pose 60s/Seite','Hip Flexor Stretch 60s/Seite','Hamstring Stretch 45s/Seite','Thoracic Rotation 30s/Seite','Child\'s Pose 90s'],
+    title:'Samstag · Glute Accessory & Bauch',
+    pre:'Pre-Workout 7:30 · Banane + 40 g Hafer + Beeren + 150 g Skyr',
+    warmup:['Hüftmobilisation','Banded Glute Bridge','leichte Squats ohne Gewicht'],
+    cooldown:['Po dehnen','Hamstrings dehnen','Adduktoren dehnen'],
     circuits:[
-      {label:'Zirkel A', note:'4 Runden', rounds:4, exercises:[
-        {type:'BB',name:'Hip Thrust',weight:'30–40 kg',reps:'8–12 Wdh',key:'sa-a1'},
-        {type:'DB',name:'Strict Press',weight:'2× 8–12 kg',reps:'12 Wdh',key:'sa-a2'},
-        {type:'BB',name:'Romanian Deadlift',weight:'30–40 kg',reps:'10 Wdh',key:'sa-a3'},
-        {type:'BW',name:'Hollow Body Hold',reps:'20–30 s'},
+      {label:'Zirkel A', meta:'schwer · zweiter Glute-Reiz aus anderem Winkel', rounds:4, exercises:[
+        {name:'GluteBuilder Glute Squat (Back Squat)', weight:'letzte 2 Wdh brennen', reps:'4 × 8', pause:'2 Min'},
+        {name:'DB Bulgarian Split Squat (Hanteln seitlich)', weight:'2× 10 kg', reps:'3 × 8–10 / Seite', pause:'90 s'},
+        {name:'DB Frog Pump (Hantel auf Hüfte)', weight:'15–20 kg', reps:'3 × 15', pause:'60 s'},
+        {name:'KB Single-Leg RDL', weight:'12–16 kg', reps:'3 × 10 / Seite', pause:'60 s'},
       ]},
-      {label:'Zirkel B', note:'3 Runden', rounds:3, exercises:[
-        {type:'DB',name:'Static Lunges',weight:'2× 10–14 kg',reps:'10 / Seite',key:'sa-b1'},
-        {type:'KB',name:'Single-Arm Row',weight:'12–20 kg',reps:'12 / Seite',key:'sa-b2'},
-        {type:'KB',name:'Swing',weight:'16–20 kg',reps:'15–20 Wdh',key:'sa-b3'},
-        {type:'BW',name:'Side Plank Hip Dips',reps:'10 / Seite'},
+      {label:'Zirkel B', meta:'3 Runden Bauch', rounds:3, exercises:[
+        {name:"Toes-to-Bar Captain's Chair (Unterarmstütz)", reps:'10–12 Wdh'},
+        {name:'Crunch auf dem Boden', reps:'15–20 Wdh'},
+        {name:'Russian Twist mit KH', reps:'12 / Seite'},
+        {name:'Stomach Vacuum', reps:'3× 40 s'},
       ]},
     ],
   },
@@ -496,732 +416,126 @@ let currentDay=0;
 function renderDay(){
   const d = TRAINING[currentDay];
   let h = `<div class="day-title">${d.title}</div>`;
+  if(d.pre){
+    h += `<div class="pre-workout"><b>🥣 ${d.pre.split('·')[0].trim()}</b><br>${d.pre.split('·').slice(1).join('·').trim()}</div>`;
+  }
   d.circuits.forEach((c,ci) => {
-    h += `<div class="circuit"><div class="circuit-head"><span>${c.label}</span><span>${c.note}</span></div>`;
+    h += `<div class="circuit">
+      <div class="circuit-head">
+        <div class="circuit-name">${c.label}</div>
+        <div class="circuit-meta">${c.meta}</div>
+      </div>`;
     h += `<div class="rounds">`;
     for(let i=1;i<=c.rounds;i++) h += `<div class="round" data-r="${currentDay}-${ci}-${i}" onclick="toggleRound(this)">${i}</div>`;
     h += `</div>`;
     c.exercises.forEach((ex,ei) => {
       const id = `ex-${currentDay}-${ci}-${ei}`;
-      const w = ex.weight ? `<span class="weight-tag">${ex.weight}</span>` : '';
+      const w = ex.weight ? `<span class="tag-w">${ex.weight}</span>` : '';
+      const p = ex.pause ? `<span class="tag-pause">⏱ ${ex.pause}</span>` : '';
+      const n = ex.note ? `<div class="note">${ex.note}</div>` : '';
       h += `<div class="ex" id="${id}" onclick="toggleEx(this)">
         <div class="ex-check"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2.5" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div>
         <div class="ex-body">
-          <div class="ex-name"><b>${ex.type}</b> ${ex.name}</div>
-          <div class="ex-meta">${w}${ex.reps}</div>
+          <div class="ex-name">${ex.name}</div>
+          <div class="ex-meta">${w}${ex.reps}${p}</div>
+          ${n}
         </div>
       </div>`;
     });
     h += `</div>`;
   });
   h += `<div class="warm-cool">
-    <details><summary>Warm-up · 5–8 min</summary><ul>${d.warmup.map(x=>`<li>${x}</li>`).join('')}</ul></details>
-    <details><summary>Cool-down · 5–7 min</summary><ul>${d.cooldown.map(x=>`<li>${x}</li>`).join('')}</ul></details>
+    <details><summary>Warm-up · 8 min</summary><ul>${d.warmup.map(x=>`<li>${x}</li>`).join('')}</ul></details>
+    <details><summary>Cool-down · 5 min</summary><ul>${d.cooldown.map(x=>`<li>${x}</li>`).join('')}</ul></details>
   </div>`;
   document.getElementById('day-content').innerHTML = h;
 }
 function toggleEx(el){el.classList.toggle('done')}
 function toggleRound(el){el.classList.toggle('done')}
-document.querySelectorAll('.day-tabs button').forEach(b=>b.onclick=()=>{
-  document.querySelectorAll('.day-tabs button').forEach(x=>x.classList.remove('active'));
+document.querySelectorAll('#training .day-tabs button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('#training .day-tabs button').forEach(x=>x.classList.remove('active'));
   b.classList.add('active'); currentDay=+b.dataset.d; renderDay();
 });
 renderDay();
 
-// ─────────── REZEPTE DATA ───────────
-// Categories: m=Mittag/Abend, s=Snack, d=Süß/Dessert, b=Frühstück
-// Tags: kor=Koriander, jana=nur für Jana (Lachs), prep=Meal Prep
-const RECIPES = [
-  {id:'sun-tomato-salmon',n:'Sun-Dried Tomato Salmon mit Tuscan Sauce',cat:'m',srv:1,kcal:465,p:36,c:12,f:22,tags:['jana'],
-    ing:[['Lachsfilet','140 g'],['Light Cream oder Kokosmilch','120 ml'],['Sonnengetrocknete Tomaten','2 EL'],['Parmesan, frisch gerieben','1 EL'],['Babyspinat','60 g'],['Frischer Basilikum','etwas'],['Knoblauch-Chips','etwas'],['Olivenöl','1 EL']],
-    m:['Lachs trocken tupfen, 5 min hautseitig anbraten, dann 2 min wenden bis goldknusprig.','Lachs rausnehmen, getrocknete Tomaten + Knoblauch-Chips in Restöl anschwitzen.','Cream + Parmesan dazu, bei niedriger Hitze sämig rühren.','Spinat in der Sauce zusammenfallen lassen.','Lachs zurück in die Pfanne, mit Sauce bedecken.','Mit frischem Basilikum + Olivenöl-Drizzle servieren.']},
-  {id:'creamy-chicken-mac',n:'Creamy Chicken Mac & Cheese Bowl',cat:'m',srv:1,kcal:620,p:58,c:65,f:16,
-    ing:[['Hähnchenbrust gewürfelt','160 g'],['Pasta (Protein+) trocken','75 g'],['Frischkäse light','30 g'],['Cheddar light','25 g'],['Mandelmilch ungesüßt','60 ml'],['Knoblauchpulver','etwas'],['Paprikapulver','etwas'],['Salz, Pfeffer','nach Geschmack']],
-    m:['Pasta al dente kochen (7–8 min).','Hähnchen trocken tupfen, mit Knoblauchpulver, Paprika und Salz würzen, bei mittel-hoher Hitze 6–7 min braten.','Frischkäse mit Mandelmilch bei niedriger Hitze schmelzen, glatt rühren.','Cheddar einrühren bis seidig.','Pasta in die Sauce, Hähnchen oben drauf.']},
-  {id:'beef-potato-bowl',n:'Loaded Beef & Potato Power Bowl',cat:'m',srv:1,kcal:640,p:48,c:62,f:24,
-    ing:[['Mageres Rinderhack 90/10','150 g'],['Kartoffeln gewürfelt mit Schale','280 g'],['Griechischer Joghurt 0%','30 g'],['Sriracha','1 TL'],['Pico de Gallo','50 g'],['Petersilie','etwas'],['Olivenöl','1 TL'],['Knoblauchpulver, Chiliflocken, Kreuzkümmel, Salz','nach Geschmack']],
-    m:['Kartoffelwürfel mit 1 TL Olivenöl, Salz, Knoblauchpulver bei 220°C 25–30 min rösten, einmal wenden.','Hack ohne Öl bei mittel-hoher Hitze fein zerkrümeln, mit Knoblauchpulver, Chiliflocken, Kreuzkümmel würzen, ~7 min braten.','Joghurt + Sriracha verrühren.','Bowl: Kartoffeln Boden, Hack drauf, Sauce drüber, Pico, Petersilie.']},
-  {id:'steak-mash-bowl',n:'Steak Bites & Creamy Mash Bowl',cat:'m',srv:1,kcal:650,p:60,c:55,f:21,tags:['jana'],
-    ing:[['Sirloin Steak gewürfelt','160 g'],['Yukon Gold Kartoffeln','260 g'],['Griechischer Joghurt 0%','40 g'],['Parmesan frisch gerieben','15 g'],['Knoblauch','2 Zehen'],['Chiliflocken, Salz, Pfeffer','nach Geschmack'],['Schnittlauch','etwas']],
-    m:['Kartoffeln 15–20 min weich kochen, ¼ Tasse Kochwasser auffangen, abgießen.','Mit Joghurt, Parmesan, Knoblauch, Salz stampfen — falls cremiger gewünscht: Pasta-Wasser dazu.','Steak trocken tupfen, kräftig salzen+pfeffern, sehr heiße Pfanne, 90 s nicht bewegen, dann wenden — 2–3 min für medium-rare.','Knoblauch-Sauce: Joghurt + Knoblauch + Chiliflocken + Salz mischen.','Anrichten: Stampf Boden, Steak oben, Sauce, Pfeffer.']},
-  {id:'sweet-chili-pineapple',n:'Sweet Chili Chicken & Pineapple Bowl',cat:'m',srv:1,kcal:630,p:52,c:72,f:15,tags:['kor'],
-    ing:[['Hähnchenschenkel ohne Haut','160 g'],['Süßkartoffel gewürfelt','270 g'],['Frische Ananas gewürfelt','80 g'],['Rote Zwiebel gewürfelt','2 EL'],['Jalapeño gehackt','1'],['Koriander (weglassen)','etwas'],['Limettensaft','etwas'],['Sweet Chili Sauce','1 EL'],['Räucherpaprika, Knoblauchpulver, Salz','nach Geschmack']],
-    m:['Süßkartoffel mit etwas Öl-Spray, Salz, Paprika bei 220°C 25 min rösten, einmal wenden.','Hähnchen mit Knoblauchpulver+Salz würzen, mittlere Hitze 5–6 min/Seite bis 74°C Kerntemperatur. 3 min ruhen lassen, würfeln.','Hähnchen warm mit Sweet Chili Sauce schwenken bis klebrig.','Salsa: Ananas + Zwiebel + Jalapeño + Limette + Salz mischen (Koriander für Jana weglassen).','Frisch zusammenstellen, Salsa erst kurz vorm Essen drauf.']},
-  {id:'lemon-garlic-salmon',n:'Lemon Garlic Salmon mit Kartoffeln & Spargel',cat:'m',srv:1,kcal:510,p:38,c:30,f:24,tags:['jana'],
-    ing:[['Lachsfilet','140 g'],['Babykartoffeln gewürfelt','180 g'],['Grüner Spargel','90 g'],['Zitrone in Scheiben','2'],['Petersilie gehackt','1 EL'],['Olivenöl','2 TL'],['Knoblauchpulver','¼ TL'],['Paprikapulver','¼ TL'],['Salz, Pfeffer','nach Geschmack']],
-    m:['Ofen auf 220°C vorheizen.','Kartoffeln mit 1 TL Olivenöl, Knoblauchpulver, Paprika, Salz, Pfeffer mischen.','Auf Blech, 25–30 min rösten, einmal wenden.','Lachs würzen mit Salz, Pfeffer, etwas Paprika.','Spargel mit ½ TL Olivenöl in den letzten 10–12 min dazugeben.','Lachs in Pfanne oder mit aufs Blech: 4–5 min/Seite goldgelb.','Mit Petersilie und Zitrone abschließen.']},
-  {id:'crispy-chicken-rice',n:'Crispy Chicken Rice Bowl mit Spicy Cream',cat:'m',srv:1,kcal:590,p:36,c:47,f:27,tags:['kor'],
-    ing:[['Hähnchenbrust in Streifen','140 g'],['Reis gekocht','135 g'],['Avocado','¼'],['Gurke gewürfelt','½ Tasse'],['Karotte gerieben','⅓ Tasse'],['Koriander (weglassen)','1 EL'],['Frühlingszwiebel','1 EL'],['Schwarzer Sesam','etwas'],['Panko','20 g'],['Ei klein','1'],['Knoblauchpulver, Paprika, Salz, Pfeffer','nach Geschmack'],['Griechischer Joghurt','1 EL'],['Light Mayo','1 TL'],['Sriracha','1 TL'],['Limettensaft','1 TL']],
-    m:['Hähnchen würzen, in Ei, dann Panko wenden.','Im Airfryer oder Ofen 200°C 12–15 min knusprig.','Drizzle: Joghurt, Mayo, Sriracha, Limette verrühren.','Reis aufwärmen, in Bowl, Gemüse drumherum, Hähnchen oben.','Sauce drüber, mit Sesam und Frühlingszwiebel garnieren (Koriander für Jana weglassen).']},
-  {id:'lemon-butter-salmon-tray',n:'Lemon Butter Garlic Salmon Sheet Tray',cat:'m',srv:1,kcal:425,p:34,c:14,f:22,tags:['jana'],
-    ing:[['Lachsfilet dick','1'],['Grüner Spargel','1 Bund'],['Butter','2 EL'],['Knoblauch gehackt','3 Zehen'],['Zitrone in Scheiben','1'],['Kapern','etwas'],['Frischer Dill','etwas'],['Cherrytomaten','100 g']],
-    m:['Backblech mit Backpapier auslegen, Lachs, Spargel, Tomaten in einer Schicht anrichten.','Butter schmelzen, Knoblauch + Zitronensaft einrühren bis duftend.','Über das Blech gießen, Spargelspitzen extra coaten.','Bei 200°C 12–15 min backen bis Lachs karamellisiert und Tomaten platzen.','Mit Kapern und Dill garnieren, Zitrone darüber pressen.']},
-  {id:'harissa-honey-chicken',n:'Harissa-Honig Hähnchen-Blech',cat:'m',srv:4,kcal:510,p:38,c:28,f:24,tags:['prep'],
-    ing:[['Hähnchenschenkel mit Knochen','4'],['Süßkartoffel groß gewürfelt','2'],['Harissa Paste','2 EL'],['Honig','1 EL'],['Olivenöl','1 EL'],['Granatapfel entkernt','1'],['Zitrone in Scheiben','etwas'],['Frische Minze','etwas']],
-    m:['Glaze: Harissa, Honig, Olivenöl verrühren bis dick und tief-orange.','Süßkartoffeln + Hähnchen im Glaze wenden bis alles bedeckt.','Auf Blech anrichten, Zitronenscheiben zwischen das Hähnchen drücken.','Bei 210°C 35 min rösten bis Haut knusprig und Süßkartoffeln karamellisiert.','Mit Granatapfelkernen und Minze bestreuen.']},
-  {id:'crispy-chicken-power',n:'Crispy Chicken Power Bowl',cat:'m',srv:1,kcal:500,p:45,c:35,f:20,
-    ing:[['Hähnchenbrust','140 g'],['Reis oder Blumenkohlreis gekocht','100 g'],['Gurke in Scheiben','½ Tasse'],['Rotkohl gehobelt','½ Tasse'],['Avocado','¼'],['Griechischer Joghurt','2 EL'],['Hot Sauce','1 TL'],['Panko','15 g'],['Ei','1']],
-    m:['Hähnchenbrust dünn und gleichmäßig panieren (Ei → Panko, dünn!).','Im Airfryer oder Ofen bei hoher Hitze knusprig braten.','Reis in der Bowl als Basis, Rotkohl, Gurke, Avocado drumherum.','Joghurt + Hot Sauce zur Drizzle mischen, kräftig würzen.','Hähnchen aufschneiden, oben drauf, Sauce drüber.']},
-  {id:'creamy-lemon-chicken-rice',n:'Creamy Lemon Chicken & Rice',cat:'m',srv:1,kcal:520,p:42,c:45,f:18,
-    ing:[['Hähnchenbrust','140 g'],['Reis oder Orzo gekocht','120 g'],['Frischer Spinat','1 Tasse'],['Knoblauch gehackt','2 Zehen'],['Zitronensaft + Abrieb','1 Zitrone'],['Griechischer Joghurt oder Light Cream','60 g']],
-    m:['Hähnchen großzügig würzen, in heißer Pfanne goldgelb anbraten beidseitig durchgaren. 3 min ruhen lassen.','Reis al dente kochen, beiseite stellen.','In gleicher Pfanne Knoblauch 30 s anschwitzen, Spinat dazu, 60 s zusammenfallen lassen.','Hitze ganz runter, Joghurt einrühren — keine hohe Hitze sonst gerinnt!','Zitronensaft+Abrieb dazu, abschmecken.','Reis untermengen, Hähnchen aufschneiden, drauf legen, mit Zitronen-Abrieb finishen.']},
-  {id:'salmon-crunch-salad',n:'Salmon Crunch Salad',cat:'m',srv:1,kcal:420,p:38,c:20,f:22,tags:['jana'],
-    ing:[['Lachsfilet','140 g'],['Romana-Salat gehackt','2 Tassen'],['Cherrytomaten halbiert','½ Tasse'],['Gurke in dicken Stücken','½'],['Rote Zwiebel dünn','etwas'],['Paprika in Streifen','½'],['Light Dressing','2 EL']],
-    m:['Lachs trocken tupfen, mit Salz, Pfeffer, Olivenöl würzen, hautseitig in heißer Pfanne 4–5 min — nicht bewegen.','1 min wenden, 2 min ruhen, in große Stücke zupfen.','Gemüse in dicke Stücke schneiden — der Crunch macht den Salat.','Salat anrichten, Lachs oben.','Sparsam dressen, sanft schwenken.']},
-  {id:'shrimp-avocado-salad',n:'Spicy Shrimp Avocado Salad',cat:'m',srv:1,kcal:395,p:38,c:16,f:20,
-    ing:[['Garnelen geschält','170 g'],['Romana oder Mixed Greens','3 Tassen'],['Cherrytomaten','75 g'],['Rote Zwiebel','20 g'],['Avocado','50 g'],['Olivenöl','1 TL'],['Limettensaft','1 EL'],['Chiliflocken','½ TL'],['Knoblauchpulver','¼ TL'],['Salz, Pfeffer','nach Geschmack']],
-    m:['Garnelen trocken würzen mit Chili, Knoblauch, Salz, Pfeffer.','Pfanne mittel-hoch erhitzen, 1 TL Öl.','Garnelen 60–90 s/Seite bis pink — nicht überbacken.','Sofort rausnehmen.','Salat anrichten: Greens + Tomaten + Zwiebel + Avocado.','Heiße Garnelen drauf, Limette darüber.']},
-  {id:'crispy-chickpea-caesar',n:'Crispy Chickpea Caesar-Style Salad',cat:'m',srv:1,kcal:420,p:20,c:52,f:14,
-    ing:[['Kichererbsen gekocht','125 g'],['Romana','100 g'],['Parmesan','10 g'],['Petersilie','1 EL'],['Griechischer Joghurt 0%','45 g'],['Dijon-Senf','½ TL'],['Zitronensaft','1 EL'],['Knoblauchpulver','¼ TL'],['Salz, Pfeffer','nach Geschmack']],
-    m:['Ofen 205°C.','Kichererbsen trocken tupfen (wichtig für Knusprigkeit!), mit Salz, Pfeffer, Knoblauchpulver, Spray würzen.','22–28 min rösten, dabei einmal schütteln, bis knusprig.','Dressing: Joghurt + Dijon + Zitrone + Würzung verrühren.','Romana mit ⅔ Dressing leicht schwenken.','Mit Kichererbsen + Parmesan + Petersilie toppen — Kichererbsen 5 min abkühlen lassen für Max-Crunch.']},
-  {id:'chicken-veggie-rice',n:'Chicken Veggie Rice Bowl',cat:'m',srv:1,kcal:485,p:40,c:52,f:12,
-    ing:[['Hähnchenbrust','140 g'],['Reis gekocht','125 g'],['Paprika in Streifen','120 g'],['Cherrytomaten','75 g'],['Olivenöl','1 TL'],['Italian Seasoning','½ TL'],['Salz, Pfeffer','nach Geschmack'],['Optional: Zitrone, Basilikum','etwas']],
-    m:['Hähnchen würzen.','Pfanne mittlere Hitze, 5–6 min/Seite je nach Dicke ODER Airfryer 190°C 10–12 min.','5 min ruhen lassen, dann schneiden.','Gleiche Pfanne, 1 TL Öl, Paprika 3–4 min braten — soll noch knackig sein.','Tomaten in der letzten Minute dazu, nicht matschig werden lassen.','Anrichten: Reis → Gemüse → Hähnchen, mit Zitrone/Basilikum finishen.']},
-  {id:'shrimp-tacos',n:'Shrimp Street-Style Tacos',cat:'m',srv:1,kcal:460,p:34,c:44,f:14,
-    ing:[['Garnelen gekocht','140 g'],['Kleine Tortillas','2'],['Weißkohl gehobelt','1 Tasse'],['Rote Zwiebel','2 EL'],['Griechischer Joghurt','30 g'],['Light Mayo','1 TL'],['Limettensaft','1 EL'],['Chilipulver, Kreuzkümmel, Knoblauchpulver, Salz','nach Geschmack']],
-    m:['Garnelen würzen mit Chili, Kreuzkümmel, Knoblauch, Salz.','Heiße Pfanne, 1–2 min/Seite bis charred.','Sauce: Joghurt + Mayo + Limette + Salz (mit 1 TL Wasser ggf. dünner).','Slaw: Kohl + Zwiebel + Limette + Prise Salz.','Tortillas in trockener Pfanne 10–15 s/Seite anwärmen.','Tortilla → Slaw → Garnelen → Sauce.']},
-  {id:'halloumi-chickpea-bulgur',n:'Halloumi & Chickpea Bowl mit Bulgur & Süßkartoffel',cat:'m',srv:2,kcal:560,p:27,c:46,f:30,
-    ing:[['Halloumi in Scheiben','1 Block'],['Kichererbsen','1 Tasse'],['Bulgur gekocht','1 Tasse'],['Süßkartoffel klein gewürfelt','1'],['Spinat','1 Handvoll'],['Rote Zwiebel dünn','¼'],['Essig','1 EL'],['Honig oder Zucker','1 TL'],['Olivenöl','1 EL'],['Kreuzkümmel','⅓ TL'],['Paprika','⅓ TL'],['Granatapfelkerne','etwas'],['Salz, Pfeffer','nach Geschmack']],
-    m:['Zwiebel mit Essig, Honig, Salz mischen — quick pickle.','Süßkartoffel mit Olivenöl, Kreuzkümmel, Paprika rösten bis weich und karamellisiert.','Kichererbsen in Pfanne mit etwas Öl knusprig braten — nicht ständig rühren.','Halloumi in trockener oder leicht geölter Pfanne goldbraun braten.','Bulgur + Spinat kurz erwärmen.','Bowl: Bulgur + Spinat → Süßkartoffel → Kichererbsen → Halloumi → Pickled Onion → Granatapfel.']},
-  {id:'wagyu-smash-burger',n:'Wagyu-Style Smash Burger mit Truffle Aioli',cat:'m',srv:1,kcal:545,p:42,c:32,f:28,
-    ing:[['Mageres Rinderhack','180 g'],['Brioche-Bun','1'],['American Cheese','1 Scheibe'],['Light Mayo','1 EL'],['Trüffelöl','1 TL'],['Knoblauchpaste','½ TL'],['Crispy Shallots','etwas'],['Cornichons','etwas'],['Microgreens','etwas']],
-    m:['Hack zu 2 kalten Bällen formen.','Gusspfanne sehr heiß, Bälle reinlegen, sofort flach pressen mit Spatel.','Kräftig salzen+pfeffern, 2 min nicht bewegen bis dunkler Mahagoni-Crust.','Wenden, sofort Käse drauf, Deckel/Folie für 30 s.','Bun mit Butter in gleicher Pfanne toasten.','Aioli (Mayo + Trüffelöl + Knoblauchpaste) auf beide Hälften, Patties stapeln, Shallots + Cornichons + Microgreens drauf.']},
-  {id:'lobster-prawn-linguine',n:'Lobster-Style Butter Poached King Prawn Linguine',cat:'m',srv:1,kcal:510,p:32,c:52,f:18,
-    ing:[['King Prawns geschält','8'],['Linguine','80 g'],['Salzbutter','2 EL'],['Tomatenmark','1 EL'],['Fischfond oder Pasta-Wasser','60 ml'],['Knoblauch-Chips','etwas'],['Chiliflocken','etwas'],['Frischer Basilikum','etwas']],
-    m:['Linguine al dente kochen, Pasta-Wasser auffangen.','Butter bei niedrigster Hitze schmelzen, Prawns reinlegen und langsam pochieren bis gerade opak und zart.','Prawns rausnehmen, Tomatenmark + Fond/Pasta-Wasser einrühren bis seidige Emulsion.','Linguine in die Sauce, mit Zange schwenken bis jeder Strang bedeckt.','Anrichten: Pasta zu Nest drehen, Prawns oben, mit Knoblauch-Chips, Chiliflocken, Basilikum.']},
-  {id:'brokkoli-auflauf',n:'Brokkoli-Auflauf',cat:'m',srv:4,kcal:182,p:18,c:8,f:9,tags:['prep'],
-    ing:[['Gegarter Brokkoli','400 g'],['Karotte gerieben','100 g'],['Paprika gewürfelt','½'],['Mais','50 g'],['Rote Zwiebel gehackt','1'],['Olivenöl','1 EL'],['Eier mit Pfeffer/Chili','3'],['Reibekäse light','70 g'],['Feta light','50 g'],['Petersilie','etwas'],['Salz, Gewürze nach Wahl','nach Geschmack']],
-    m:['Alles in eine 20-cm-Backform geben.','Bei 190°C Ober-/Unterhitze 25–30 min backen.','Mit Petersilie toppen.']},
-  {id:'protein-cheesecake',n:'Protein Cheesecake',cat:'d',srv:4,kcal:385,p:50,c:30,f:7,tags:['prep'],
-    ing:[['Magerquark','1 kg'],['Exquisa Fitline','400 g'],['Eier','6'],['Allflavor Vanille','2 Scoops'],['Vanille-Pudding-Pulver','1 Pck'],['Gefrorene Beeren','200 g']],
-    m:['Alle Zutaten gut verrühren.','Bei 180°C 25 min backen.','40 min im Ofen bei offener Tür auskühlen lassen (Rezept von @sophie_plinke).']},
-  {id:'chili-suesskartoffel',n:'Chili con Carne mit Süßkartoffel',cat:'m',srv:4,kcal:550,p:34,c:76,f:12,tags:['prep'],
-    ing:[['Süßkartoffel','1 kg'],['Paprika','300 g'],['Mageres Rinderhack','400 g'],['Kidneybohnen','260 g (1 Dose)'],['Knorr Chili Mix','2 Pck'],['Wasser','600 ml']],
-    m:['Süßkartoffel würfeln, Paprika schneiden.','Hack scharf anbraten, Gemüse dazu.','Kidneybohnen, Chili-Mix und Wasser, ca. 25 min köcheln bis Süßkartoffel weich.']},
-  {id:'kartoffel-haehnchen',n:'Kartoffel-Hähnchen Auflauf',cat:'m',srv:4,kcal:500,p:42,c:48,f:14,tags:['prep'],
-    ing:[['Kartoffeln','1 kg'],['Hähnchen geschnetzelt','400 g'],['Brokkoli','250 g'],['Cremefine 7%','250 ml'],['Salz, Pfeffer, Muskat','nach Geschmack'],['Streukäse light','200 g']],
-    m:['Kartoffeln vorgaren, in Form schichten mit Hähnchen + Brokkoli.','Cremefine + Salz/Pfeffer/Muskat drüber.','Streukäse oben drauf, bei 200°C 40 min backen.']},
-  {id:'cottage-mousse',n:'Dark Chocolate PB Cottage Cheese Mousse',cat:'d',srv:1,kcal:260,p:24,c:16,f:11,
-    ing:[['Cottage Cheese light','240 g'],['Erdnussbutter','1 EL'],['Kakaopulver ungesüßt','1 EL'],['Ahornsirup oder Stevia','1 TL'],['Dunkle Schokolade gehobelt','1 TL'],['Erdnüsse zerstoßen','etwas'],['Meersalz','Prise']],
-    m:['Cottage Cheese mit Kakao und Süße in Standmixer 60 s pürieren bis glatt und glänzig — bis Körner verschwinden.','In Glas füllen.','Erdnussbutter 10 s in der Mikrowelle, drüber gießen.','Mit Zahnstocher Marmormuster ziehen.','Mit Erdnüssen und Schoko toppen.']},
-  {id:'egg-white-sourdough',n:'Egg White & Roasted Tomato Sourdough Stack',cat:'b',srv:1,kcal:280,p:28,c:24,f:6,
-    ing:[['Sauerteigbrot dicke Scheibe','1'],['Flüssiges Eiklar','240 ml'],['Cherrytomaten','75 g'],['Frischer Basilikum','etwas'],['Olivenöl','1 TL'],['Schwarzer Pfeffer, Meersalz','nach Geschmack']],
-    m:['Tomaten mit Olivenöl in Pfanne, mittel-hoch.','2–3 min nicht bewegen bis Haut platzt und sie marmeladig sind.','Hitze runter, Eiklar reingießen, kurz stehen lassen für Basis.','Mit Spatel sanft von Rand zur Mitte falten — fluffige Bänder, kein trockenes Rührei.','Sauerteig toasten bis tief goldbraun und knusprig.','Eiklar auf Toast, Tomaten drauf, Basilikum mit Hand zerzupfen, Pfeffer + Salz drauf.']},
-  {id:'yogurt-berry-walnut',n:'Greek Yogurt Berry & Walnut Bowl',cat:'b',srv:1,kcal:180,p:20,c:18,f:5,
-    ing:[['Griechischer Joghurt 0%','240 g'],['Blaubeeren + Erdbeeren','75 g'],['Walnüsse zerstoßen','1 EL'],['Chiasamen','1 TL'],['Honig','1 TL']],
-    m:['Joghurt in breite Schale, Oberfläche glatt streichen.','Erdbeeren in dünne Scheiben.','Beeren mittig häufen, dürfen über Joghurt-Mulde quellen.','Walnüsse drüber.','Chiasamen über alles.','Mit feinem Honig-Drizzle finishen.']},
-  {id:'vietnam-vermicelli',n:'Vietnamese Chicken & Vermicelli Bowl',cat:'m',srv:1,kcal:340,p:32,c:36,f:8,tags:['kor'],
-    ing:[['Reis-Vermicelli trocken','50 g'],['Lemongrass-Hähnchen','150 g'],['Gurken-Bänder + Rotkohl','1 Tasse'],['Bohnensprossen + Pickled Carrots','½ Tasse'],['Frische Minze','etwas'],['Koriander (weglassen)','etwas'],['Erdnüsse zerstoßen','1 EL'],['Nuoc Cham Dressing','etwas']],
-    m:['Vermicelli in hitzefester Schale mit kochendem Wasser bedecken, 3 min einweichen.','Abgießen, sofort kalt abspülen — bleiben so bouncy und kleben nicht.','Gurke mit Sparschäler zu Bändern, Rotkohl dünn schneiden.','Nudeln in flache Schale, Hähnchen + Gemüse drauf.','Minze (Koriander für Jana weglassen) ganz untermischen.','Nuoc Cham drüber, schwenken.','Erdnüsse als Topping.']},
-  {id:'apple-almond-butter',n:'Sliced Apple & Almond Butter',cat:'s',srv:1,kcal:160,p:5,c:22,f:8,
-    ing:[['Großer grüner Apfel','1'],['Mandelmus','1 EL'],['Meersalz Flocken','Prise']],
-    m:['Apfel kühl wählen — die Säure macht den Snack erfrischend.','Entkernen, in dünne gleichmäßige Scheiben — je mehr Scheiben, desto länger das Esserlebnis.','Auf kleinem weißen Teller fächerförmig anrichten.','Mandelmus in Schälchen daneben — natürlich, nur Mandeln + Salz.','Meersalz direkt auf das Mandelmus streuen.']},
-  {id:'mango-sticky-oats',n:'Mango Sticky Oats',cat:'b',srv:1,kcal:610,p:10,c:58,f:40,
-    ing:[['Haferflocken oder Dinkelflocken','30–40 g'],['Salz','Prise'],['Kokosmilch','120 ml'],['Optional: Proteinpulver','1 EL'],['Chiasamen','1 TL'],['Cremige Kokosmilch','60 ml'],['Süßungsmittel (Agave o. ä.)','1 EL'],['Mango','½']],
-    m:['Hafer + Salz + Kokosmilch + optional Protein + Chia gut verrühren.','Auf Herd cremig kochen oder im Airfryer 180°C 5 min.','Sauce: 60 ml cremige Kokosmilch + 1 EL Süßungsmittel erwärmen bis cremig.','Alles mit saftiger Mango servieren.']},
-  {id:'pfirsich-schoko',n:'Pfirsich-Schoko-Kuchen',cat:'d',srv:8,kcal:210,p:3,c:19,f:12,
-    ing:[['Abgetropfte Pfirsiche aus der Dose oder frisch','350 g'],['Geschmolzene dunkle Schokolade','270 g'],['Optional: extra Schokolade zum Toppen','etwas']],
-    m:['Pfirsiche fein pürieren bis komplett glatt.','Geschmolzene Schokolade unterrühren bis homogen.','In rechteckige Form mit Backpapier gießen.','Optional mit Schokolade toppen.','2–4 h kaltstellen bis fest.']},
-  {id:'protein-pancakes',n:'Protein Pancakes (Sweet Potato)',cat:'b',srv:1,kcal:350,p:25,c:39,f:8,
-    ing:[['Süßkartoffelpüree','240 g (1 Tasse)'],['Eier','2'],['Haferflocken','40 g'],['Vanille-Proteinpulver','1 Scoop']],
-    m:['Alles im Mixer pürieren.','Bei mittlerer Hitze 2–3 min/Seite braten.','Optional: Griechischer Joghurt obendrauf für +15 g Protein.']},
-  {id:'quinoa-salad',n:'Quinoa Salad mit Süßkartoffel',cat:'m',srv:1,kcal:400,p:14,c:51,f:16,tags:['prep'],
-    ing:[['Süßkartoffelwürfel geröstet','165 g (1 Tasse)'],['Quinoa gekocht','185 g (1 Tasse)'],['Rucola','½ Tasse'],['Feta','¼ Tasse'],['Olivenöl','2 EL']],
-    m:['Süßkartoffel würfeln, mit Olivenöl + Salz bei 200°C ca. 25 min rösten.','Quinoa kochen.','Alles vermengen mit Olivenöl drizzlen, schwenken.','Hält 4 Tage im Kühlschrank, schmeckt auch kalt.']},
-  {id:'cottage-beef-bowl',n:'Cottage Cheese Beef Bowl',cat:'m',srv:1,kcal:495,p:42,c:32,f:22,
-    ing:[['Mageres Rinderhack','150 g'],['Cottage Cheese light','120 g'],['Süßkartoffel gewürfelt + geröstet','165 g'],['Reife Avocado gewürfelt','½'],['Everything Bagel Seasoning','1 TL'],['Honig','1 TL'],['Knoblauchsalz','etwas']],
-    m:['Süßkartoffel bei 200°C rösten bis außen karamellisiert, innen weich.','Rinderhack in heißer Pfanne fein zerkrümeln, knusprig braten — max. Oberfläche.','Hack + Süßkartoffel auf eine Seite der Bowl.','Kalter Cottage Cheese auf die andere Seite — Kontrast.','Avocado-Würfel in der Mitte, Bagel Seasoning + Honig-Drizzle über Cottage Cheese.']},
-  {id:'hot-honey-salmon',n:'Hot Honey Salmon Rice Bowl',cat:'m',srv:1,kcal:440,p:32,c:38,f:18,tags:['jana'],
-    ing:[['Lachsfilet gewürfelt','150 g'],['Jasminreis gekocht','200 g (1 Tasse)'],['Gurke in Scheiben','½'],['Karotte gerieben','½ Tasse'],['Edamame geschält','¼ Tasse'],['Sriracha-Mayo','1 EL'],['Honig','1 TL'],['Sojasauce','1 TL']],
-    m:['Lachs würfeln, mit Sojasauce + Honig schwenken.','In heißer Pfanne 2–3 min/Seite bis Kanten karamellisiert und knusprig.','Reis als Basis auf einer Seite einer breiten Bowl.','Gurke + Karotte + Edamame in eigenen Sektionen — Poke-Style.','Sriracha-Mayo mittig auf Lachs.','Mit extra Hot Honey Drizzle finishen während noch dampft.']},
-  {id:'raspberry-cheesecake-bowl',n:'Raspberry Cheesecake Protein Yogurt Bowl',cat:'d',srv:1,kcal:320,p:28,c:34,f:6,
-    ing:[['Griechischer Joghurt 0%','240 g (1 Tasse)'],['Frische Himbeeren','75 g (½ Tasse)'],['Himbeermarmelade light','2 EL'],['Graham Crackers oder Butterkekse zerstoßen','25 g'],['Vanille-Proteinpulver','½ Scoop']],
-    m:['Joghurt + Proteinpulver verrühren bis dicke "Frosting"-Konsistenz.','In breite Schale geben.','Himbeeren auf eine Seite häufen — Kontrast.','Marmelade über Joghurt, mit Löffel marmorieren.','Andere Hälfte mit zerstoßenen Keksen — Cheesecake-Boden-Effekt.','Sofort essen solange Kekse noch knackig sind.']},
-  {id:'tuna-egg-salad',n:'High Protein Egg Tuna Salad',cat:'s',srv:2,kcal:230,p:27,c:3,f:11,
-    ing:[['Thunfisch in Wasser','2 Dosen'],['Eier','4'],['Frischkäse light','100 g'],['Essiggurken gehackt','50 g'],['Rote Zwiebel fein','50 g'],['Frischer Dill','etwas'],['Saft von 1 Zitrone','1'],['Optional: Hot Sauce','etwas']],
-    m:['Eier 7 min kochen, schälen, klein schneiden.','Alle Zutaten in eine Schüssel, gut vermengen.','Als Sandwich-Belag, auf Pellkartoffeln oder auf Toast.']},
-  {id:'zucchini-brownies',n:'Fudgy Zucchini & Almond Butter Brownies',cat:'d',srv:9,kcal:165,p:6,c:14,f:11,tags:['prep'],
-    ing:[['Mittlere Zucchini fein gerieben','1'],['Cremiges Mandelmus','120 g'],['Kakaopulver','30 g'],['Ahornsirup','60 ml'],['Ei (oder Flax-Egg)','1'],['Vanille-Extrakt','1 TL'],['Backsoda','½ TL'],['Dunkle Schoko-Drops','40 g']],
-    m:['Zucchini reiben, in sauberes Tuch wickeln und kräftig auspressen — willst trockenes Pulp.','Mandelmus + Ahornsirup + Ei + Vanille glatt rühren.','Kakao + Backsoda unterheben bis dicker, mahagoni-farbener Teig.','Ausgepresste Zucchini einrühren — verschwindet komplett, ersetzt Butter-Feuchte.','Hälfte Schoko-Drops unterheben, Rest oben drauf.','In ausgekleidete Form, bei 180°C 25 min — Ränder fest, Mitte noch leicht weich.']},
-  {id:'honey-bbq-mac',n:'Honey BBQ Glazed Chicken & Mac and Cheese',cat:'m',srv:1,kcal:587,p:59,c:54,f:15,
-    ing:[['Hähnchenbrust gewürfelt','200 g'],['High-Protein Pasta','80 g'],['Low-sugar BBQ Sauce','2 EL'],['Honig','1 TL'],['Light Mozzarella','30 g'],['Räucherpaprika, Schnittlauch','nach Geschmack']],
-    m:['Pasta in gesalzenem Wasser al dente, 2 EL Pasta-Wasser auffangen.','Hähnchen kräftig mit Räucherpaprika würzen, in heißer Pfanne mahagoni anbraten.','BBQ Sauce + Honig dazu, einkochen bis klebrig.','Mozzarella mit Pasta-Wasser bei niedriger Hitze in die Pasta einarbeiten — seidige Stränge.','Anrichten: Pasta-Berg, Hähnchen oben drauf, mit Schnittlauch + Paprika finishen.']},
-  {id:'creamy-garlic-parmesan-chicken',n:'Creamy Garlic Parmesan Chicken & Baby Potatoes',cat:'m',srv:1,kcal:502,p:53,c:36,f:16,
-    ing:[['Hähnchenbrust gewürfelt','180 g'],['Babykartoffeln halbiert','200 g'],['Knoblauchpaste','1 EL'],['Parmesan','1 EL'],['Light Cream','2 EL'],['Mozzarella gerieben','15 g'],['Knoblauch-Chips, Petersilie, Chiliflocken','etwas']],
-    m:['Babykartoffeln im Airfryer 200°C 18 min — sollen shatter-crisp sein.','Hähnchen in Gusspfanne golden anbraten, beiseite stellen.','Gleiche Pfanne, niedrige Hitze: Knoblauchpaste + Cream + Parmesan einrühren — niedrige Hitze, sonst zerfällt.','Hähnchen + Kartoffeln in die glasige Sauce.','Mozzarella drüber, abdecken 60 s bis blubbert.','Mit Petersilie + Knoblauch-Chips finishen.']},
-  {id:'eiweiss-salat',n:'Eiweiß-Salat',cat:'s',srv:2,kcal:335,p:30,c:3,f:20,
-    ing:[['Eier hartgekocht','6'],['Essiggurken','etwas'],['Körniger Frischkäse','1 Packung'],['Senf','1 TL'],['Salz, Pfeffer','nach Geschmack']],
-    m:['Eier hart kochen, klein schneiden.','Essiggurken klein schneiden.','Mit körnigem Frischkäse + Senf + Salz + Pfeffer vermengen — fertig.']},
-  {id:'choco-date-mousse',n:'High-Protein Chocolate Date Mousse',cat:'d',srv:3,kcal:133,p:10,c:14,f:3,
-    ing:[['Datteln','150 g'],['Chiasamen','60 g'],['Kakaopulver','30 g'],['Griechischer Joghurt 0%','400 g'],['Milch','150 ml'],['Whey-Proteinpulver','1 Scoop'],['Vanille-Extrakt','5 g'],['Salz','Prise']],
-    m:['Alles außer Chia in Standmixer geben, glatt mixen.','Chiasamen einrühren.','Mindestens 2 h im Kühlschrank fest werden lassen.']},
-  {id:'bbq-flatbread',n:'Loaded BBQ Chicken Flatbread',cat:'m',srv:1,kcal:495,p:41,c:48,f:16,tags:['kor'],
-    ing:[['Flatbread','1'],['Pulled Hähnchen','100 g'],['BBQ Sauce','2 EL'],['Rote Zwiebel dünn','etwas'],['Mozzarella','30 g'],['Frischer Koriander (weglassen)','etwas']],
-    m:['Ofen 200°C, Flatbread 2 min trocken auf Rost vortoasten — Game changer für Knusprigkeit.','BBQ Sauce gleichmäßig drauf, kleinen Rand lassen.','Hähnchen + Zwiebel + Mozzarella drüber.','10–12 min backen bis Käse blubbert und Kanten goldbraun.','Mit frischem Koriander finishen (für Jana weglassen — alternativ Petersilie).']},
-  {id:'creamy-garlic-pasta-light',n:'Creamy Garlic Chicken Pasta Light',cat:'m',srv:1,kcal:500,p:40,c:55,f:14,
-    ing:[['Pasta trocken','75 g'],['Hähnchenbrust','120 g'],['Knoblauch','3 Zehen'],['Light Tomaten- oder Cremesauce','½ Tasse'],['Spinat','1 Handvoll'],['Parmesan frisch gerieben','15 g']],
-    m:['Pasta in gesalzenem Wasser bis kurz vor al dente, ½ Tasse Pasta-Wasser auffangen.','Hähnchen mit Salz, Pfeffer, Italian Seasoning, scharf goldgelb anbraten 4 min/Seite. Schneiden.','Hitze runter, Knoblauch 30 s anschwitzen — nicht braun werden lassen.','Light Sauce + Spinat dazu, 60 s einkochen lassen.','Pasta + Spritzer Pasta-Wasser einrühren bis seidig.','Hähnchen drauf, Parmesan + Pfeffer.']},
-  {id:'chicken-alfredo-bowl',n:'Chicken Alfredo Pasta Bowl',cat:'m',srv:1,kcal:520,p:38,c:48,f:20,
-    ing:[['Hähnchenbrust gegrillt in Scheiben','120 g'],['Glutenfreie Pasta gekocht','120 g'],['Light Alfredo Sauce','⅓ Tasse'],['Parmesan gerieben','2 EL'],['Petersilie gehackt','1 EL'],['Olivenöl','1 TL'],['Salz, schwarzer Pfeffer','nach Geschmack']],
-    m:['Pasta in gesalzenem Wasser al dente, 2–3 EL Pasta-Wasser auffangen.','In Pfanne Olivenöl, gegrilltes Hähnchen 2 min erwärmen.','Pasta dazu, Sauce drüber, sanft schwenken — falls zu dick: Pasta-Wasser dazu.','Parmesan einrühren bis schmilzt, mit Petersilie finishen.']},
-  {id:'creamy-tomato-chicken-pasta',n:'Creamy Tomato Chicken Pasta',cat:'m',srv:1,kcal:510,p:40,c:46,f:18,
-    ing:[['Hähnchenbrust gegrillt','120 g'],['Pasta gekocht','120 g'],['Cremige Tomatensauce','⅓ Tasse'],['Frischer Spinat','1 Tasse'],['Parmesan','2 EL'],['Olivenöl','1 TL'],['Salz, Pfeffer','nach Geschmack']],
-    m:['Olivenöl in Pfanne, Hähnchen 2 min karamellisieren.','Tomatensauce dazu, sanft erwärmen ohne anbrennen.','Pasta untermengen bis bedeckt.','Spinat zuletzt, 30 s zusammenfallen lassen.','Mit Parmesan toppen.']},
-  {id:'buffalo-chicken-wrap',n:'Buffalo Chicken Wrap',cat:'m',srv:1,kcal:470,p:36,c:34,f:20,
-    ing:[['Hähnchenbrust gegrillt','120 g'],['Großer Tortilla-Wrap','1'],['Salat gehackt','1 Tasse'],['Karotte gerieben','¼ Tasse'],['Ranch-Dressing','1 EL'],['Buffalo Sauce','1 EL']],
-    m:['Tortilla 20 s in trockener Pfanne anwärmen — verhindert Reißen.','Hähnchen in Streifen schneiden, mit Buffalo Sauce schwenken.','Auf Tortilla legen, Salat + Karotte drauf.','Ranch sparsam darüber.','Seiten einklappen, fest aufrollen.','Optional: 1 min/Seite in Pfanne toasten für extra Crunch.']},
-  {id:'biscoff-banana',n:'Air Fryer Biscoff Stuffed Banana',cat:'d',srv:1,kcal:165,p:2,c:29,f:5,
-    ing:[['Mittlere Banane (reif aber fest)','1'],['Biscoff Aufstrich','1 TL'],['85% Dunkle Schokolade','5 g'],['Meersalz Flocken','Prise']],
-    m:['Banane in Schale lassen.','Mit scharfem Messer längs einschneiden — nicht ganz durch.','Spalt vorsichtig öffnen, Biscoff einstreichen.','Banane (Schale unten) in Airfryer.','180°C 8 min — Schale wird schwarz, Frucht innen blubbert.','Geschmolzene dunkle Schokolade drüber während noch im Korb.','Mit Meersalz finishen.']},
-  {id:'protein-marmorkuchen',n:'High Protein Marmorkuchen',cat:'d',srv:10,kcal:102,p:7,c:14,f:2,tags:['prep'],
-    ing:[['High Protein Pudding (Vanille & Schoko)','2× 200 g'],['Dinkel- oder Hafermehl','150 g'],['Eier','2'],['Backpulver','½ Pck'],['Süßungsmittel (optional)','nach Geschmack'],['Schoko-Drops','5 g']],
-    m:['Alles vermischen.','Bei 180°C Ober-/Unterhitze ca. 30 min backen.']},
-  {id:'magnum-bars',n:'Healthy Magnum Ice Cream',cat:'d',srv:4,kcal:260,p:9,c:22,f:16,tags:['prep'],
-    ing:[['Reife Bananen','240 g'],['Griechischer Joghurt','150 g'],['Erdnussbutter','30 g'],['Milch','60 ml'],['Vanille-Extrakt','½ TL'],['85% dunkle Schokolade','150 g'],['Mandeln gehackt','30 g']],
-    m:['Bananen, Joghurt, PB, Milch, Vanille im Mixer cremig pürieren.','In Eis-am-Stiel-Formen füllen, Stiele rein, 4–5 h einfrieren.','Schokolade schmelzen, mit Mandeln mischen.','Eingefrorene Bars in Schoko tauchen, hart werden lassen.','Servieren oder im Gefrierfach lagern.']},
-  {id:'banana-cinnamon-oats',n:'Banana & Cinnamon Overnight Oats',cat:'b',srv:1,kcal:310,p:15,c:50,f:5,tags:['prep'],
-    ing:[['Haferflocken','40 g'],['Banane zerdrückt','½'],['Milch oder Wasser','100 ml'],['Zimt','1 TL'],['Griechischer Joghurt','100 g'],['Honig','1 TL']],
-    m:['Hafer + Banane + Zimt + Flüssigkeit verrühren.','Über Nacht in den Kühlschrank.','Mit Joghurt toppen, Honig drüber.','Pro-Tipp: Extra Banane als Topping.']},
-  {id:'raspberry-choco-oats',n:'Raspberry & Chocolate Overnight Oats',cat:'b',srv:1,kcal:360,p:21,c:45,f:11,tags:['prep'],
-    ing:[['Haferflocken','40 g'],['Hafermilch','120 ml'],['Himbeeren','100 g'],['Protein-Joghurt','100 g'],['Dunkle Schokolade gehackt','10 g']],
-    m:['Hafer + Milch verrühren, über Nacht in den Kühlschrank.','Morgens Himbeeren + Joghurt unterheben.','Mit Schokolade toppen.','Pro-Tipp: Chiasamen für dickere Konsistenz.']},
-  {id:'cottage-pancakes',n:'Cottage Cheese Pancakes',cat:'b',srv:1,kcal:445,p:27,c:47,f:19,
-    ing:[['Cottage Cheese','120 g'],['Eier','2'],['Mandelmilch','100 ml'],['Haferflocken (gemahlen)','50 g'],['Zimt','½ EL']],
-    m:['Alles im Mixer pürieren.','Pfanne mittlere Hitze, antihaft, golden braten beidseitig.','Pro-Tipp: Mit Beeren + Honig-Drizzle servieren.']},
-  {id:'kinder-bueno-balls',n:'Kinder Bueno Balls',cat:'s',srv:12,kcal:77,p:2,c:10,f:4,
-    ing:[['Datteln püriert (10 min vorher in warmem Wasser einweichen)','80 g'],['Hafermehl','60 g'],['Cashewnüsse gemahlen','50 g'],['Haselnussmus','2 EL']],
-    m:['Alle Zutaten miteinander vermengen.','10–12 Bällchen formen — fertig.']},
-  {id:'cinnamon-roll-cake',n:'Cinnamon Roll Cake (SHEKO)',cat:'d',srv:12,kcal:null,p:null,c:null,f:null,tags:['nomac'],
-    ing:[['SHEKO Vanille Pulver','siehe Originalrezept'],['Mehl','siehe Originalrezept'],['Erythrit','siehe Originalrezept'],['Backpulver','siehe Originalrezept'],['Eier','siehe Originalrezept'],['Rapsöl','siehe Originalrezept'],['Mandelmilch','siehe Originalrezept'],['Butter','siehe Originalrezept'],['Zimt','siehe Originalrezept'],['Ahornsirup','siehe Originalrezept']],
-    m:['Ofen auf 180°C (Ober-/Unterhitze) vorheizen, rechteckige Form mit Backpapier auslegen.','Mehl, SHEKO Vanille, Erythrit und Backpulver in großer Schüssel mischen.','Eier, Rapsöl, Mandelmilch zu glattem Teig dazugeben.','Teig in Form gießen, glatt streichen.','Butter schmelzen, mit Zimt, Mehl, Ahornsirup zu gleichmäßiger Mischung verrühren.','Zimt-Swirl-Mischung auf Teig verteilen, mit Messer/Gabel den typischen Swirl-Effekt ziehen.','Originalrezept mit Mengenangaben: sheko.com/blogs/rezepte/cinnamon-roll-cake']},
-];
-
-// ─────────── REZEPTE UI ───────────
-const CATS = {m:'Mittag/Abend',s:'Snack',d:'Süß/Dessert',b:'Frühstück'};
-let activeCats = new Set(['m','s','d','b']);
-let extra = {kor:false,nomac:false};
-
-function renderFilters(){
-  const cf = document.getElementById('cat-filters');
-  cf.innerHTML = Object.entries(CATS).map(([k,v])=>
-    `<button class="chip ${activeCats.has(k)?'active':''}" onclick="toggleCat('${k}')">${v}</button>`).join('');
-  const ef = document.getElementById('extra-filters');
-  ef.innerHTML = `
-    <button class="chip ${extra.kor?'active':''}" onclick="toggleExtra('kor')">Koriander ausblenden</button>
-    <button class="chip ${extra.nomac?'active':''}" onclick="toggleExtra('nomac')">nur ohne Makros</button>
-  `;
-}
-function toggleCat(k){
-  if(activeCats.has(k)) activeCats.delete(k); else activeCats.add(k);
-  if(activeCats.size===0) activeCats = new Set(['m','s','d','b']);
-  renderFilters(); renderRecipes();
-}
-function toggleExtra(k){ extra[k] = !extra[k]; renderFilters(); renderRecipes(); }
-
-function renderRecipes(){
-  const search = (document.getElementById('recipe-search').value||'').toLowerCase();
-  const kcalMax = +document.getElementById('kcal-slider').value;
-  const filtered = RECIPES.filter(r => {
-    if(!activeCats.has(r.cat)) return false;
-    if(extra.kor && r.tags && r.tags.includes('kor')) return false;
-    if(extra.nomac && !(r.tags && r.tags.includes('nomac'))) return false;
-    if(r.kcal !== null && r.kcal > kcalMax) return false;
-    if(search && !r.n.toLowerCase().includes(search)) return false;
-    return true;
-  });
-  const grid = document.getElementById('recipe-grid');
-  if(filtered.length === 0){
-    grid.innerHTML = `<div class="empty">Kein Rezept gefunden.</div>`;
-    return;
-  }
-  grid.innerHTML = filtered.map(r => {
-    const macroLine = (r.kcal===null) ? `<span style="color:var(--warn)">Makros offen</span>`
-      : `<b>${r.kcal}</b> kcal · ${r.p===null?'?':r.p}g P · ${r.c===null?'?':r.c}g C · ${r.f===null?'?':r.f}g F`;
-    const tagHtml = (r.tags||[]).map(t=>{
-      if(t==='kor') return `<span class="tag kor">Koriander</span>`;
-      if(t==='jana') return `<span class="tag jana">nur Jana</span>`;
-      if(t==='prep') return `<span class="tag prep">Meal Prep</span>`;
-      if(t==='nomac') return `<span class="tag nomac">ohne Makros</span>`;
-      return '';
-    }).join('');
-    const inCart = cart.find(x=>x.id===r.id);
-    return `<div class="recipe-card" onclick="openRecipe('${r.id}')">
-      <div class="name">${r.n}</div>
-      <div class="macros">${macroLine}</div>
-      ${tagHtml ? `<div class="tags">${tagHtml}</div>` : ''}
-      <button class="cart-btn ${inCart?'added':''}" onclick="event.stopPropagation();addToCart('${r.id}')" title="Zur Einkaufsliste">${inCart?'✓':'+'}</button>
-    </div>`;
-  }).join('');
-}
-
-// ─────────── MODAL ───────────
-function openRecipe(id){
-  const r = RECIPES.find(x=>x.id===id);
-  document.getElementById('modal-title').textContent = r.n;
-  const macros = (r.kcal===null) ? `<div class="muted" style="margin:10px 0 14px">Makros werden noch nachgetragen.</div>`
-    : `<div class="macro-row">
-      <div class="macro-box"><div class="v">${r.kcal}</div><div class="l">kcal</div></div>
-      <div class="macro-box"><div class="v">${r.p}g</div><div class="l">Protein</div></div>
-      <div class="macro-box"><div class="v">${r.c}g</div><div class="l">Carbs</div></div>
-      <div class="macro-box"><div class="v">${r.f}g</div><div class="l">Fett</div></div>
-    </div>`;
-  const inCart = cart.find(x=>x.id===id);
-  document.getElementById('modal-body').innerHTML = `
-    <div class="muted" style="font-size:12px">${CATS[r.cat]} · ${r.srv} ${r.srv===1?'Portion':'Portionen'}</div>
-    ${macros}
-    <h3 style="margin-top:0">Zutaten</h3>
-    <ul>${r.ing.map(([n,q])=>`<li>${q ? `<b>${q}</b> ` : ''}${n}</li>`).join('')}</ul>
-    <h3>Zubereitung</h3>
-    <ol>${r.m.map(s=>`<li>${s}</li>`).join('')}</ol>
-    <button class="add-cart-large ${inCart?'added':''}" onclick="addToCart('${r.id}')">${inCart?'✓ in Einkaufsliste':'+ zur Einkaufsliste'}</button>
-  `;
-  document.getElementById('modal').classList.add('open');
-}
-function closeModal(){ document.getElementById('modal').classList.remove('open'); }
-
-// ─────────── CART ───────────
-let cart = JSON.parse(localStorage.getItem('cart')||'[]');
-function saveCart(){ localStorage.setItem('cart',JSON.stringify(cart)); updateCartCount(); }
-function updateCartCount(){
-  document.getElementById('cart-count').textContent = cart.length ? `(${cart.length})` : '';
-}
-function addToCart(id){
-  const idx = cart.findIndex(x=>x.id===id);
-  if(idx>-1){ cart.splice(idx,1); }
-  else { const r = RECIPES.find(x=>x.id===id); cart.push({id,srv:r.srv}); }
-  saveCart(); renderRecipes();
-  if(document.getElementById('modal').classList.contains('open')) openRecipe(id);
-  if(document.getElementById('einkauf').classList.contains('active')) renderCart();
-}
-function changeServ(id,delta){
-  const item = cart.find(x=>x.id===id);
-  if(!item) return;
-  item.srv = Math.max(1, item.srv + delta);
-  saveCart(); renderCart();
-}
-function setServ(id,val){
-  const item = cart.find(x=>x.id===id);
-  if(!item) return;
-  item.srv = Math.max(1, +val || 1);
-  saveCart(); renderCart();
-}
-function removeCart(id){
-  cart = cart.filter(x=>x.id!==id);
-  saveCart(); renderCart(); renderRecipes();
-}
-
-// Ingredient categorization for shopping list
-const ING_CAT = {
-  'Lachsfilet':'Fleisch & Fisch','Hähnchenbrust':'Fleisch & Fisch','Hähnchen':'Fleisch & Fisch',
-  'Hähnchenschenkel':'Fleisch & Fisch','Mageres Rinderhack':'Fleisch & Fisch',
-  'Sirloin Steak':'Fleisch & Fisch','Garnelen':'Fleisch & Fisch','King Prawns':'Fleisch & Fisch',
-  'Thunfisch':'Fleisch & Fisch','Lemongrass-Hähnchen':'Fleisch & Fisch','Pulled Hähnchen':'Fleisch & Fisch',
-  'Hähnchenbrust gegrillt':'Fleisch & Fisch','Hähnchenbrust gewürfelt':'Fleisch & Fisch',
-  'Hähnchenbrust in Streifen':'Fleisch & Fisch','Hähnchen geschnetzelt':'Fleisch & Fisch',
-  'Lachsfilet gewürfelt':'Fleisch & Fisch','Sirloin Steak gewürfelt':'Fleisch & Fisch',
-  'Hähnchenschenkel ohne Haut':'Fleisch & Fisch','Hähnchenschenkel mit Knochen':'Fleisch & Fisch',
-  'Hähnchenschenkel ohne Haut':'Fleisch & Fisch','Mageres Rinderhack 90/10':'Fleisch & Fisch',
-  'Lachsfilet dick':'Fleisch & Fisch','Garnelen geschält':'Fleisch & Fisch',
-  'Garnelen gekocht':'Fleisch & Fisch','Hähnchenbrust gewürfelt':'Fleisch & Fisch',
-  'Hähnchenbrust gegrillt in Scheiben':'Fleisch & Fisch','Eier':'Milchprodukte & Eier',
-  'Eier hartgekocht':'Milchprodukte & Eier','Eier mit Pfeffer/Chili':'Milchprodukte & Eier',
-  'Ei':'Milchprodukte & Eier','Ei klein':'Milchprodukte & Eier','Ei (oder Flax-Egg)':'Milchprodukte & Eier',
-  'Flüssiges Eiklar':'Milchprodukte & Eier','Light Cream oder Kokosmilch':'Milchprodukte & Eier',
-  'Light Cream':'Milchprodukte & Eier','Cremefine 7%':'Milchprodukte & Eier','Cottage Cheese':'Milchprodukte & Eier',
-  'Cottage Cheese light':'Milchprodukte & Eier','Frischkäse light':'Milchprodukte & Eier',
-  'Körniger Frischkäse':'Milchprodukte & Eier','Cheddar light':'Milchprodukte & Eier',
-  'Mandelmilch':'Milchprodukte & Eier','Mandelmilch ungesüßt':'Milchprodukte & Eier',
-  'Hafermilch':'Milchprodukte & Eier','Milch':'Milchprodukte & Eier','Milch oder Wasser':'Milchprodukte & Eier',
-  'Magerquark':'Milchprodukte & Eier','Exquisa Fitline':'Milchprodukte & Eier',
-  'Griechischer Joghurt':'Milchprodukte & Eier','Griechischer Joghurt 0%':'Milchprodukte & Eier',
-  'Protein-Joghurt':'Milchprodukte & Eier','Salzbutter':'Milchprodukte & Eier','Butter':'Milchprodukte & Eier',
-  'Parmesan':'Milchprodukte & Eier','Parmesan, frisch gerieben':'Milchprodukte & Eier',
-  'Parmesan frisch gerieben':'Milchprodukte & Eier','Parmesan gerieben':'Milchprodukte & Eier',
-  'Mozzarella':'Milchprodukte & Eier','Light Mozzarella':'Milchprodukte & Eier',
-  'Mozzarella gerieben':'Milchprodukte & Eier','American Cheese':'Milchprodukte & Eier',
-  'Streukäse light':'Milchprodukte & Eier','Reibekäse light':'Milchprodukte & Eier',
-  'Feta':'Milchprodukte & Eier','Feta light':'Milchprodukte & Eier','Halloumi in Scheiben':'Milchprodukte & Eier',
-  'Babyspinat':'Gemüse & Obst','Spinat':'Gemüse & Obst','Frischer Spinat':'Gemüse & Obst',
-  'Spinat':'Gemüse & Obst','Romana-Salat gehackt':'Gemüse & Obst','Romana':'Gemüse & Obst',
-  'Romana oder Mixed Greens':'Gemüse & Obst','Salat gehackt':'Gemüse & Obst','Rucola':'Gemüse & Obst',
-  'Cherrytomaten':'Gemüse & Obst','Cherrytomaten halbiert':'Gemüse & Obst','Tomatenmark':'Hülsenfrüchte & Konserven',
-  'Sonnengetrocknete Tomaten':'Hülsenfrüchte & Konserven','Pico de Gallo':'Hülsenfrüchte & Konserven',
-  'Cremige Tomatensauce':'Hülsenfrüchte & Konserven','Light Tomaten- oder Cremesauce':'Hülsenfrüchte & Konserven',
-  'Light Alfredo Sauce':'Hülsenfrüchte & Konserven','Gurke':'Gemüse & Obst','Gurke in Scheiben':'Gemüse & Obst',
-  'Gurke in dicken Stücken':'Gemüse & Obst','Gurke gewürfelt':'Gemüse & Obst',
-  'Gurken-Bänder + Rotkohl':'Gemüse & Obst','Karotte gerieben':'Gemüse & Obst','Karotte':'Gemüse & Obst',
-  'Bohnensprossen + Pickled Carrots':'Gemüse & Obst','Paprika in Streifen':'Gemüse & Obst',
-  'Paprika':'Gemüse & Obst','Paprika gewürfelt':'Gemüse & Obst','Avocado':'Gemüse & Obst',
-  'Reife Avocado gewürfelt':'Gemüse & Obst','Babykartoffeln gewürfelt':'Gemüse & Obst',
-  'Babykartoffeln halbiert':'Gemüse & Obst','Kartoffeln gewürfelt mit Schale':'Gemüse & Obst',
-  'Kartoffeln':'Gemüse & Obst','Yukon Gold Kartoffeln':'Gemüse & Obst','Süßkartoffel':'Gemüse & Obst',
-  'Süßkartoffel groß gewürfelt':'Gemüse & Obst','Süßkartoffel gewürfelt':'Gemüse & Obst',
-  'Süßkartoffel klein gewürfelt':'Gemüse & Obst','Süßkartoffel gewürfelt + geröstet':'Gemüse & Obst',
-  'Süßkartoffelpüree':'Gemüse & Obst','Süßkartoffelwürfel geröstet':'Gemüse & Obst',
-  'Brokkoli':'Gemüse & Obst','Gegarter Brokkoli':'Gemüse & Obst','Grüner Spargel':'Gemüse & Obst',
-  'Mais':'Hülsenfrüchte & Konserven','Rote Zwiebel':'Gemüse & Obst','Rote Zwiebel gehackt':'Gemüse & Obst',
-  'Rote Zwiebel dünn':'Gemüse & Obst','Rote Zwiebel gewürfelt':'Gemüse & Obst','Rote Zwiebel fein':'Gemüse & Obst',
-  'Frühlingszwiebel':'Gemüse & Obst','Knoblauch':'Gemüse & Obst','Knoblauch gehackt':'Gemüse & Obst',
-  'Frische Ananas gewürfelt':'Gemüse & Obst','Frische Himbeeren':'Gemüse & Obst','Himbeeren':'Gemüse & Obst',
-  'Blaubeeren + Erdbeeren':'Gemüse & Obst','Banane':'Gemüse & Obst','Banane zerdrückt':'Gemüse & Obst',
-  'Reife Bananen':'Gemüse & Obst','Mittlere Banane (reif aber fest)':'Gemüse & Obst','Mango':'Gemüse & Obst',
-  'Großer grüner Apfel':'Gemüse & Obst','Zitrone in Scheiben':'Gemüse & Obst','Zitrone':'Gemüse & Obst',
-  'Saft von 1 Zitrone':'Gemüse & Obst','Limette':'Gemüse & Obst','Limettensaft':'Gemüse & Obst',
-  'Granatapfel entkernt':'Gemüse & Obst','Granatapfelkerne':'Gemüse & Obst','Jalapeño gehackt':'Gemüse & Obst',
-  'Petersilie':'Gemüse & Obst','Petersilie gehackt':'Gemüse & Obst','Frische Minze':'Gemüse & Obst',
-  'Frischer Dill':'Gemüse & Obst','Frischer Basilikum':'Gemüse & Obst','Schnittlauch':'Gemüse & Obst',
-  'Microgreens':'Gemüse & Obst','Crispy Shallots':'Gemüse & Obst','Cornichons':'Hülsenfrüchte & Konserven',
-  'Essiggurken':'Hülsenfrüchte & Konserven','Essiggurken gehackt':'Hülsenfrüchte & Konserven',
-  'Mittlere Zucchini fein gerieben':'Gemüse & Obst','Zucchini':'Gemüse & Obst',
-  'Datteln':'Gemüse & Obst','Datteln püriert (10 min vorher in warmem Wasser einweichen)':'Gemüse & Obst',
-  'Abgetropfte Pfirsiche aus der Dose oder frisch':'Hülsenfrüchte & Konserven',
-  'Pasta (Protein+) trocken':'Getreide & Pasta','Pasta trocken':'Getreide & Pasta','Pasta gekocht':'Getreide & Pasta',
-  'Linguine':'Getreide & Pasta','High-Protein Pasta':'Getreide & Pasta','Glutenfreie Pasta gekocht':'Getreide & Pasta',
-  'Reis gekocht':'Getreide & Pasta','Reis oder Blumenkohlreis gekocht':'Getreide & Pasta',
-  'Reis oder Orzo gekocht':'Getreide & Pasta','Jasminreis gekocht':'Getreide & Pasta',
-  'Reis-Vermicelli trocken':'Getreide & Pasta','Quinoa gekocht':'Getreide & Pasta','Bulgur gekocht':'Getreide & Pasta',
-  'Haferflocken':'Getreide & Pasta','Haferflocken (gemahlen)':'Getreide & Pasta',
-  'Haferflocken oder Dinkelflocken':'Getreide & Pasta','Hafermehl':'Getreide & Pasta',
-  'Dinkel- oder Hafermehl':'Getreide & Pasta','Mehl':'Getreide & Pasta','Panko':'Getreide & Pasta',
-  'Sauerteigbrot dicke Scheibe':'Getreide & Pasta','Brioche-Bun':'Getreide & Pasta',
-  'Großer Tortilla-Wrap':'Getreide & Pasta','Kleine Tortillas':'Getreide & Pasta','Flatbread':'Getreide & Pasta',
-  'Graham Crackers oder Butterkekse zerstoßen':'Getreide & Pasta','Graham Crackers':'Getreide & Pasta',
-  'Cashewnüsse gemahlen':'Nüsse & Samen','Walnüsse zerstoßen':'Nüsse & Samen','Erdnüsse zerstoßen':'Nüsse & Samen',
-  'Mandeln gehackt':'Nüsse & Samen','Erdnussbutter':'Nüsse & Samen','Mandelmus':'Nüsse & Samen',
-  'Cremiges Mandelmus':'Nüsse & Samen','Haselnussmus':'Nüsse & Samen','Chiasamen':'Nüsse & Samen',
-  'Schwarzer Sesam':'Nüsse & Samen',
-  'Kichererbsen':'Hülsenfrüchte & Konserven','Kichererbsen gekocht':'Hülsenfrüchte & Konserven',
-  'Kidneybohnen':'Hülsenfrüchte & Konserven','Edamame geschält':'Hülsenfrüchte & Konserven',
-  'Knorr Chili Mix':'Gewürze & Sauce','BBQ Sauce':'Gewürze & Sauce','Low-sugar BBQ Sauce':'Gewürze & Sauce',
-  'Sweet Chili Sauce':'Gewürze & Sauce','Sriracha':'Gewürze & Sauce','Sriracha-Mayo':'Gewürze & Sauce',
-  'Buffalo Sauce':'Gewürze & Sauce','Hot Sauce':'Gewürze & Sauce','Sojasauce':'Gewürze & Sauce',
-  'Light Mayo':'Gewürze & Sauce','Ranch-Dressing':'Gewürze & Sauce','Light Dressing':'Gewürze & Sauce',
-  'Nuoc Cham Dressing':'Gewürze & Sauce','Trüffelöl':'Gewürze & Sauce','Knoblauchpaste':'Gewürze & Sauce',
-  'Senf':'Gewürze & Sauce','Dijon-Senf':'Gewürze & Sauce','Harissa Paste':'Gewürze & Sauce',
-  'Honig':'Gewürze & Sauce','Ahornsirup oder Stevia':'Gewürze & Sauce','Ahornsirup':'Gewürze & Sauce',
-  'Süßungsmittel (Agave o. ä.)':'Gewürze & Sauce','Olivenöl':'Gewürze & Sauce',
-  'Knoblauch-Chips':'Gewürze & Sauce','Kapern':'Gewürze & Sauce','Everything Bagel Seasoning':'Gewürze & Sauce',
-  'Italian Seasoning':'Gewürze & Sauce','Vanille-Extrakt':'Gewürze & Sauce','Biscoff Aufstrich':'Gewürze & Sauce',
-  'Backpulver':'Gewürze & Sauce','Backsoda':'Gewürze & Sauce',
-  'Kakaopulver':'Gewürze & Sauce','Kakaopulver ungesüßt':'Gewürze & Sauce',
-  'Dunkle Schokolade gehobelt':'Gewürze & Sauce','85% Dunkle Schokolade':'Gewürze & Sauce',
-  '85% dunkle Schokolade':'Gewürze & Sauce','Dunkle Schoko-Drops':'Gewürze & Sauce',
-  'Dunkle Schokolade gehackt':'Gewürze & Sauce','Schoko-Drops':'Gewürze & Sauce',
-  'Geschmolzene dunkle Schokolade':'Gewürze & Sauce','Vanille-Pudding-Pulver':'Pulver & Supplements',
-  'Vanille-Proteinpulver':'Pulver & Supplements','Whey-Proteinpulver':'Pulver & Supplements',
-  'Allflavor Vanille':'Pulver & Supplements','High Protein Pudding (Vanille & Schoko)':'Pulver & Supplements',
-  'Optional: Proteinpulver':'Pulver & Supplements','Himbeermarmelade light':'Gewürze & Sauce',
-  'Vanille-Extrakt':'Gewürze & Sauce','Fischfond oder Pasta-Wasser':'Gewürze & Sauce',
-  'Wasser':'Gewürze & Sauce','Essig':'Gewürze & Sauce',
-  'Gefrorene Beeren':'TK','SHEKO Vanille Pulver':'Pulver & Supplements','Erythrit':'Gewürze & Sauce',
-  'Rapsöl':'Gewürze & Sauce','Zimt':'Gewürze & Sauce','Mandelmilch':'Milchprodukte & Eier',
-};
-function getCat(name){
-  if(ING_CAT[name]) return ING_CAT[name];
-  // fallback heuristics
-  const n = name.toLowerCase();
-  if(/lachs|hähnch|rind|steak|prawn|garnel|thunfisch|hack|pulled/.test(n)) return 'Fleisch & Fisch';
-  if(/joghurt|käse|milch|sahne|cream|butter|quark|exquisa|halloumi|feta|parmesan|mozzarella|cheddar|frischk|cottage|eier|eiklar/.test(n)) return 'Milchprodukte & Eier';
-  if(/spinat|salat|greens|gurke|tomate|paprika|zwiebel|kartoffel|brokkoli|spargel|karotte|kohl|avocado|jalapeño|knoblauch|petersilie|basilikum|dill|minze|zucchini|granatapfel|banane|apfel|mango|himbeer|blaubeer|erdbeer|beere|datt|zitrone|limet|ananas|pfirsich|frisch/.test(n)) return 'Gemüse & Obst';
-  if(/pasta|reis|nudeln|hafer|mehl|vermicelli|quinoa|bulgur|brot|tortilla|wrap|sourdough|panko|cracker|biscuits|orzo/.test(n)) return 'Getreide & Pasta';
-  if(/bohne|chickpea|kicher|edamame|linse|hülsen|tomatenmark|tomato|sauce|paste|essig.*gurken|cornichon|mais|pfirsich.*dose|sonnen.*tomate/.test(n)) return 'Hülsenfrüchte & Konserven';
-  if(/protein.*pulver|whey|sheko|allflavor|pudding.*pulver/.test(n)) return 'Pulver & Supplements';
-  if(/mandel|cashew|walnuss|erdnuss|haselnuss|chia|sesam|nüss|nuss|samen/.test(n)) return 'Nüsse & Samen';
-  if(/tk|gefroren/.test(n)) return 'TK';
-  return 'Gewürze & Sauce';
-}
-
-// Parse amount from "150 g" or "1 EL" or "½" etc
-function parseAmt(q){
-  if(!q) return null;
-  q = q.trim();
-  // unicode fractions
-  const frac = {'½':0.5,'¼':0.25,'¾':0.75,'⅓':0.333,'⅔':0.667};
-  let mult = 1;
-  for(const f in frac){ if(q.startsWith(f)){ mult = frac[f]; q = q.slice(f.length).trim(); break; } }
-  const m = q.match(/^([\d.,]+(?:\s*[-–]\s*[\d.,]+)?)(?:\s*(g|kg|ml|l|EL|TL|Tasse[n]?|Pck|Dose|Scoop[s]?|Stück|Zehen?|Bund|Pck|Pkg|Pcs|Prise|Handvoll))?(.*)/i);
-  if(!m){
-    if(/^\d/.test(q)){
-      const n = parseFloat(q.replace(',','.'));
-      if(!isNaN(n)) return {amount:n*mult,unit:'',rest:q.replace(/^[\d.,]+/,'').trim()};
-    }
-    return {amount:null,unit:'',rest:q,raw:q};
-  }
-  let amt = m[1].replace(',','.');
-  if(amt.includes('-') || amt.includes('–')){
-    const parts = amt.split(/[-–]/).map(x=>parseFloat(x.trim()));
-    amt = (parts[0]+parts[1])/2;
-  } else { amt = parseFloat(amt); }
-  if(isNaN(amt)) return {amount:null,unit:'',rest:q,raw:q};
-  return {amount:amt*mult, unit:(m[2]||'').trim(), rest:(m[3]||'').trim(), raw:q};
-}
-
-function renderCart(){
-  updateCartCount();
-  const c = document.getElementById('cart-content');
-  if(cart.length === 0){
-    c.innerHTML = `<div class="empty">Noch keine Rezepte ausgewählt.<br><br>Geh zu <b>Rezepte</b> und tippe + auf den Karten.</div>`;
-    return;
-  }
-  // Recipe list
-  let h = `<h2>Ausgewählte Rezepte</h2>`;
-  cart.forEach(item => {
-    const r = RECIPES.find(x=>x.id===item.id);
-    h += `<div class="cart-recipe">
-      <div class="cart-recipe-head">
-        <div class="cart-recipe-name" onclick="openRecipe('${r.id}')">${r.n}</div>
-        <div class="serv-input">
-          <button onclick="changeServ('${r.id}',-1)">−</button>
-          <input type="number" min="1" value="${item.srv}" onchange="setServ('${r.id}',this.value)">
-          <button onclick="changeServ('${r.id}',1)">+</button>
-        </div>
-        <button class="remove-btn" onclick="removeCart('${r.id}')">×</button>
-      </div>
-      <div class="muted" style="font-size:11.5px;margin-top:3px">Original: ${r.srv} ${r.srv===1?'Portion':'Portionen'} · Skaliert auf ${item.srv}</div>
-    </div>`;
-  });
-
-  // Aggregate ingredients
-  const agg = {}; // canonical name → {amount_g, unit, raw_strs[], cat}
-  cart.forEach(item => {
-    const r = RECIPES.find(x=>x.id===item.id);
-    const factor = item.srv / r.srv;
-    r.ing.forEach(([name,qty]) => {
-      const key = name;
-      if(!agg[key]) agg[key] = {amount:0, unit:'', items:[], cat:getCat(name), hasNum:true};
-      const p = parseAmt(qty);
-      if(p && p.amount !== null){
-        // try to match with previous unit
-        if(!agg[key].unit) agg[key].unit = p.unit;
-        if(agg[key].unit === p.unit){
-          agg[key].amount += p.amount * factor;
-        } else {
-          // different unit - just keep raw
-          agg[key].hasNum = false;
-          agg[key].items.push(`${qty} (× ${factor.toFixed(2)})`);
-        }
-      } else {
-        agg[key].hasNum = false;
-        agg[key].items.push(`${qty} (× ${factor.toFixed(2)})`);
-      }
-    });
-  });
-
-  // Group by category
-  const byCat = {};
-  Object.entries(agg).forEach(([n,v]) => {
-    if(!byCat[v.cat]) byCat[v.cat] = [];
-    byCat[v.cat].push([n,v]);
-  });
-  const catOrder = ['Fleisch & Fisch','Milchprodukte & Eier','Gemüse & Obst','Hülsenfrüchte & Konserven','Getreide & Pasta','Nüsse & Samen','TK','Gewürze & Sauce','Pulver & Supplements'];
-
-  h += `<div class="shopping-list"><h2>Einkaufsliste</h2>`;
-  catOrder.forEach(cat => {
-    if(!byCat[cat]) return;
-    h += `<div class="shop-cat">${cat}</div>`;
-    byCat[cat].sort((a,b)=>a[0].localeCompare(b[0],'de'));
-    byCat[cat].forEach(([n,v]) => {
-      const itemId = `shop-${n.replace(/[^a-z0-9]/gi,'_')}`;
-      let amtStr;
-      if(v.hasNum && v.amount > 0){
-        let a = v.amount;
-        let u = v.unit;
-        if(u==='g' && a>=1000){ a = (a/1000).toFixed(2).replace(/\.?0+$/,''); u='kg'; }
-        else if(u==='ml' && a>=1000){ a = (a/1000).toFixed(2).replace(/\.?0+$/,''); u='l'; }
-        else if(Number.isInteger(a)){ a = a.toString(); }
-        else { a = a.toFixed(1).replace(/\.0$/,''); }
-        amtStr = `${a}${u?' '+u:''}`;
-      } else {
-        amtStr = v.items.join(' + ');
-      }
-      const checked = (JSON.parse(localStorage.getItem('shopChecked')||'[]')).includes(itemId);
-      h += `<div class="shop-item ${checked?'checked':''}" id="${itemId}" onclick="toggleShop('${itemId}')">
-        <div class="shop-item-check"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2.5" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-        <div class="shop-item-text">${n}</div>
-        <div class="shop-item-amt">${amtStr}</div>
-      </div>`;
-    });
-  });
-  h += `</div>`;
-  c.innerHTML = h;
-}
-function toggleShop(id){
-  let arr = JSON.parse(localStorage.getItem('shopChecked')||'[]');
-  if(arr.includes(id)) arr = arr.filter(x=>x!==id); else arr.push(id);
-  localStorage.setItem('shopChecked', JSON.stringify(arr));
-  document.getElementById(id).classList.toggle('checked');
-}
-
-// ─────────── HEUTE ───────────
-const DAYS = {
+// ─────────── ERNÄHRUNG DATA ───────────
+const ERN = {
   mo: {
-    name:'Montag', kind:'Trainingstag · abends',
-    macros:{kcal:1870, p:165, c:175, f:55},
+    title:'Montag · Trainingstag',
+    fasten:'16:8 · 11–19 Uhr · Sport abends',
+    total:2100,
     slots:[
-      {t:'bis 11:00', l:'Fasten', d:'Wasser, schwarzer Kaffee, ungesüßter Tee', fast:true},
-      {t:'11:00', l:'Fastenbrecher', d:'Sheiko Shake mit Milch', k:220},
-      {t:'12:00', l:'Mittagessen mit Familie', d:'Hauptmahlzeit (siehe Rezepte)', k:500},
-      {t:'13:30', l:'Whey-Snack', d:'ESN Whey + Wasser', k:120},
-      {t:'14:00', l:'Iced Coffee', d:'More Nutrition (Cut-off!)', k:50},
-      {t:'14:30', l:'Snack', d:'Quark + Beeren / Putenbrust / Gemüse', k:180},
-      {t:'17:15', l:'Pre-Workout', d:'Banane 120 g + 15 g Whey + 1 Reiswaffel oder 30 g Hafer', k:280},
-      {t:'18:00', l:'PHA Training', d:'Montag · Zirkel A + B', k:0, train:true},
-      {t:'19:00', l:'Post-WO + Abendessen', d:'ESN Whey sofort + Hauptmahlzeit', k:520},
-      {t:'19:30', l:'Fastenstart', d:'', fast:true},
-    ],
-  },
-  di: {
-    name:'Dienstag', kind:'Ruhetag',
-    macros:{kcal:1425, p:135, c:100, f:53},
-    slots:[
-      {t:'bis 11:00', l:'Fasten', d:'Wasser, schwarzer Kaffee, ungesüßter Tee', fast:true},
-      {t:'11:00', l:'Fastenbrecher', d:'ESN Whey + Wasser', k:120},
-      {t:'12:00', l:'Mittagessen', d:'Hauptmahlzeit', k:430},
-      {t:'13:30', l:'Whey-Snack', d:'ESN Whey + Wasser', k:120},
-      {t:'14:00', l:'Iced Coffee', d:'More Nutrition (Cut-off!)', k:50},
-      {t:'14:30', l:'Snack', d:'Quark + Beeren / Putenbrust / Gemüse', k:150},
-      {t:'18:00', l:'Abendessen', d:'Weniger Carbs (kein Reis, weniger Kartoffeln)', k:450},
-      {t:'19:00', l:'Fastenstart', d:'', fast:true},
+      {time:'7–11', label:'Fasten', desc:'Wasser · schwarzer Kaffee · Espresso', kcal:null, type:'fast'},
+      {time:'11:00', label:'M1', desc:'200 g Skyr + 60 g Hafer + Beeren + 20 g Mandeln', kcal:600},
+      {time:'14:00', label:'M2', desc:'150 g Hähnchen + 80 g Reis/Quinoa + Gemüse + 1 EL Olivenöl', kcal:650},
+      {time:'17:15', label:'Pre-WO', desc:'Banane + 150 g Skyr', kcal:150},
+      {time:'18–19', label:'Training', desc:'', kcal:null, type:'train'},
+      {time:'19:30', label:'Post-WO', desc:'150 g Lachs + 200 g Kartoffeln + Salat + Avocado', kcal:700},
     ],
   },
   mi: {
-    name:'Mittwoch', kind:'Trainingstag · morgens',
-    macros:{kcal:1870, p:165, c:175, f:55},
+    title:'Mittwoch · Trainingstag',
+    fasten:'13:11 · 6–19 Uhr · Sport morgens',
+    total:2100,
     slots:[
-      {t:'06:00', l:'Pre-Workout', d:'15–20 g Whey + ½ Banane + 1 Reiswaffel oder 30 g Hafer', k:250},
-      {t:'07:00', l:'PHA Training', d:'Mittwoch · Zirkel A + B', k:0, train:true},
-      {t:'08:30', l:'Post-Workout Shake', d:'ESN Whey + Wasser', k:120},
-      {t:'11:00', l:'Fastenbrecher', d:'Sheiko Shake mit Milch', k:220},
-      {t:'12:00', l:'Mittagessen mit Familie', d:'Hauptmahlzeit', k:500},
-      {t:'14:00', l:'Iced Coffee', d:'More Nutrition (Cut-off!)', k:50},
-      {t:'14:30', l:'Snack', d:'Quark + Beeren / Putenbrust / Gemüse', k:180},
-      {t:'18:00', l:'Abendessen mit Familie', d:'Hauptmahlzeit', k:550},
-      {t:'19:00', l:'Fastenstart', d:'', fast:true},
-    ],
-  },
-  do: {
-    name:'Donnerstag', kind:'Ruhetag · Mobility/Yoga',
-    macros:{kcal:1425, p:135, c:100, f:53},
-    slots:[
-      {t:'bis 11:00', l:'Fasten', d:'Wasser, schwarzer Kaffee, ungesüßter Tee', fast:true},
-      {t:'11:00', l:'Fastenbrecher', d:'ESN Whey + Wasser', k:120},
-      {t:'12:00', l:'Mittagessen', d:'Hauptmahlzeit', k:430},
-      {t:'13:30', l:'Whey-Snack', d:'ESN Whey + Wasser', k:120},
-      {t:'14:00', l:'Iced Coffee', d:'More Nutrition (Cut-off!)', k:50},
-      {t:'14:30', l:'Snack', d:'Quark + Beeren / Putenbrust / Gemüse', k:150},
-      {t:'18:00', l:'Abendessen', d:'Weniger Carbs', k:450},
-      {t:'19:00', l:'Fastenstart', d:'', fast:true},
-    ],
-  },
-  fr: {
-    name:'Freitag', kind:'Ruhetag',
-    macros:{kcal:1425, p:135, c:100, f:53},
-    slots:[
-      {t:'bis 11:00', l:'Fasten', d:'Wasser, schwarzer Kaffee, ungesüßter Tee', fast:true},
-      {t:'11:00', l:'Fastenbrecher', d:'ESN Whey + Wasser', k:120},
-      {t:'12:00', l:'Mittagessen', d:'Hauptmahlzeit', k:430},
-      {t:'13:30', l:'Whey-Snack', d:'ESN Whey + Wasser', k:120},
-      {t:'14:00', l:'Iced Coffee', d:'More Nutrition (Cut-off!)', k:50},
-      {t:'14:30', l:'Snack', d:'Quark + Beeren / Putenbrust / Gemüse', k:150},
-      {t:'18:00', l:'Abendessen', d:'Weniger Carbs', k:450},
-      {t:'19:00', l:'Fastenstart', d:'', fast:true},
+      {time:'6:00', label:'Pre-WO', desc:'½ Banane + 30 g Hafer + 100 g Skyr', kcal:200},
+      {time:'6:45–8:15', label:'Training', desc:'', kcal:null, type:'train'},
+      {time:'8:30', label:'M1', desc:'3 Eier Rührei + 2 Scheiben Vollkornbrot + Tomate/Avocado', kcal:650},
+      {time:'12:30', label:'M2', desc:'150 g Pute + 80 g Reis + Gemüse + 1 EL Olivenöl', kcal:700},
+      {time:'16:00', label:'Snack', desc:'200 g Quark + Beeren + 15 g Nüsse', kcal:250},
+      {time:'18:30', label:'M3', desc:'Linsen-Bowl mit Gemüse · oder weißer Fisch + Gemüse', kcal:400},
     ],
   },
   sa: {
-    name:'Samstag', kind:'Trainingstag · morgens',
-    macros:{kcal:1870, p:165, c:175, f:55},
+    title:'Samstag · Trainingstag',
+    fasten:'13:11 · 7–19 Uhr · Sport morgens',
+    total:2100,
     slots:[
-      {t:'07:30', l:'Pre-Workout', d:'15–20 g Whey + ½ Banane + 1 Reiswaffel oder 30 g Hafer', k:250},
-      {t:'08:30', l:'PHA Training', d:'Samstag · Heavy Glute', k:0, train:true},
-      {t:'10:00', l:'Post-Workout Shake', d:'ESN Whey + Wasser', k:120},
-      {t:'11:00', l:'Fastenbrecher', d:'Sheiko Shake / Cottage Cheese Pancakes', k:220},
-      {t:'12:30', l:'Mittagessen mit Familie', d:'Hauptmahlzeit', k:500},
-      {t:'14:00', l:'Iced Coffee', d:'More Nutrition (Cut-off!)', k:50},
-      {t:'14:30', l:'Snack', d:'Quark + Beeren / Putenbrust / Gemüse', k:180},
-      {t:'18:00', l:'Abendessen mit Familie', d:'Hauptmahlzeit', k:550},
-      {t:'19:00', l:'Fastenstart', d:'', fast:true},
+      {time:'7:30', label:'Pre-WO', desc:'Banane + 40 g Hafer + Beeren + 150 g Skyr', kcal:250},
+      {time:'8:15–9:45', label:'Training', desc:'', kcal:null, type:'train'},
+      {time:'10:30', label:'M1', desc:'3 Eier Rührei + 2 Scheiben Vollkornbrot + Avocado', kcal:600},
+      {time:'13:30', label:'M2', desc:'150 g Hähnchen + 80 g Reis + Gemüse + Olivenöl', kcal:700},
+      {time:'16:30', label:'Snack', desc:'200 g Quark + Beeren + Nüsse', kcal:250},
+      {time:'18:30', label:'M3', desc:'150 g Lachs/Fisch + Gemüse + kleine Kartoffel-Portion', kcal:400},
     ],
   },
-  so: {
-    name:'Sonntag', kind:'Ruhetag · aktiver Familientag',
-    macros:{kcal:1425, p:135, c:100, f:53},
+  ruh: {
+    title:'Ruhetag',
+    fasten:'16:8 · 11–19 Uhr',
+    total:1900,
     slots:[
-      {t:'bis 11:00', l:'Fasten', d:'Wasser, schwarzer Kaffee, ungesüßter Tee', fast:true},
-      {t:'11:00', l:'Fastenbrecher', d:'ESN Whey + Wasser', k:120},
-      {t:'12:00', l:'Mittagessen', d:'Hauptmahlzeit', k:430},
-      {t:'13:30', l:'Whey-Snack', d:'ESN Whey + Wasser', k:120},
-      {t:'14:00', l:'Iced Coffee', d:'More Nutrition (Cut-off!)', k:50},
-      {t:'14:30', l:'Snack', d:'Quark + Beeren / Putenbrust / Gemüse', k:150},
-      {t:'18:00', l:'Abendessen', d:'Weniger Carbs', k:450},
-      {t:'19:00', l:'Fastenstart', d:'', fast:true},
+      {time:'7–11', label:'Fasten', desc:'Wasser · schwarzer Kaffee · Espresso', kcal:null, type:'fast'},
+      {time:'11:00', label:'M1', desc:'200 g Skyr + 40 g Hafer + Beeren + Nüsse', kcal:550},
+      {time:'14:00', label:'M2', desc:'150 g Protein + 60 g Reis/Quinoa + Gemüse + Olivenöl', kcal:700},
+      {time:'17:00', label:'Snack', desc:'Quark + Beeren · oder Hüttenkäse + Vollkorn-Cracker', kcal:200},
+      {time:'18:45', label:'M3', desc:'Linsen/Bohnen-Bowl · oder Eier + Gemüse + Avocado', kcal:450},
     ],
   },
 };
 
-const DAY_KEYS = ['mo','di','mi','do','fr','sa','so'];
-const DAY_LABELS = {mo:'Mo',di:'Di',mi:'Mi',do:'Do',fr:'Fr',sa:'Sa',so:'So'};
-let activeDay = null;
-
-function todayKey(){
-  const d = new Date().getDay(); // 0=Sun,1=Mon,...6=Sat
-  return ['so','mo','di','mi','do','fr','sa'][d];
-}
-
-function renderHeuteSelector(){
-  const today = todayKey();
-  document.getElementById('day-selector').innerHTML = DAY_KEYS.map(k =>
-    `<button data-d="${k}" class="${activeDay===k?'active':''} ${k===today?'today':''}">${DAY_LABELS[k]}</button>`
-  ).join('');
-  document.querySelectorAll('#day-selector button').forEach(b => b.onclick = () => {
-    activeDay = b.dataset.d; renderHeute();
-  });
-}
-
-function renderHeute(){
-  if(!activeDay) activeDay = todayKey();
-  renderHeuteSelector();
-  const d = DAYS[activeDay];
-  const sumKcal = d.slots.reduce((s,x)=>s+(x.k||0),0);
-  document.getElementById('day-summary').innerHTML = `
-    <div class="day-summary">
-      <div class="name">${d.name}</div>
-      <div class="meta">${d.kind}</div>
-      <div class="total">
-        <div class="kcal">${d.macros.kcal} kcal</div>
-        <div class="macros">${d.macros.p}g P · ${d.macros.c}g C · ${d.macros.f}g F</div>
-      </div>
-    </div>`;
-  let h = `<div class="timeline">`;
-  d.slots.forEach(s => {
-    const cls = s.train ? 'train' : (s.fast ? 'fast' : '');
-    const kcal = s.k ? `<div class="kcal">~${s.k} kcal</div>` : `<div></div>`;
-    h += `<div class="slot ${cls}">
-      <div class="time">${s.t}</div>
-      <div class="body">
-        <div class="label">${s.l}</div>
-        ${s.d ? `<div class="desc">${s.d}</div>` : ''}
-      </div>
+let currentErn='mo';
+function renderErn(){
+  const e = ERN[currentErn];
+  let h = `<div class="day-title">${e.title}</div>`;
+  h += `<div class="day-sub"><span class="fasten-pill">${e.fasten}</span></div>`;
+  e.slots.forEach(s => {
+    const cls = s.type ? ` ${s.type}` : '';
+    const kcal = s.kcal ? `<div class="kcal">~${s.kcal}</div>` : '<div></div>';
+    const desc = s.desc ? `<div class="desc">${s.desc}</div>` : '';
+    h += `<div class="slot${cls}">
+      <div class="time">${s.time}</div>
+      <div class="body"><div class="label">${s.label}</div>${desc}</div>
       ${kcal}
     </div>`;
   });
-  h += `</div>`;
-  h += `<div class="totals-bar">
-    <div><div class="v">${sumKcal}</div><div class="l">Slot-Summe</div></div>
-    <div><div class="v">${d.macros.p}g</div><div class="l">Protein</div></div>
-    <div><div class="v">${d.macros.c}g</div><div class="l">Carbs</div></div>
-    <div><div class="v">${d.macros.f}g</div><div class="l">Fett</div></div>
-  </div>`;
-  h += `<div class="muted" style="font-size:12px;text-align:center;margin-top:8px;line-height:1.5">
-    Slot-Summe = grobe Verteilung. Tagesziel ist <b style="color:var(--text)">${d.macros.kcal} kcal</b>; Mittag-/Abendessen flexibel je nach Rezept-Wahl.</div>`;
-  document.getElementById('day-timeline').innerHTML = h;
+  h += `<div class="totals-bar"><span class="l">Gesamt</span><span class="v">~${e.total} kcal</span></div>`;
+  document.getElementById('ern-content').innerHTML = h;
 }
-
-renderHeute();
-
-// Init
-renderFilters();
-renderRecipes();
-updateCartCount();
+document.querySelectorAll('#ernaehrung .day-tabs button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('#ernaehrung .day-tabs button').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active'); currentErn=b.dataset.e; renderErn();
+});
+renderErn();
 </script>
 </body>
 </html>
