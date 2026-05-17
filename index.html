@@ -151,6 +151,9 @@ h3{font-size:13px;margin:14px 0 8px;color:var(--accent2);font-weight:600;
 
 .fasten-pill{display:inline-block;background:rgba(34,197,94,.12);color:var(--accent);
   border-radius:14px;padding:3px 10px;font-size:12px;font-weight:600;
+  margin-bottom:10px;margin-right:6px;letter-spacing:.02em}
+.family-pill{display:inline-block;background:rgba(245,158,11,.12);color:var(--warn);
+  border-radius:14px;padding:3px 10px;font-size:12px;font-weight:600;
   margin-bottom:10px;letter-spacing:.02em}
 
 .slot{display:grid;grid-template-columns:62px 1fr auto;gap:10px;
@@ -235,8 +238,9 @@ h3{font-size:13px;margin:14px 0 8px;color:var(--accent2);font-weight:600;
       <tr><td>Abduktor</td><td>4×15 ohne Brennen → <b>+2,5 kg</b></td></tr>
       <tr><td>BB RDL</td><td>4×8 sauber → <b>+2,5 kg</b> (Ziel ~60–65 kg)</td></tr>
       <tr><td>Glute Squat</td><td>letzte 2 Wdh nicht mehr brennen → <b>+5 kg</b></td></tr>
-      <tr><td>DB Übungen</td><td>8 Wdh ohne Brennen → <b>+1 Stufe</b></td></tr>
+      <tr><td>DB Übungen</td><td>8 Wdh ohne Brennen → <b>nächste 2-kg-Stufe</b></td></tr>
     </table>
+    <p class="muted" style="margin:10px 0 0;font-size:12.5px">DB verfügbar: 2 · 4 · 6 · 8 · 10 · 12 · 14 · 16 · 18 · 20 kg</p>
   </div>
 
   <div class="info-block">
@@ -280,23 +284,6 @@ h3{font-size:13px;margin:14px 0 8px;color:var(--accent2);font-weight:600;
     </ul>
   </div>
 
-  <div class="info-block">
-    <h3>Schlaf & Visceralfett</h3>
-    <ul>
-      <li>7,5–8 h Schlaf · Magnesium-Glycinat optional abends</li>
-      <li>5 min Zwerchfellatmung morgens · 10–20 min Spaziergang nach Mittag</li>
-      <li>Lösliche Ballaststoffe: 10 g extra/Tag = 3,7 % weniger Visceralfett über 5 Jahre (Hafer · Flohsamen · Beeren · Hülsenfrüchte)</li>
-    </ul>
-  </div>
-
-  <div class="info-block">
-    <h3>Persönlich</h3>
-    <table>
-      <tr><td>Daten</td><td>42 J · 1,62 m · 63 kg → <b>halten</b></td></tr>
-      <tr><td>No-go</td><td>Schwein · Koriander · Aubergine</td></tr>
-      <tr><td>Lachs</td><td>nur für Jana</td></tr>
-    </table>
-  </div>
 </section>
 
 </main>
@@ -349,7 +336,7 @@ document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>{
 // ─────────── TRAINING DATA ───────────
 const TRAINING = {
   0: { // Montag
-    title:'Montag · Heavy Glutes & Bauch',
+    title:'Montag · Heavy Glutes & Bauch · Gym ~16 Uhr',
     warmup:['Hüftmobilisation','Bootstrapper','Banded Glute Bridge','Clamshells'],
     cooldown:['Po dehnen','Hamstrings dehnen','Hüftbeuger dehnen'],
     circuits:[
@@ -361,27 +348,27 @@ const TRAINING = {
       ]},
       {label:'Zirkel B', meta:'3 Runden Bauch · Pause 45 s', rounds:3, exercises:[
         {name:'Reverse Crunch', reps:'15 Wdh'},
-        {name:'Dead Bug mit KH', weight:'4–6 kg', reps:'10 / Seite'},
-        {name:'Russian Twist mit KH', weight:'5–8 kg', reps:'12 / Seite'},
+        {name:'Dead Bug mit KH', weight:'4 kg', reps:'10 / Seite'},
+        {name:'Russian Twist mit KH', weight:'6 kg', reps:'12 / Seite'},
         {name:'Side Plank Hüftheben (Ellbogenstütz)', reps:'10 / Seite'},
       ]},
     ],
   },
   1: { // Mittwoch
-    title:'Mittwoch · Upper Body Push & Pull',
+    title:'Mittwoch · Upper Body Push & Pull · Gym morgens',
     warmup:['Schulter-Mobilisation','Armkreisen','Band Pull-Aparts','Scapular Retraction'],
     cooldown:['Brust & Schulter dehnen','Latissimus dehnen'],
     circuits:[
       {label:'Zirkel A', meta:'4 Runden · schwer', rounds:4, exercises:[
-        {name:'DB Shoulder Press (neutraler Griff, sitzend)', weight:'2× 10–12,5 kg', reps:'4 × 8', pause:'90 s'},
+        {name:'DB Shoulder Press (neutraler Griff, sitzend)', weight:'2× 10–12 kg', reps:'4 × 8', pause:'90 s'},
         {name:'KB Gorilla Row (Wrist Wraps)', weight:'16–20 kg', reps:'4 × 10 / Seite', pause:'90 s'},
       ]},
       {label:'Zirkel B', meta:'3 Runden Akzessoir · Pause 45 s', rounds:3, exercises:[
-        {name:'DB Floor Press (neutraler Griff)', weight:'2× 10–12,5 kg', reps:'10–12 Wdh'},
-        {name:'DB Lateral Raise', weight:'2× 5–7,5 kg', reps:'15 Wdh'},
-        {name:'DB Hammer Curls (Daumen oben)', weight:'2× 7,5–10 kg', reps:'12 Wdh'},
-        {name:'DB Tricep Kickbacks', weight:'4–7 kg', reps:'12 / Seite'},
-        {name:'DB Reverse Fly', weight:'2× 3–6 kg', reps:'15 Wdh'},
+        {name:'DB Floor Press (neutraler Griff)', weight:'2× 10–12 kg', reps:'10–12 Wdh'},
+        {name:'DB Lateral Raise', weight:'2× 6 kg', reps:'15 Wdh'},
+        {name:'DB Hammer Curls (Daumen oben)', weight:'2× 8–10 kg', reps:'12 Wdh'},
+        {name:'DB Tricep Kickbacks', weight:'4–6 kg', reps:'12 / Seite'},
+        {name:'DB Reverse Fly', weight:'2× 4 kg', reps:'15 Wdh'},
       ]},
       {label:'Zirkel C', meta:'3 Runden Bauch', rounds:3, exercises:[
         {name:'Sit-up auf Bank (Füße fixiert)', reps:'12–15 Wdh'},
@@ -391,13 +378,13 @@ const TRAINING = {
     ],
   },
   2: { // Samstag
-    title:'Samstag · Glute Accessory & Bauch',
+    title:'Samstag · Glute Accessory & Bauch · Gym ~8/9 Uhr',
     pre:'Pre-Workout 7:30 · Banane + 40 g Hafer + Beeren + 150 g Skyr',
     warmup:['Hüftmobilisation','Banded Glute Bridge','leichte Squats ohne Gewicht'],
     cooldown:['Po dehnen','Hamstrings dehnen','Adduktoren dehnen'],
     circuits:[
       {label:'Zirkel A', meta:'schwer · zweiter Glute-Reiz aus anderem Winkel', rounds:4, exercises:[
-        {name:'GluteBuilder Glute Squat (Back Squat)', weight:'letzte 2 Wdh brennen', reps:'4 × 8', pause:'2 Min'},
+        {name:'GluteBuilder Glute Squat (Back Squat)', weight:'60 kg', reps:'4 × 8', pause:'2 Min', note:'letzte 2 Wdh sollen brennen'},
         {name:'DB Bulgarian Split Squat (Hanteln seitlich)', weight:'2× 10 kg', reps:'3 × 8–10 / Seite', pause:'90 s'},
         {name:'DB Frog Pump (Hantel auf Hüfte)', weight:'15–20 kg', reps:'3 × 15', pause:'60 s'},
         {name:'KB Single-Leg RDL', weight:'12–16 kg', reps:'3 × 10 / Seite', pause:'60 s'},
@@ -405,7 +392,7 @@ const TRAINING = {
       {label:'Zirkel B', meta:'3 Runden Bauch', rounds:3, exercises:[
         {name:"Toes-to-Bar Captain's Chair (Unterarmstütz)", reps:'10–12 Wdh'},
         {name:'Crunch auf dem Boden', reps:'15–20 Wdh'},
-        {name:'Russian Twist mit KH', reps:'12 / Seite'},
+        {name:'Russian Twist mit KH', weight:'6 kg', reps:'12 / Seite'},
         {name:'Stomach Vacuum', reps:'3× 40 s'},
       ]},
     ],
@@ -461,54 +448,56 @@ renderDay();
 // ─────────── ERNÄHRUNG DATA ───────────
 const ERN = {
   mo: {
-    title:'Montag · Trainingstag',
-    fasten:'16:8 · 11–19 Uhr · Sport abends',
-    total:2100,
+    title:'Montag · Trainingstag · Gym ~16 Uhr',
+    fasten:'16:8 · isst 11–19 Uhr',
+    total:2230,
     slots:[
-      {time:'7–11', label:'Fasten', desc:'Wasser · schwarzer Kaffee · Espresso', kcal:null, type:'fast'},
-      {time:'11:00', label:'M1', desc:'200 g Skyr + 60 g Hafer + Beeren + 20 g Mandeln', kcal:600},
-      {time:'14:00', label:'M2', desc:'150 g Hähnchen + 80 g Reis/Quinoa + Gemüse + 1 EL Olivenöl', kcal:650},
-      {time:'17:15', label:'Pre-WO', desc:'Banane + 150 g Skyr', kcal:150},
-      {time:'18–19', label:'Training', desc:'', kcal:null, type:'train'},
-      {time:'19:30', label:'Post-WO', desc:'150 g Lachs + 200 g Kartoffeln + Salat + Avocado', kcal:700},
+      {time:'11:00', label:'M1', desc:'Skyr-Bowl: 200 g Skyr + 60 g Hafer + Beeren + 20 g Mandeln', kcal:600},
+      {time:'12:00', label:'M2 · Familie', desc:'Familienessen', kcal:650},
+      {time:'15:00', label:'Pre-WO', desc:'Banane + Skyr + Reiswaffel', kcal:250},
+      {time:'16:00–17:30', label:'Training', desc:'', kcal:null, type:'train'},
+      {time:'18:00', label:'M3 · Familie / Post-WO', desc:'150 g Lachs + 200 g Kartoffeln + Salat + Avocado', kcal:730},
+      {time:'ab 19:00', label:'Fastenstart', desc:'19–11 Uhr Fasten', kcal:null, type:'fast'},
     ],
   },
   mi: {
-    title:'Mittwoch · Trainingstag',
-    fasten:'13:11 · 6–19 Uhr · Sport morgens',
-    total:2100,
+    title:'Mittwoch · Trainingstag · Gym morgens',
+    fasten:'13:11 · isst 6–19 Uhr',
+    total:2200,
     slots:[
       {time:'6:00', label:'Pre-WO', desc:'½ Banane + 30 g Hafer + 100 g Skyr', kcal:200},
       {time:'6:45–8:15', label:'Training', desc:'', kcal:null, type:'train'},
-      {time:'8:30', label:'M1', desc:'3 Eier Rührei + 2 Scheiben Vollkornbrot + Tomate/Avocado', kcal:650},
-      {time:'12:30', label:'M2', desc:'150 g Pute + 80 g Reis + Gemüse + 1 EL Olivenöl', kcal:700},
+      {time:'9:00', label:'M1 · Post-WO', desc:'3 Eier Rührei + 2 Scheiben Vollkornbrot + Tomate/Avocado', kcal:650},
+      {time:'12:00', label:'M2 · Familie', desc:'Familienessen · 150 g Pute + 80 g Reis + Gemüse + 1 EL Olivenöl', kcal:700},
       {time:'16:00', label:'Snack', desc:'200 g Quark + Beeren + 15 g Nüsse', kcal:250},
-      {time:'18:30', label:'M3', desc:'Linsen-Bowl mit Gemüse · oder weißer Fisch + Gemüse', kcal:400},
+      {time:'18:00', label:'M3 · Familie', desc:'Familienessen · Linsen-Bowl · oder weißer Fisch + Gemüse', kcal:400},
+      {time:'ab 19:00', label:'Fastenstart', desc:'19–6 Uhr Fasten', kcal:null, type:'fast'},
     ],
   },
   sa: {
-    title:'Samstag · Trainingstag',
-    fasten:'13:11 · 7–19 Uhr · Sport morgens',
-    total:2100,
+    title:'Samstag · Trainingstag · Gym ~8/9 Uhr',
+    fasten:'13:11 · isst 7–19 Uhr',
+    total:2200,
     slots:[
       {time:'7:30', label:'Pre-WO', desc:'Banane + 40 g Hafer + Beeren + 150 g Skyr', kcal:250},
       {time:'8:15–9:45', label:'Training', desc:'', kcal:null, type:'train'},
-      {time:'10:30', label:'M1', desc:'3 Eier Rührei + 2 Scheiben Vollkornbrot + Avocado', kcal:600},
-      {time:'13:30', label:'M2', desc:'150 g Hähnchen + 80 g Reis + Gemüse + Olivenöl', kcal:700},
+      {time:'10:30', label:'M1 · Post-WO', desc:'3 Eier Rührei + 2 Scheiben Vollkornbrot + Avocado', kcal:600},
+      {time:'12:00', label:'M2 · Familie', desc:'Familienessen · 150 g Hähnchen + 80 g Reis + Gemüse + Olivenöl', kcal:700},
       {time:'16:30', label:'Snack', desc:'200 g Quark + Beeren + Nüsse', kcal:250},
-      {time:'18:30', label:'M3', desc:'150 g Lachs/Fisch + Gemüse + kleine Kartoffel-Portion', kcal:400},
+      {time:'18:00', label:'M3 · Familie', desc:'Familienessen · 150 g Lachs/Fisch + Gemüse + kleine Kartoffel-Portion', kcal:400},
+      {time:'ab 19:00', label:'Fastenstart', desc:'19–7 Uhr Fasten', kcal:null, type:'fast'},
     ],
   },
   ruh: {
     title:'Ruhetag',
-    fasten:'16:8 · 11–19 Uhr',
-    total:1900,
+    fasten:'16:8 · isst 11–19 Uhr',
+    total:1850,
     slots:[
-      {time:'7–11', label:'Fasten', desc:'Wasser · schwarzer Kaffee · Espresso', kcal:null, type:'fast'},
-      {time:'11:00', label:'M1', desc:'200 g Skyr + 40 g Hafer + Beeren + Nüsse', kcal:550},
-      {time:'14:00', label:'M2', desc:'150 g Protein + 60 g Reis/Quinoa + Gemüse + Olivenöl', kcal:700},
+      {time:'11:00', label:'M1', desc:'200 g Skyr + 40 g Hafer + Beeren + Nüsse', kcal:500},
+      {time:'12:00', label:'M2 · Familie', desc:'Familienessen · 150 g Protein + 60 g Reis/Quinoa + Gemüse + Olivenöl', kcal:650},
       {time:'17:00', label:'Snack', desc:'Quark + Beeren · oder Hüttenkäse + Vollkorn-Cracker', kcal:200},
-      {time:'18:45', label:'M3', desc:'Linsen/Bohnen-Bowl · oder Eier + Gemüse + Avocado', kcal:450},
+      {time:'18:00', label:'M3 · Familie', desc:'Familienessen · Linsen/Bohnen-Bowl · oder Eier + Gemüse + Avocado', kcal:500},
+      {time:'ab 19:00', label:'Fastenstart', desc:'19–11 Uhr Fasten', kcal:null, type:'fast'},
     ],
   },
 };
@@ -517,7 +506,7 @@ let currentErn='mo';
 function renderErn(){
   const e = ERN[currentErn];
   let h = `<div class="day-title">${e.title}</div>`;
-  h += `<div class="day-sub"><span class="fasten-pill">${e.fasten}</span></div>`;
+  h += `<div class="day-sub"><span class="fasten-pill">${e.fasten}</span><span class="family-pill">Familie: 12 · 18 Uhr</span></div>`;
   e.slots.forEach(s => {
     const cls = s.type ? ` ${s.type}` : '';
     const kcal = s.kcal ? `<div class="kcal">~${s.kcal}</div>` : '<div></div>';
