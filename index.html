@@ -142,46 +142,11 @@ h3{font-size:13px;margin:14px 0 8px;color:var(--accent2);font-weight:600;
 .warn-block{background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.3)}
 .warn-block h3{color:var(--warn)}
 
-/* ERNÄHRUNG - Timeline */
-.macros-card{background:var(--card2);border:1px solid var(--line);border-radius:10px;
-  padding:12px 14px;margin-bottom:14px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.macros-card .col{}
-.macros-card .col .head{font-size:11.5px;color:var(--accent2);
-  text-transform:uppercase;letter-spacing:.06em;font-weight:600;margin-bottom:4px}
-.macros-card .col .kcal{font-size:18px;font-weight:700;color:var(--accent);
-  font-variant-numeric:tabular-nums;margin-bottom:4px}
-.macros-card .col .breakdown{font-size:12px;color:var(--muted);
-  font-variant-numeric:tabular-nums;line-height:1.5}
-
-.fasten-pill{display:inline-block;background:rgba(34,197,94,.12);color:var(--accent);
-  border-radius:14px;padding:3px 10px;font-size:12px;font-weight:600;
-  margin-bottom:10px;margin-right:6px;letter-spacing:.02em}
-.family-pill{display:inline-block;background:rgba(245,158,11,.12);color:var(--warn);
-  border-radius:14px;padding:3px 10px;font-size:12px;font-weight:600;
-  margin-bottom:10px;letter-spacing:.02em}
-
-.slot{display:grid;grid-template-columns:62px 1fr auto;gap:10px;
-  align-items:flex-start;padding:11px 12px;background:var(--card);
-  border:1px solid var(--line);border-radius:10px;margin-bottom:6px}
-.slot.train{border-color:var(--accent);background:rgba(34,197,94,.04)}
-.slot.fast{opacity:.55;background:transparent}
-.slot .time{font-size:13px;font-weight:700;color:var(--accent2);
-  font-variant-numeric:tabular-nums;line-height:1.4}
-.slot .body{min-width:0}
-.slot .label{font-size:14px;font-weight:600;line-height:1.3}
-.slot .desc{font-size:13px;color:var(--muted);margin-top:3px;line-height:1.4}
-.slot .kcal{font-size:12.5px;font-weight:700;color:var(--accent);
-  font-variant-numeric:tabular-nums;white-space:nowrap;align-self:flex-start;padding-top:1px}
-.slot.train .label::before{content:'🏋️ ';margin-right:2px}
-.slot.fast .label::before{content:'⏱️ ';margin-right:2px}
-
-.totals-bar{display:flex;justify-content:space-between;align-items:baseline;
-  margin-top:10px;padding:10px 14px;background:var(--card2);border:1px solid var(--line);
-  border-radius:10px}
-.totals-bar .l{font-size:11.5px;color:var(--muted);text-transform:uppercase;
-  letter-spacing:.06em;font-weight:600}
-.totals-bar .v{font-size:18px;font-weight:700;color:var(--accent);
-  font-variant-numeric:tabular-nums}
+/* OPTIONAL-Übungen */
+.ex-optional{border-style:dashed;background:transparent}
+.opt-tag{display:inline-block;background:rgba(167,173,191,.18);color:var(--accent2);
+  border-radius:5px;padding:1px 7px;font-size:10.5px;font-weight:700;
+  margin-left:6px;letter-spacing:.04em;text-transform:uppercase;vertical-align:middle}
 </style>
 </head>
 <body>
@@ -205,11 +170,6 @@ h3{font-size:13px;margin:14px 0 8px;color:var(--accent2);font-weight:600;
     <button class="preset" onclick="tSet(180)">3min</button>
   </div>
 </div>
-
-<nav>
-  <button data-tab="training" class="active">Training</button>
-  <button data-tab="ernaehrung">Ernährung</button>
-</nav>
 
 <main>
 
@@ -238,56 +198,29 @@ h3{font-size:13px;margin:14px 0 8px;color:var(--accent2);font-weight:600;
   <div class="info-block">
     <h3>Progression · 4–8 Wochen</h3>
     <table>
-      <tr><td>BB Hip Thrust</td><td>4×8 sauber → <b>+2,5 kg / Woche</b></td></tr>
+      <tr><td>Belt Squat Step-Up</td><td>4×10 sauber → <b>+2,5 kg / Woche</b></td></tr>
+      <tr><td>Glute Lunge (Reverse Lunge)</td><td>4×8 sauber → <b>+5 kg</b></td></tr>
       <tr><td>Abduktor</td><td>4×15 ohne Brennen → <b>+2,5 kg</b></td></tr>
-      <tr><td>BB RDL</td><td>4×8 sauber → <b>+2,5 kg</b> (Ziel ~60–65 kg)</td></tr>
-      <tr><td>Glute Squat</td><td>letzte 2 Wdh nicht mehr brennen → <b>+5 kg</b></td></tr>
+      <tr><td>BB RDL (am Glute Lunge)</td><td>4×8 sauber → <b>+2,5 kg</b> (Ziel ~60–65 kg)</td></tr>
+      <tr><td>Pendulum Kick-Back</td><td>letzte 2 Wdh nicht mehr brennen → <b>+5 kg</b></td></tr>
+      <tr><td>KB Sumo Deadlift</td><td>3×10 sauber → <b>nächste KB-Stufe</b></td></tr>
       <tr><td>DB Übungen</td><td>8 Wdh ohne Brennen → <b>nächste 2-kg-Stufe</b></td></tr>
     </table>
     <p class="muted" style="margin:10px 0 0;font-size:12.5px">DB verfügbar: 2 · 4 · 6 · 8 · 10 · 12 · 14 · 16 · 18 · 20 kg</p>
   </div>
 
   <div class="info-block">
-    <h3>Aktuelle Arbeitsgewichte · Mai 2026</h3>
+    <h3>Aktuelle Arbeitsgewichte · Stand jetzt</h3>
     <table>
-      <tr><td>BB Hip Thrust</td><td>4×8 @ <b>90 kg</b> · letzte 2 brannten</td></tr>
-      <tr><td>Abduktor</td><td>4×15 @ <b>30 kg</b> · letzte 3 brannten</td></tr>
-      <tr><td>BB RDL</td><td>4×6–8 @ <b>50 kg</b> · sehr schwer</td></tr>
+      <tr><td>Belt Squat Step-Up</td><td>4×10/Seite @ <b>40 kg</b> · neu, anpassen</td></tr>
+      <tr><td>Abduktor</td><td>4×15 @ <b>45 kg</b> · letzte 3 brannten bei 30, Progression auf 45</td></tr>
+      <tr><td>BB RDL (Glute Lunge)</td><td>4×6–8 @ <b>50 kg</b> · sehr schwer</td></tr>
+      <tr><td>Glute Lunge — Reverse Lunge</td><td>4×8/Seite @ <b>belt-loaded, anpassen</b></td></tr>
+      <tr><td>Pendulum Kick-Back</td><td>3×12–15/Seite @ <b>anpassen</b></td></tr>
+      <tr><td>KB Sumo Deadlift</td><td>3×8–10 @ <b>16–24 kg</b></td></tr>
+      <tr><td>BB Hip Thrust (optional, Mind-Muscle)</td><td>3×15 @ <b>40 kg</b> · leicht, Mind-Muscle-Fokus</td></tr>
     </table>
   </div>
-</section>
-
-<!-- ERNÄHRUNG -->
-<section id="ernaehrung">
-  <div class="day-tabs">
-    <button data-e="mo" class="active">Mo</button>
-    <button data-e="mi">Mi</button>
-    <button data-e="sa">Sa</button>
-    <button data-e="ruh">Ruhetag</button>
-  </div>
-  <div id="ern-content"></div>
-
-  <div class="info-block">
-    <h3>Makros · Übersicht</h3>
-    <table>
-      <tr><td>Trainingstag</td><td><b>~2.100 kcal</b> · 130–140 g P / 220–250 g C / 55–65 g F</td></tr>
-      <tr><td>Ruhetag</td><td><b>~1.900 kcal</b> · 130–140 g P / 150–170 g C / 55–65 g F</td></tr>
-    </table>
-  </div>
-
-  <div class="info-block">
-    <h3>Protein-Quellen · ohne Shake</h3>
-    <p class="muted" style="margin:0;font-size:13.5px">Skyr · Quark · Hüttenkäse · Eier · Hähnchen · Pute · Lachs · weißer Fisch · Linsen · Bohnen · Tofu · Tempeh · Edamame</p>
-  </div>
-
-  <div class="info-block">
-    <h3>Kaffee-Regeln</h3>
-    <ul>
-      <li><b>Cappuccino:</b> im Essensfenster jederzeit · vor dem Fenster → Espresso/schwarzer Kaffee</li>
-      <li><b>Iced Coffee:</b> Cut-off 14:00 (Schlaf = Visceralfett-Hebel)</li>
-    </ul>
-  </div>
-
 </section>
 
 </main>
@@ -344,26 +277,29 @@ function tSet(sec){
 tRender();
 document.querySelector('.preset').classList.add('active');
 
-// ─────────── NAV ───────────
-document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>{
-  document.querySelectorAll('nav button').forEach(x=>x.classList.remove('active'));
-  document.querySelectorAll('main>section').forEach(x=>x.classList.remove('active'));
-  b.classList.add('active');
-  document.getElementById(b.dataset.tab).classList.add('active');
-});
-
 // ─────────── TRAINING DATA ───────────
 const TRAINING = {
   0: { // Montag
     title:'Montag · Heavy Glutes & Bauch · Gym ~16 Uhr',
-    warmup:['Hüftmobilisation','Bootstrapper','Banded Glute Bridge','Clamshells'],
-    cooldown:['Po dehnen','Hamstrings dehnen','Hüftbeuger dehnen'],
+    warmup:[
+      'Banded Clamshells · 15 / Seite',
+      'Banded Glute Bridge · 20× mit 3-Sek-Halte oben',
+      'Hüftbeuger-Stretch tief · 30 s / Seite',
+      'BW Reverse Lunge langsam · 10 / Seite (Mind-Muscle)',
+    ],
+    cooldown:[
+      'Pigeon Pose · 45 s / Seite',
+      'Liegender Hamstring-Stretch · 30 s / Seite',
+      'Tiefer Ausfallschritt + Hüftbeuger · 45 s / Seite',
+      'Supine Twist · 30 s / Seite',
+    ],
     circuits:[
       {label:'Zirkel A', meta:'4 Runden · schwer mit Pausen (KEIN Zirkel)', rounds:4, exercises:[
-        {name:'BB Hip Thrust (GluteBuilder)', weight:'90 kg', reps:'4 × 6–8', pause:'2 Min'},
+        {name:'Belt Squat Step-Up (Glute Builder)', weight:'40 kg', reps:'4 × 10 / Seite', pause:'2 Min', note:'Glute-Hauptübung · belt-loaded, wrist-frei'},
         {name:'Clamshells Medium Band', weight:'zwischen Sätzen', reps:'15 / Seite', note:'aktiviert Glute medius'},
         {name:'Abduktor-Maschine (vorgelehnt 30–45°)', weight:'45 kg', reps:'4 × 12', pause:'60–90 s'},
-        {name:'BB Romanian Deadlift (Zughilfen)', weight:'50 kg', reps:'4 × 6–8', pause:'2 Min'},
+        {name:'BB Romanian Deadlift (am Glute Builder Glute Lunge · Zughilfen)', weight:'50 kg', reps:'4 × 6–8', pause:'2 Min'},
+        {name:'BB Hip Thrust LEICHT (Mind-Muscle-Slot)', weight:'40 kg', reps:'3 × 15', pause:'90 s', note:'OPTIONAL · oben 2 Sek aktiv zusammendrücken · Füße so weit weg, dass Schienbeine in Endposition senkrecht stehen', optional:true},
       ]},
       {label:'Zirkel B', meta:'3 Runden Bauch · Pause 45 s', rounds:3, exercises:[
         {name:'Reverse Crunch', reps:'15 Wdh'},
@@ -375,8 +311,19 @@ const TRAINING = {
   },
   1: { // Mittwoch
     title:'Mittwoch · Upper Body Push & Pull · Gym morgens',
-    warmup:['Schulter-Mobilisation','Armkreisen','Band Pull-Aparts','Scapular Retraction'],
-    cooldown:['Brust & Schulter dehnen','Latissimus dehnen'],
+    warmup:[
+      'Armkreisen vor + zurück · 10 je Richtung',
+      'Schulterkreisen · 10 je Richtung',
+      'Band Pull-Aparts · 15 Wdh',
+      'Scapular Retraction (sitzend) · 10 Wdh',
+      'Brust öffnen am Türrahmen · 30 s / Seite',
+    ],
+    cooldown:[
+      'Brust-Dehnung an der Wand · 30 s / Seite',
+      'Latissimus-Dehnung über Kopf · 30 s / Seite',
+      'Schulter-Cross-Stretch · 30 s / Seite',
+      'Katze-Kuh · 10 Wiederholungen',
+    ],
     circuits:[
       {label:'Zirkel A', meta:'4 Runden · schwer', rounds:4, exercises:[
         {name:'DB Shoulder Press (neutraler Griff, sitzend)', weight:'2× 10–12 kg', reps:'4 × 8', pause:'90 s'},
@@ -399,25 +346,35 @@ const TRAINING = {
   2: { // Samstag
     title:'Samstag · Glute Accessory & Bauch · Gym ~8/9 Uhr',
     pre:'Pre-Workout 7:30 · Banane + 40 g Hafer + Beeren + 150 g Skyr',
-    warmup:['Hüftmobilisation','Banded Glute Bridge','leichte Squats ohne Gewicht'],
-    cooldown:['Po dehnen','Hamstrings dehnen','Adduktoren dehnen'],
+    warmup:[
+      'Banded Clamshells · 15 / Seite',
+      'Banded Glute Bridge · 20× mit 3-Sek-Halte oben',
+      'Hüftbeuger-Stretch tief · 30 s / Seite',
+      'BW Squat · 10 Wdh langsam',
+    ],
+    cooldown:[
+      'Pigeon Pose · 60 s / Seite',
+      'Adduktoren-Dehnung (Grätsche) · 45 s',
+      'Liegender Hamstring-Stretch · 30 s / Seite',
+      'Tiefer Ausfallschritt + Hüftbeuger · 45 s / Seite',
+    ],
     circuits:[
-      {label:'Zirkel A', meta:'schwer · zweiter Glute-Reiz aus anderem Winkel', rounds:4, exercises:[
-        {name:'GluteBuilder Glute Squat (Back Squat)', weight:'75 kg', reps:'4 × 8', pause:'2 Min', note:'letzte 2 Wdh sollen brennen'},
-        {name:'DB Bulgarian Split Squat (Hanteln seitlich)', weight:'2× 10 kg', reps:'3 × 8–10 / Seite', pause:'90 s'},
-        {name:'DB Frog Pump (Hantel auf Hüfte)', weight:'15–20 kg', reps:'3 × 15', pause:'60 s'},
-        {name:'KB Single-Leg RDL', weight:'12–16 kg', reps:'3 × 10 / Seite', pause:'60 s'},
+      {label:'Zirkel A', meta:'4 Runden · schwer · zweiter Glute-Reiz aus anderem Winkel', rounds:4, exercises:[
+        {name:'Glute Lunge — Reverse Lunge (Glute Builder) HEAVY', weight:'belt-loaded', reps:'4 × 8 / Seite', pause:'2 Min', note:'schwerer als Mi · belt-loaded · letzte 2 Wdh sollen brennen'},
+        {name:'Pendulum Kick-Back (Glute Builder)', weight:'mittel', reps:'3 × 12–15 / Seite', pause:'90 s', note:'3 Sek Exzentrik · oben 1–2 Sek halten · Po aktiv zusammendrücken'},
+        {name:'KB Sumo Deadlift', weight:'16–24 kg', reps:'3 × 8–10', pause:'90 s', note:'Sumo-Stance · Knie auswärts · Wrist Wraps + Zughilfen'},
+        {name:'BW Single-Leg Glute Bridge auf Bench', weight:'BW', reps:'3 × 12 / Seite', pause:'60 s', note:'Fuß auf erhöhter Bench · oben 2 Sek halten · Po fest zusammendrücken'},
       ]},
       {label:'Mini Upper', meta:'10–15 Min · 3 Runden · zwischen Glute und Bauch', rounds:3, exercises:[
         {name:'DB Hammer Curls', weight:'2× 6 kg', reps:'3 × 10'},
         {name:'DB Tricep Kickbacks / DB Skullcrusher', weight:'2–4 kg', reps:'3 × 12'},
-        {name:'KB Single-Arm Row', weight:'10–12 kg', reps:'3 × 10 / Seite', note:'optional'},
+        {name:'KB Single-Arm Row', weight:'10–12 kg', reps:'3 × 10 / Seite', note:'optional', optional:true},
       ]},
       {label:'Zirkel B', meta:'3 Runden Bauch', rounds:3, exercises:[
         {name:"Toes-to-Bar Captain's Chair (Unterarmstütz)", reps:'10–12 Wdh'},
         {name:'Crunch auf dem Boden', reps:'15–20 Wdh'},
         {name:'Russian Twist mit KH', weight:'6 kg', reps:'12 / Seite'},
-        {name:'Hollow Hold', reps:'3× 30–40 s'},
+        {name:'Hollow Hold', reps:'3 × 30–40 s'},
       ]},
     ],
   },
@@ -463,10 +420,12 @@ function renderDay(){
       }
       const p = ex.pause ? `<span class="tag-pause">⏱ ${ex.pause}</span>` : '';
       const n = ex.note ? `<div class="note">${ex.note}</div>` : '';
-      h += `<div class="ex" id="${id}" onclick="toggleEx(this)">
+      const isOpt = ex.optional === true;
+      const optTag = isOpt ? ' <span class="opt-tag">optional</span>' : '';
+      h += `<div class="ex${isOpt?' ex-optional':''}" id="${id}" onclick="toggleEx(this)">
         <div class="ex-check"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2.5" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div>
         <div class="ex-body">
-          <div class="ex-name">${ex.name}</div>
+          <div class="ex-name">${ex.name}${optTag}</div>
           <div class="ex-meta">${w}${ex.reps}${p}</div>
           ${n}
         </div>
@@ -487,87 +446,6 @@ document.querySelectorAll('#training .day-tabs button').forEach(b=>b.onclick=()=
   b.classList.add('active'); currentDay=+b.dataset.d; renderDay();
 });
 renderDay();
-
-// ─────────── ERNÄHRUNG DATA ───────────
-const ERN = {
-  mo: {
-    title:'Montag · Trainingstag · Gym ~16 Uhr',
-    fasten:'16:8 · isst 11–19 Uhr',
-    total:2230,
-    slots:[
-      {time:'11:00', label:'M1', desc:'Skyr-Bowl: 200 g Skyr + 60 g Hafer + Beeren + 20 g Mandeln', kcal:600},
-      {time:'12:00', label:'M2 · Familie', desc:'Familienessen', kcal:650},
-      {time:'15:00', label:'Pre-WO', desc:'Banane + Skyr + Reiswaffel', kcal:250},
-      {time:'16:00–17:30', label:'Training', desc:'', kcal:null, type:'train'},
-      {time:'18:00', label:'M3 · Familie / Post-WO', desc:'150 g Lachs + 200 g Kartoffeln + Salat + Avocado', kcal:730},
-      {time:'ab 19:00', label:'Fastenstart', desc:'19–11 Uhr Fasten', kcal:null, type:'fast'},
-    ],
-  },
-  mi: {
-    title:'Mittwoch · Trainingstag · Gym morgens',
-    fasten:'13:11 · isst 6–19 Uhr',
-    total:2200,
-    slots:[
-      {time:'6:00', label:'Pre-WO', desc:'½ Banane + 30 g Hafer + 100 g Skyr', kcal:200},
-      {time:'6:45–8:15', label:'Training', desc:'', kcal:null, type:'train'},
-      {time:'9:00', label:'M1 · Post-WO', desc:'3 Eier Rührei + 2 Scheiben Vollkornbrot + Tomate/Avocado', kcal:650},
-      {time:'12:00', label:'M2 · Familie', desc:'Familienessen · 150 g Pute + 80 g Reis + Gemüse + 1 EL Olivenöl', kcal:700},
-      {time:'16:00', label:'Snack', desc:'200 g Quark + Beeren + 15 g Nüsse', kcal:250},
-      {time:'18:00', label:'M3 · Familie', desc:'Familienessen · Linsen-Bowl · oder weißer Fisch + Gemüse', kcal:400},
-      {time:'ab 19:00', label:'Fastenstart', desc:'19–6 Uhr Fasten', kcal:null, type:'fast'},
-    ],
-  },
-  sa: {
-    title:'Samstag · Trainingstag · Gym ~8/9 Uhr',
-    fasten:'13:11 · isst 7–19 Uhr',
-    total:2200,
-    slots:[
-      {time:'7:30', label:'Pre-WO', desc:'Banane + 40 g Hafer + Beeren + 150 g Skyr', kcal:250},
-      {time:'8:15–9:45', label:'Training', desc:'', kcal:null, type:'train'},
-      {time:'10:30', label:'M1 · Post-WO', desc:'3 Eier Rührei + 2 Scheiben Vollkornbrot + Avocado', kcal:600},
-      {time:'12:00', label:'M2 · Familie', desc:'Familienessen · 150 g Hähnchen + 80 g Reis + Gemüse + Olivenöl', kcal:700},
-      {time:'16:30', label:'Snack', desc:'200 g Quark + Beeren + Nüsse', kcal:250},
-      {time:'18:00', label:'M3 · Familie', desc:'Familienessen · 150 g Lachs/Fisch + Gemüse + kleine Kartoffel-Portion', kcal:400},
-      {time:'ab 19:00', label:'Fastenstart', desc:'19–7 Uhr Fasten', kcal:null, type:'fast'},
-    ],
-  },
-  ruh: {
-    title:'Ruhetag',
-    fasten:'16:8 · isst 11–19 Uhr',
-    total:1850,
-    slots:[
-      {time:'11:00', label:'M1', desc:'200 g Skyr + 40 g Hafer + Beeren + Nüsse', kcal:500},
-      {time:'12:00', label:'M2 · Familie', desc:'Familienessen · 150 g Protein + 60 g Reis/Quinoa + Gemüse + Olivenöl', kcal:650},
-      {time:'17:00', label:'Snack', desc:'Quark + Beeren · oder Hüttenkäse + Vollkorn-Cracker', kcal:200},
-      {time:'18:00', label:'M3 · Familie', desc:'Familienessen · Linsen/Bohnen-Bowl · oder Eier + Gemüse + Avocado', kcal:500},
-      {time:'ab 19:00', label:'Fastenstart', desc:'19–11 Uhr Fasten', kcal:null, type:'fast'},
-    ],
-  },
-};
-
-let currentErn='mo';
-function renderErn(){
-  const e = ERN[currentErn];
-  let h = `<div class="day-title">${e.title}</div>`;
-  h += `<div class="day-sub"><span class="fasten-pill">${e.fasten}</span><span class="family-pill">Familie: 12 · 18 Uhr</span></div>`;
-  e.slots.forEach(s => {
-    const cls = s.type ? ` ${s.type}` : '';
-    const kcal = s.kcal ? `<div class="kcal">~${s.kcal}</div>` : '<div></div>';
-    const desc = s.desc ? `<div class="desc">${s.desc}</div>` : '';
-    h += `<div class="slot${cls}">
-      <div class="time">${s.time}</div>
-      <div class="body"><div class="label">${s.label}</div>${desc}</div>
-      ${kcal}
-    </div>`;
-  });
-  h += `<div class="totals-bar"><span class="l">Gesamt</span><span class="v">~${e.total} kcal</span></div>`;
-  document.getElementById('ern-content').innerHTML = h;
-}
-document.querySelectorAll('#ernaehrung .day-tabs button').forEach(b=>b.onclick=()=>{
-  document.querySelectorAll('#ernaehrung .day-tabs button').forEach(x=>x.classList.remove('active'));
-  b.classList.add('active'); currentErn=b.dataset.e; renderErn();
-});
-renderErn();
 </script>
 </body>
 </html>
