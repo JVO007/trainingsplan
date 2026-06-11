@@ -212,11 +212,11 @@ h3{font-size:13px;margin:14px 0 8px;color:var(--accent2);font-weight:600;
   <div class="info-block">
     <h3>Aktuelle Arbeitsgewichte · Stand jetzt</h3>
     <table>
-      <tr><td>Belt Squat Step-Up</td><td>4×10/Seite @ <b>40 kg</b> · neu, anpassen</td></tr>
-      <tr><td>Abduktor</td><td>4×15 @ <b>45 kg</b> · letzte 3 brannten bei 30, Progression auf 45</td></tr>
-      <tr><td>BB RDL (Glute Lunge)</td><td>4×6–8 @ <b>50 kg</b> · sehr schwer</td></tr>
-      <tr><td>Glute Lunge — Reverse Lunge</td><td>4×8/Seite @ <b>belt-loaded, anpassen</b></td></tr>
-      <tr><td>Pendulum Kick-Back</td><td>3×12–15/Seite @ <b>anpassen</b></td></tr>
+      <tr><td>Belt Squat Step-Up</td><td>4×10/Seite @ <b>40 kg</b> + 15 kg Eigengew. · neu, anpassen</td></tr>
+      <tr><td>Abduktor (3D Multi)</td><td>4×15 @ <b>45 kg</b> + 5 kg Eigengew. · nach hinten lehnen, Po hoch</td></tr>
+      <tr><td>BB RDL (Glute Lunge)</td><td>4×6–8 @ <b>50 kg</b> + 9 kg Eigengew. · sehr schwer</td></tr>
+      <tr><td>Glute Lunge — Reverse Lunge</td><td>4×8/Seite @ <b>belt-loaded</b> + 9 kg Eigengew.</td></tr>
+      <tr><td>Pendulum Kick-Back</td><td>3×12–15/Seite @ <b>anpassen</b> + 4,4 kg Eigengew.</td></tr>
       <tr><td>KB Sumo Deadlift</td><td>3×8–10 @ <b>16–24 kg</b></td></tr>
       <tr><td>BB Hip Thrust (optional, Mind-Muscle)</td><td>3×15 @ <b>40 kg</b> · leicht, Mind-Muscle-Fokus</td></tr>
     </table>
@@ -295,10 +295,10 @@ const TRAINING = {
     ],
     circuits:[
       {label:'Zirkel A', meta:'4 Runden · schwer mit Pausen (KEIN Zirkel)', rounds:4, exercises:[
-        {name:'Belt Squat Step-Up (Glute Builder)', weight:'40 kg', reps:'4 × 10 / Seite', pause:'2 Min', note:'Glute-Hauptübung · belt-loaded, wrist-frei'},
+        {name:'Belt Squat Step-Up (Glute Builder)', weight:'40 kg + 15 kg Eigengew.', reps:'4 × 10 / Seite', pause:'2 Min', note:'Glute-Hauptübung · belt-loaded, wrist-frei · Gerät bringt 15 kg Eigengewicht mit'},
         {name:'Clamshells Medium Band', weight:'zwischen Sätzen', reps:'15 / Seite', note:'aktiviert Glute medius'},
-        {name:'Abduktor-Maschine (vorgelehnt 30–45°)', weight:'45 kg', reps:'4 × 12', pause:'60–90 s'},
-        {name:'BB Romanian Deadlift (am Glute Builder Glute Lunge · Zughilfen)', weight:'50 kg', reps:'4 × 6–8', pause:'2 Min'},
+        {name:'Abduktor-Maschine (3D Multi · nach HINTEN lehnen, Po hoch)', weight:'45 kg + 5 kg Eigengew.', reps:'4 × 12', pause:'60–90 s', note:'nach hinten lehnen und Po hoch — NICHT nach vorne lehnen! · Gerät bringt 5 kg Eigengewicht mit'},
+        {name:'BB Romanian Deadlift (am Glute Builder Glute Lunge · Zughilfen)', weight:'50 kg + 9 kg Eigengew.', reps:'4 × 6–8', pause:'2 Min', note:'Glute-Lunge-Gerät bringt 9 kg Eigengewicht mit'},
         {name:'BB Hip Thrust LEICHT (Mind-Muscle-Slot)', weight:'40 kg', reps:'3 × 15', pause:'90 s', note:'OPTIONAL · oben 2 Sek aktiv zusammendrücken · Füße so weit weg, dass Schienbeine in Endposition senkrecht stehen', optional:true},
       ]},
       {label:'Zirkel B', meta:'3 Runden Bauch · Pause 45 s', rounds:3, exercises:[
@@ -360,8 +360,8 @@ const TRAINING = {
     ],
     circuits:[
       {label:'Zirkel A', meta:'4 Runden · schwer · zweiter Glute-Reiz aus anderem Winkel', rounds:4, exercises:[
-        {name:'Glute Lunge — Reverse Lunge (Glute Builder) HEAVY', weight:'belt-loaded', reps:'4 × 8 / Seite', pause:'2 Min', note:'schwerer als Mi · belt-loaded · letzte 2 Wdh sollen brennen'},
-        {name:'Pendulum Kick-Back (Glute Builder)', weight:'mittel', reps:'3 × 12–15 / Seite', pause:'90 s', note:'3 Sek Exzentrik · oben 1–2 Sek halten · Po aktiv zusammendrücken'},
+        {name:'Glute Lunge — Reverse Lunge (Glute Builder) HEAVY', weight:'belt-loaded + 9 kg Eigengew.', reps:'4 × 8 / Seite', pause:'2 Min', note:'schwerer als Mi · belt-loaded · Gerät bringt 9 kg Eigengewicht mit · letzte 2 Wdh sollen brennen'},
+        {name:'Pendulum Kick-Back (Glute Builder)', weight:'mittel + 4,4 kg Eigengew.', reps:'3 × 12–15 / Seite', pause:'90 s', note:'Gerät bringt 4,4 kg Eigengewicht mit · 3 Sek Exzentrik · oben 1–2 Sek halten · Po aktiv zusammendrücken'},
         {name:'KB Sumo Deadlift', weight:'16–24 kg', reps:'3 × 8–10', pause:'90 s', note:'Sumo-Stance · Knie auswärts · Wrist Wraps + Zughilfen'},
         {name:'BW Single-Leg Glute Bridge auf Bench', weight:'BW', reps:'3 × 12 / Seite', pause:'60 s', note:'Fuß auf erhöhter Bench · oben 2 Sek halten · Po fest zusammendrücken'},
       ]},
