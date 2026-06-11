@@ -97,6 +97,9 @@ h3{font-size:13px;margin:14px 0 8px;color:var(--accent2);font-weight:600;
 .ex.done .ex-check svg{display:block}
 .ex-body{flex:1;min-width:0}
 .ex-name{font-size:14.5px;font-weight:600;line-height:1.3}
+.ex-eigen{font-size:11.5px;color:var(--muted);margin-top:2px;font-weight:500;
+  display:flex;align-items:center;gap:4px}
+.ex-eigen b{color:var(--text);font-weight:700}
 .ex-meta{font-size:12.5px;color:var(--muted);margin-top:3px;
   font-variant-numeric:tabular-nums}
 .tag-w{display:inline-block;background:var(--card2);border:1px solid var(--line);
@@ -295,10 +298,9 @@ const TRAINING = {
     ],
     circuits:[
       {label:'Zirkel A', meta:'4 Runden · schwer mit Pausen (KEIN Zirkel)', rounds:4, exercises:[
-        {name:'Belt Squat Step-Up (Glute Builder)', weight:'15 kg Eigengew. (ohne Zusatz)', reps:'4 × 10 / Seite', pause:'2 Min', note:'Glute-Hauptübung · belt-loaded, wrist-frei · aktuell nur Eigengewicht (15 kg), kein Zusatzgewicht'},
-        {name:'Clamshells Medium Band', weight:'zwischen Sätzen', reps:'15 / Seite', note:'aktiviert Glute medius'},
-        {name:'Abduktor-Maschine (3D Multi · nach HINTEN lehnen, Po hoch)', weight:'45 kg + 5 kg Eigengew.', reps:'4 × 12', pause:'60–90 s', note:'nach hinten lehnen und Po hoch — NICHT nach vorne lehnen! · Gerät bringt 5 kg Eigengewicht mit'},
-        {name:'BB Romanian Deadlift (am Glute Builder Glute Lunge · Zughilfen)', weight:'50 kg + 9 kg Eigengew.', reps:'4 × 6–8', pause:'2 Min', note:'Glute-Lunge-Gerät bringt 9 kg Eigengewicht mit'},
+        {name:'Belt Squat Step-Up (Glute Builder)', eigen:'15 kg', weight:'ohne Zusatz', reps:'4 × 10 / Seite', pause:'2 Min', note:'Glute-Hauptübung · belt-loaded, wrist-frei'},
+        {name:'Abduktor-Maschine (3D Multi · nach HINTEN lehnen, Po hoch)', eigen:'5 kg', weight:'45 kg', reps:'4 × 12', pause:'60–90 s', note:'nach hinten lehnen und Po hoch — NICHT nach vorne lehnen!'},
+        {name:'BB Romanian Deadlift (am Glute Builder Glute Lunge · Zughilfen)', eigen:'9 kg (Glute-Lunge-Gerät)', weight:'50 kg', reps:'4 × 6–8', pause:'2 Min'},
         {name:'BB Hip Thrust LEICHT (Mind-Muscle-Slot)', weight:'40 kg', reps:'3 × 15', pause:'90 s', note:'OPTIONAL · oben 2 Sek aktiv zusammendrücken · Füße so weit weg, dass Schienbeine in Endposition senkrecht stehen', optional:true},
       ]},
       {label:'Zirkel B', meta:'3 Runden Bauch · Pause 45 s', rounds:3, exercises:[
@@ -360,8 +362,8 @@ const TRAINING = {
     ],
     circuits:[
       {label:'Zirkel A', meta:'4 Runden · schwer · zweiter Glute-Reiz aus anderem Winkel', rounds:4, exercises:[
-        {name:'Glute Lunge — Reverse Lunge (Glute Builder) HEAVY', weight:'9 kg Eigengew. (ohne Zusatz)', reps:'4 × 8 / Seite', pause:'2 Min', note:'aktuell nur Eigengewicht (9 kg), kein Zusatzgewicht · letzte 2 Wdh sollen brennen'},
-        {name:'Pendulum Kick-Back (Glute Builder)', weight:'4,4 kg Eigengew. + Zusatz austesten', reps:'3 × 12–15 / Seite', pause:'90 s', note:'Gerät bringt 4,4 kg Eigengewicht mit · Zusatzgewicht noch austesten · 3 Sek Exzentrik · oben 1–2 Sek halten · Po aktiv zusammendrücken'},
+        {name:'Glute Lunge — Reverse Lunge (Glute Builder) HEAVY', eigen:'9 kg', weight:'ohne Zusatz', reps:'4 × 8 / Seite', pause:'2 Min', note:'letzte 2 Wdh sollen brennen'},
+        {name:'Pendulum Kick-Back (Glute Builder)', eigen:'4,4 kg', weight:'austesten', reps:'3 × 12–15 / Seite', pause:'90 s', note:'Zusatzgewicht noch austesten · 3 Sek Exzentrik · oben 1–2 Sek halten · Po aktiv zusammendrücken'},
         {name:'KB Sumo Deadlift', weight:'16–24 kg', reps:'3 × 8–10', pause:'90 s', note:'Sumo-Stance · Knie auswärts · Wrist Wraps + Zughilfen'},
         {name:'BW Single-Leg Glute Bridge auf Bench', weight:'BW', reps:'3 × 12 / Seite', pause:'60 s', note:'Fuß auf erhöhter Bench · oben 2 Sek halten · Po fest zusammendrücken'},
       ]},
@@ -426,6 +428,7 @@ function renderDay(){
         <div class="ex-check"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2.5" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div>
         <div class="ex-body">
           <div class="ex-name">${ex.name}${optTag}</div>
+          ${ex.eigen ? `<div class="ex-eigen">⚙ Gerät: <b>${ex.eigen}</b> Eigengewicht</div>` : ''}
           <div class="ex-meta">${w}${ex.reps}${p}</div>
           ${n}
         </div>
