@@ -408,11 +408,15 @@ function saveField(el){
   else localStorage.setItem(k,v);
 }
 function resetDay(){
-  if(!confirm('Alle Gewicht- und Wdh-Eingaben für diesen Tag zurücksetzen?')) return;
-  TRAINING[currentDay].circuits.forEach(c=>c.exercises.forEach(ex=>{
-    localStorage.removeItem(FKEY(currentDay,ex.name,'gewicht'));
-    localStorage.removeItem(FKEY(currentDay,ex.name,'wdh'));
-  }));
+  if(!confirm('Diesen Tag zurücksetzen?\nGewicht, Wdh, Haken und Runden werden geleert.')) return;
+  TRAINING[currentDay].circuits.forEach(c=>{
+    c.exercises.forEach(ex=>{
+      localStorage.removeItem(FKEY(currentDay,ex.name,'gewicht'));
+      localStorage.removeItem(FKEY(currentDay,ex.name,'wdh'));
+      localStorage.removeItem(FKEY(currentDay,ex.name,'done'));
+    });
+    for(let i=1;i<=c.rounds;i++) localStorage.removeItem(`${DAYNAME[currentDay]}-${slug(c.label)}-runde${i}`);
+  });
   renderDay();
 }
 function renderDay(){
@@ -421,7 +425,7 @@ function renderDay(){
   if(d.pre){
     h += `<div class="pre-workout"><b>🥣 ${d.pre.split('·')[0].trim()}</b><br>${d.pre.split('·').slice(1).join('·').trim()}</div>`;
   }
-  h += `<button class="reset-btn" onclick="resetDay()" title="Gewicht & Wdh dieses Tages leeren">↺ Eingaben dieses Tages zurücksetzen</button>`;
+  h += `<button class="reset-btn" onclick="resetDay()" title="Gewicht, Wdh, Haken & Runden dieses Tages leeren">↺ Eingaben dieses Tages zurücksetzen</button>`;
   d.circuits.forEach((c,ci) => {
     h += `<div class="circuit">
       <div class="circuit-head">
@@ -429,7 +433,11 @@ function renderDay(){
         <div class="circuit-meta">${c.meta}</div>
       </div>`;
     h += `<div class="rounds">`;
-    for(let i=1;i<=c.rounds;i++) h += `<div class="round" data-r="${currentDay}-${ci}-${i}" onclick="toggleRound(this)">${i}</div>`;
+    for(let i=1;i<=c.rounds;i++){
+      const roundKey = `${DAYNAME[currentDay]}-${slug(c.label)}-runde${i}`;
+      const rDone = localStorage.getItem(roundKey)==='1' ? ' done' : '';
+      h += `<div class="round${rDone}" data-rkey="${roundKey}" onclick="toggleRound(this)">${i}</div>`;
+    }
     h += `</div>`;
     c.exercises.forEach((ex,ei) => {
       const id = `ex-${currentDay}-${ci}-${ei}`;
@@ -437,11 +445,13 @@ function renderDay(){
       const rKey = FKEY(currentDay, ex.name, 'wdh');
       const wVal = localStorage.getItem(wKey) ?? '';
       const rVal = localStorage.getItem(rKey) ?? '';
+      const dKey = FKEY(currentDay, ex.name, 'done');
+      const dDone = localStorage.getItem(dKey)==='1' ? ' done' : '';
       const p = ex.pause ? `<div class="ex-pause">⏱ Pause ${ex.pause}</div>` : '';
       const n = ex.note ? `<div class="note">${ex.note}</div>` : '';
       const isOpt = ex.optional === true;
       const optTag = isOpt ? ' <span class="opt-tag">optional</span>' : '';
-      h += `<div class="ex${isOpt?' ex-optional':''}" id="${id}" onclick="toggleEx(this)">
+      h += `<div class="ex${isOpt?' ex-optional':''}${dDone}" id="${id}" data-dkey="${dKey}" onclick="toggleEx(this)">
         <div class="ex-check"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2.5" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div>
         <div class="ex-body">
           <div class="ex-name">${ex.name}${optTag}</div>
@@ -469,8 +479,16 @@ function renderDay(){
   </div>`;
   document.getElementById('day-content').innerHTML = h;
 }
-function toggleEx(el){el.classList.toggle('done')}
-function toggleRound(el){el.classList.toggle('done')}
+function toggleEx(el){
+  const on = el.classList.toggle('done');
+  const k = el.dataset.dkey; if(!k) return;
+  if(on) localStorage.setItem(k,'1'); else localStorage.removeItem(k);
+}
+function toggleRound(el){
+  const on = el.classList.toggle('done');
+  const k = el.dataset.rkey; if(!k) return;
+  if(on) localStorage.setItem(k,'1'); else localStorage.removeItem(k);
+}
 document.querySelectorAll('#training .day-tabs button').forEach(b=>b.onclick=()=>{
   document.querySelectorAll('#training .day-tabs button').forEach(x=>x.classList.remove('active'));
   b.classList.add('active'); currentDay=+b.dataset.d; renderDay();
