@@ -8,6 +8,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Plan">
 <meta name="theme-color" content="#0b0d12">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='40' fill='%230b0d12'/%3E%3Ctext x='90' y='118' font-family='-apple-system,sans-serif' font-size='90' font-weight='700' fill='%2322c55e' text-anchor='middle'%3EJ%3C/text%3E%3C/svg%3E">
 <title>Janas Plan</title>
 <style>
@@ -100,17 +102,6 @@ h3{font-size:13px;margin:14px 0 8px;color:var(--accent2);font-weight:600;
 .ex-eigen{font-size:11.5px;color:var(--muted);margin-top:2px;font-weight:500;
   display:flex;align-items:center;gap:4px}
 .ex-eigen b{color:var(--text);font-weight:700}
-.ex-meta{font-size:12.5px;color:var(--muted);margin-top:3px;
-  font-variant-numeric:tabular-nums}
-.tag-w{display:inline-block;background:var(--card2);border:1px solid var(--line);
-  border-radius:5px;padding:1px 7px;font-size:11.5px;color:var(--text);
-  font-variant-numeric:tabular-nums;margin-right:6px;font-weight:600;
-  cursor:pointer;user-select:none;transition:border-color .15s}
-.tag-w:hover{border-color:var(--accent)}
-.tag-w.edited{border-color:var(--accent);color:var(--accent)}
-.tag-w.edited::after{content:'✎';margin-left:4px;font-size:10px;opacity:.7}
-.tag-pause{display:inline-block;color:var(--accent);font-size:11.5px;
-  font-weight:600;margin-left:4px}
 .note{font-size:12px;color:var(--accent);font-style:italic;margin-top:4px;
   padding-left:2px}
 
@@ -150,6 +141,26 @@ h3{font-size:13px;margin:14px 0 8px;color:var(--accent2);font-weight:600;
 .opt-tag{display:inline-block;background:rgba(167,173,191,.18);color:var(--accent2);
   border-radius:5px;padding:1px 7px;font-size:10.5px;font-weight:700;
   margin-left:6px;letter-spacing:.04em;text-transform:uppercase;vertical-align:middle}
+
+/* EDITIERBARE FELDER (Gewicht + Wdh) */
+.ex-fields{display:flex;gap:8px;margin-top:8px}
+.fld{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}
+.fld-lbl{font-size:10.5px;color:var(--muted);text-transform:uppercase;
+  letter-spacing:.05em;font-weight:600;padding-left:2px}
+.fld-in{width:100%;min-height:44px;background:var(--card2);color:var(--text);
+  border:1px solid var(--line);border-radius:8px;padding:8px 10px;
+  font-size:16px;font-family:inherit;font-variant-numeric:tabular-nums;
+  outline:none;transition:border-color .15s;-webkit-appearance:none}
+.fld-in::placeholder{color:var(--muted);opacity:.65}
+.fld-in:focus{border-color:var(--accent)}
+.ex-pause{font-size:12px;color:var(--accent);font-weight:600;margin-top:6px}
+
+.reset-btn{display:inline-flex;align-items:center;gap:6px;min-height:40px;
+  background:var(--card2);color:var(--muted);border:1px solid var(--line);
+  border-radius:8px;padding:8px 14px;font-size:12.5px;font-weight:600;
+  cursor:pointer;margin-bottom:14px;transition:border-color .15s,color .15s}
+.reset-btn:hover{border-color:var(--accent2);color:var(--text)}
+.reset-btn:active{border-color:var(--danger);color:var(--danger)}
 </style>
 </head>
 <body>
@@ -329,18 +340,16 @@ const TRAINING = {
     circuits:[
       {label:'Zirkel A', meta:'4 Runden · schwer', rounds:4, exercises:[
         {name:'DB Shoulder Press (neutraler Griff, sitzend)', weight:'2× 10–12 kg', reps:'4 × 8', pause:'90 s'},
-        {name:'KB Gorilla Row (Wrist Wraps)', weight:'16–20 kg', reps:'4 × 10 / Seite', pause:'90 s'},
       ]},
       {label:'Zirkel B', meta:'3 Runden Akzessoir · Pause 45 s', rounds:3, exercises:[
-        {name:'DB Floor Press (neutraler Griff)', weight:'2× 10–12 kg', reps:'10–12 Wdh'},
         {name:'DB Lateral Raise', weight:'2× 6 kg', reps:'15 Wdh'},
         {name:'DB Hammer Curls (Daumen oben)', weight:'2× 8–10 kg', reps:'12 Wdh'},
         {name:'DB Tricep Kickbacks', weight:'4–6 kg', reps:'12 / Seite'},
         {name:'DB Reverse Fly', weight:'2× 4 kg', reps:'15 Wdh'},
       ]},
       {label:'Zirkel C', meta:'3 Runden Bauch', rounds:3, exercises:[
-        {name:'Sit-up auf Bank (Füße fixiert)', reps:'12–15 Wdh'},
-        {name:'V-Ups', reps:'10–12 Wdh', note:'Coning-Check beim 1. Mal!'},
+        {name:'Strict Toes-to-Bar', reps:'10–12 Wdh', note:'Coning-Check beim ersten Mal, bei Handgelenksbeschwerden abbrechen'},
+        {name:'Sit-Ups', reps:'12–15 Wdh'},
         {name:'Plank auf Ellbogen', reps:'45–60 s'},
       ]},
     ],
@@ -373,7 +382,6 @@ const TRAINING = {
         {name:'KB Single-Arm Row', weight:'10–12 kg', reps:'3 × 10 / Seite', note:'optional', optional:true},
       ]},
       {label:'Zirkel B', meta:'3 Runden Bauch', rounds:3, exercises:[
-        {name:"Toes-to-Bar Captain's Chair (Unterarmstütz)", reps:'10–12 Wdh'},
         {name:'Crunch auf dem Boden', reps:'15–20 Wdh'},
         {name:'Russian Twist mit KH', weight:'6 kg', reps:'12 / Seite'},
         {name:'Hollow Hold', reps:'3 × 30–40 s'},
@@ -383,17 +391,28 @@ const TRAINING = {
 };
 
 let currentDay=0;
-const WKEY=(d,c,e)=>`eat-train:weight:${d}:${c}:${e}`;
-function getWeight(d,c,e,def){ return localStorage.getItem(WKEY(d,c,e)) ?? def; }
-function editWeight(d,c,e){
-  const def = TRAINING[d].circuits[c].exercises[e].weight || '';
-  const stored = localStorage.getItem(WKEY(d,c,e));
-  const cur = stored ?? def;
-  const input = prompt(`Gewicht für „${TRAINING[d].circuits[c].exercises[e].name}"\n(leer lassen für Default „${def}"):`, cur);
-  if(input === null) return;
-  const v = input.trim();
-  if(v === '' || v === def) localStorage.removeItem(WKEY(d,c,e));
-  else localStorage.setItem(WKEY(d,c,e), v);
+
+// ── Editierbare Felder (Gewicht + Wdh) · LocalStorage ──
+// Key-Format: tag-übungsname-feld  z.B. mittwoch-dbshoulderpress-gewicht
+const DAYNAME = ['montag','mittwoch','samstag'];
+function slug(s){
+  return s.toLowerCase()
+    .replace(/ä/g,'ae').replace(/ö/g,'oe').replace(/ü/g,'ue').replace(/ß/g,'ss')
+    .replace(/[^a-z0-9]+/g,'');
+}
+const FKEY=(d,name,fld)=>`${DAYNAME[d]}-${slug(name)}-${fld}`;
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;'); }
+function saveField(el){
+  const k=el.dataset.key, v=el.value.trim();
+  if(v==='') localStorage.removeItem(k);
+  else localStorage.setItem(k,v);
+}
+function resetDay(){
+  if(!confirm('Alle Gewicht- und Wdh-Eingaben für diesen Tag zurücksetzen?')) return;
+  TRAINING[currentDay].circuits.forEach(c=>c.exercises.forEach(ex=>{
+    localStorage.removeItem(FKEY(currentDay,ex.name,'gewicht'));
+    localStorage.removeItem(FKEY(currentDay,ex.name,'wdh'));
+  }));
   renderDay();
 }
 function renderDay(){
@@ -402,6 +421,7 @@ function renderDay(){
   if(d.pre){
     h += `<div class="pre-workout"><b>🥣 ${d.pre.split('·')[0].trim()}</b><br>${d.pre.split('·').slice(1).join('·').trim()}</div>`;
   }
+  h += `<button class="reset-btn" onclick="resetDay()" title="Gewicht & Wdh dieses Tages leeren">↺ Eingaben dieses Tages zurücksetzen</button>`;
   d.circuits.forEach((c,ci) => {
     h += `<div class="circuit">
       <div class="circuit-head">
@@ -413,14 +433,11 @@ function renderDay(){
     h += `</div>`;
     c.exercises.forEach((ex,ei) => {
       const id = `ex-${currentDay}-${ci}-${ei}`;
-      let w = '';
-      if(ex.weight){
-        const stored = localStorage.getItem(WKEY(currentDay,ci,ei));
-        const val = stored ?? ex.weight;
-        const cls = (stored && stored !== ex.weight) ? 'tag-w edited' : 'tag-w';
-        w = `<span class="${cls}" onclick="event.stopPropagation();editWeight(${currentDay},${ci},${ei})" title="Klicken zum Bearbeiten">${val}</span>`;
-      }
-      const p = ex.pause ? `<span class="tag-pause">⏱ ${ex.pause}</span>` : '';
+      const wKey = FKEY(currentDay, ex.name, 'gewicht');
+      const rKey = FKEY(currentDay, ex.name, 'wdh');
+      const wVal = localStorage.getItem(wKey) ?? '';
+      const rVal = localStorage.getItem(rKey) ?? '';
+      const p = ex.pause ? `<div class="ex-pause">⏱ Pause ${ex.pause}</div>` : '';
       const n = ex.note ? `<div class="note">${ex.note}</div>` : '';
       const isOpt = ex.optional === true;
       const optTag = isOpt ? ' <span class="opt-tag">optional</span>' : '';
@@ -429,7 +446,17 @@ function renderDay(){
         <div class="ex-body">
           <div class="ex-name">${ex.name}${optTag}</div>
           ${ex.eigen ? `<div class="ex-eigen">⚙ Gerät: <b>${ex.eigen}</b> Eigengewicht</div>` : ''}
-          <div class="ex-meta">${w}${ex.reps}${p}</div>
+          <div class="ex-fields" onclick="event.stopPropagation()">
+            <label class="fld"><span class="fld-lbl">Gewicht</span>
+              <input class="fld-in" type="text" autocomplete="off" autocapitalize="off" spellcheck="false"
+                placeholder="${esc(ex.weight||'')}" value="${esc(wVal)}"
+                data-key="${wKey}" oninput="saveField(this)"></label>
+            <label class="fld"><span class="fld-lbl">Wdh</span>
+              <input class="fld-in" type="text" autocomplete="off" autocapitalize="off" spellcheck="false"
+                placeholder="${esc(ex.reps||'')}" value="${esc(rVal)}"
+                data-key="${rKey}" oninput="saveField(this)"></label>
+          </div>
+          ${p}
           ${n}
         </div>
       </div>`;
@@ -449,6 +476,13 @@ document.querySelectorAll('#training .day-tabs button').forEach(b=>b.onclick=()=
   b.classList.add('active'); currentDay=+b.dataset.d; renderDay();
 });
 renderDay();
+
+// ─────────── PWA / OFFLINE ───────────
+if('serviceWorker' in navigator){
+  window.addEventListener('load',()=>{
+    navigator.serviceWorker.register('sw.js').catch(()=>{});
+  });
+}
 </script>
 </body>
 </html>
