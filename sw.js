@@ -1,5 +1,5 @@
 // Service Worker · Janas Plan — Offline-Cache
-const CACHE = 'janas-plan-v3';
+const CACHE = 'janas-plan-v4';
 const ASSETS = ['./', './index.html', './manifest.webmanifest', './icon.svg'];
 
 self.addEventListener('install', e => {

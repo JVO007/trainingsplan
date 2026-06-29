@@ -309,9 +309,9 @@ const TRAINING = {
     ],
     circuits:[
       {label:'Zirkel A', meta:'4 Runden · schwer mit Pausen (KEIN Zirkel)', rounds:4, exercises:[
-        {name:'Belt Squat Step-Up (Glute Builder)', eigen:'15 kg', weight:'ohne Zusatz', reps:'4 × 10 / Seite', pause:'2 Min', note:'Glute-Hauptübung · belt-loaded, wrist-frei'},
-        {name:'Abduktor-Maschine (3D Multi · nach HINTEN lehnen, Po hoch)', eigen:'5 kg', weight:'45 kg', reps:'4 × 12', pause:'60–90 s', note:'nach hinten lehnen und Po hoch — NICHT nach vorne lehnen!'},
-        {name:'BB Romanian Deadlift (am Glute Builder Glute Lunge · Zughilfen)', eigen:'9 kg (Glute-Lunge-Gerät)', weight:'50 kg', reps:'4 × 6–8', pause:'2 Min'},
+        {name:'Belt Squat Step-Up (Glute Builder)', eigen:'15 kg', weight:'ohne Zusatz', reps:'4 × 10 / Seite', pause:'2 Min', note:'Glute-Hauptübung · belt-loaded, wrist-frei · Doppelprogression: erst sauber 4×10/Seite, dann Gewicht hoch'},
+        {name:'Abduktor-Maschine (3D Multi · nach HINTEN lehnen, Po hoch)', eigen:'5 kg', weight:'45 kg', reps:'4 × 12', pause:'60–90 s', note:'nach hinten lehnen und Po hoch — NICHT nach vorne lehnen! · Doppelprogression: erst sauber 4×12, dann Gewicht hoch'},
+        {name:'BB Romanian Deadlift (am Glute Builder Glute Lunge · Zughilfen)', eigen:'9 kg (Glute-Lunge-Gerät)', weight:'50 kg', reps:'4 × 6–8', pause:'2 Min', note:'Doppelprogression: erst alle Runden sauber an die 8 Wdh, dann Gewicht hoch'},
         {name:'BB Hip Thrust LEICHT (Mind-Muscle-Slot)', weight:'40 kg', reps:'3 × 15', pause:'90 s', note:'OPTIONAL · oben 2 Sek aktiv zusammendrücken · Füße so weit weg, dass Schienbeine in Endposition senkrecht stehen', optional:true},
       ]},
       {label:'Zirkel B', meta:'3 Runden Bauch · Pause 45 s', rounds:3, exercises:[
@@ -338,14 +338,16 @@ const TRAINING = {
       'Katze-Kuh · 10 Wiederholungen',
     ],
     circuits:[
-      {label:'Zirkel A', meta:'4 Runden · schwer', rounds:4, exercises:[
-        {name:'DB Shoulder Press (neutraler Griff, sitzend)', weight:'2× 10–12 kg', reps:'4 × 8', pause:'90 s'},
+      {label:'Zirkel A', meta:'4 Runden · schwer · Push & Pull gepaart', rounds:4, exercises:[
+        {name:'DB Shoulder Press (neutraler Griff, sitzend)', weight:'2× 10–12 kg', reps:'4 × 8', pause:'90 s', note:'Doppelprogression: erst alle Runden sauber 4×8, dann Gewicht hoch'},
+        {name:'Chest-Supported DB Row (Brust auf Schrägbank, enger/neutraler Griff)', weight:'2× 8 kg', reps:'4 × 10', pause:'90 s', note:'Schulterblätter zusammen, Ellbogen eng am Körper → oberer Rücken/Haltung, macht NICHT breit · kein Ego-Gewicht · Doppelprogression: erst sauber 4×10, dann Gewicht hoch'},
       ]},
       {label:'Zirkel B', meta:'3 Runden Akzessoir · Pause 45 s', rounds:3, exercises:[
-        {name:'DB Lateral Raise', weight:'2× 6 kg', reps:'15 Wdh'},
-        {name:'DB Hammer Curls (Daumen oben)', weight:'2× 8–10 kg', reps:'12 Wdh'},
-        {name:'DB Tricep Kickbacks', weight:'4–6 kg', reps:'12 / Seite'},
+        {name:'DB Floor Press (Rücken am Boden, Oberarme kurz aufsetzen)', weight:'2× 8 kg', reps:'3 × 10', pause:'60 s', note:'schulterschonend durch kurze ROM · Doppelprogression: erst sauber 3×10, dann Gewicht hoch'},
+        {name:'Face Pulls (Kabel/Band)', reps:'3 × 15–20', note:'Haltung + hintere Schulter · Ellbogen hoch, zur Stirn ziehen · macht nicht breit'},
         {name:'DB Reverse Fly', weight:'2× 4 kg', reps:'15 Wdh'},
+        {name:'DB Hammer Curls (Daumen oben)', weight:'2× 8–10 kg', reps:'12 Wdh', note:'Doppelprogression: erst sauber 12 Wdh, dann Gewicht hoch'},
+        {name:'DB Tricep Kickbacks', weight:'4–6 kg', reps:'12 / Seite', note:'Doppelprogression: erst sauber 12/Seite, dann Gewicht hoch'},
       ]},
       {label:'Po-Zirkel', meta:'3 Runden · Glute-Pump · Pause 45–60 s', rounds:3, exercises:[
         {name:'DB Walking Lunges (Kurzhanteln seitlich)', weight:'2× 8 kg', reps:'12 / Seite', pause:'60 s', note:'ZUERST, solange frisch · Oberkörper aufrecht · Knie über Mittelfuß (nicht über die Zehen) · Po bewusst ansteuern · Progression: erst alle Runden sauber 12/Seite, dann 2× 10 kg, dann 2× 12 kg'},
@@ -377,15 +379,15 @@ const TRAINING = {
     ],
     circuits:[
       {label:'Zirkel A', meta:'4 Runden · schwer · zweiter Glute-Reiz aus anderem Winkel', rounds:4, exercises:[
-        {name:'Glute Lunge — Reverse Lunge (Glute Builder) HEAVY', eigen:'9 kg', weight:'ohne Zusatz', reps:'4 × 8 / Seite', pause:'2 Min', note:'letzte 2 Wdh sollen brennen'},
-        {name:'Pendulum Kick-Back (Glute Builder)', eigen:'4,4 kg', weight:'austesten', reps:'3 × 12–15 / Seite', pause:'90 s', note:'Zusatzgewicht noch austesten · 3 Sek Exzentrik · oben 1–2 Sek halten · Po aktiv zusammendrücken'},
-        {name:'KB Sumo Deadlift', weight:'16–24 kg', reps:'3 × 8–10', pause:'90 s', note:'Sumo-Stance · Knie auswärts · Wrist Wraps + Zughilfen'},
+        {name:'Glute Lunge — Reverse Lunge (Glute Builder) HEAVY', eigen:'9 kg', weight:'ohne Zusatz', reps:'4 × 8 / Seite', pause:'2 Min', note:'letzte 2 Wdh sollen brennen · Doppelprogression: erst sauber 4×8/Seite, dann Gewicht hoch'},
+        {name:'Pendulum Kick-Back (Glute Builder)', eigen:'4,4 kg', weight:'austesten', reps:'3 × 12–15 / Seite', pause:'90 s', note:'Zusatzgewicht noch austesten · 3 Sek Exzentrik · oben 1–2 Sek halten · Po aktiv zusammendrücken · Doppelprogression: erst an die 15 Wdh, dann Gewicht hoch'},
+        {name:'KB Sumo Deadlift', weight:'16–24 kg', reps:'3 × 8–10', pause:'90 s', note:'Sumo-Stance · Knie auswärts · Wrist Wraps + Zughilfen · Doppelprogression: erst an die 10 Wdh, dann Gewicht hoch'},
         {name:'BW Single-Leg Glute Bridge auf Bench', weight:'BW', reps:'3 × 12 / Seite', pause:'60 s', note:'Fuß auf erhöhter Bench · oben 2 Sek halten · Po fest zusammendrücken'},
       ]},
       {label:'Mini Upper', meta:'10–15 Min · 3 Runden · zwischen Glute und Bauch', rounds:3, exercises:[
         {name:'DB Hammer Curls', weight:'2× 6 kg', reps:'3 × 10'},
         {name:'DB Tricep Kickbacks / DB Skullcrusher', weight:'2–4 kg', reps:'3 × 12'},
-        {name:'KB Single-Arm Row', weight:'10–12 kg', reps:'3 × 10 / Seite', note:'optional', optional:true},
+        {name:'KB Single-Arm Row', weight:'10–12 kg', reps:'3 × 10 / Seite', note:'neutral/eng — 2. Zieh-Reiz/Woche, macht nicht breit · Doppelprogression: erst sauber 3×10/Seite, dann Gewicht hoch'},
       ]},
       {label:'Zirkel B', meta:'3 Runden Bauch', rounds:3, exercises:[
         {name:'Crunch auf dem Boden', reps:'15–20 Wdh'},
